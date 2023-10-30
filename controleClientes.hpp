@@ -7,6 +7,7 @@
 class Cliente {
     std::string nome;
     int cpf;
+
 public:
     Cliente(std::string nome, int cpf);
     std::string getNome();
