@@ -3,6 +3,19 @@
 #include <string>
 #include <map>
 
+Cliente::Cliente(std::string nome, int cpf){
+    this->nome = nome;
+    this->cpf = cpf;
+}
+
+std::string Cliente::getNome(){
+    return this->nome;
+}
+
+int Cliente::getCPF(){
+    return this->cpf;
+}
+
 bool ControleClientes::fazerCadastro(std::string nome, int cpf){
     if(this->pesquisarCliente(cpf)){
         std::cout << "ERRO: CPF repetido" << std::endl;
@@ -37,7 +50,7 @@ bool ControleClientes::gerarRelatorio(){
         return false;
     }
     for (auto it = this->clientes.begin(); it != this->clientes.end(); it++){
-        std::cout << it->first << "\t" << it->second->nome << std::endl;
+        std::cout << it->first << "\t" << it->second->getNome() << std::endl;
     }
     return true;
 }

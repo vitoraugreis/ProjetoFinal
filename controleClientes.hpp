@@ -5,14 +5,12 @@
 #include <map>
 
 class Cliente {
-public:
     std::string nome;
     int cpf;
-
-    Cliente(std::string nome, int cpf){
-        this->nome = nome;
-        this->cpf = cpf;
-    }
+public:
+    Cliente(std::string nome, int cpf);
+    std::string getNome();
+    int getCPF();
 };
 
 class ControleClientes {
