@@ -18,10 +18,12 @@ class ControleClientes {
     std::map<int, Cliente*> clientes;
     
 public:
+    ControleClientes();
     bool fazerCadastro(std::string nome, int cpf);
     bool removerCadastro(int cpf);
     bool pesquisarCliente(int cpf);
     bool gerarRelatorio();
+    ~ControleClientes();
 };
 
 #endif

@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <fstream>
 
 Cliente::Cliente(std::string nome, int cpf){
     this->nome = nome;
@@ -14,6 +15,19 @@ std::string Cliente::getNome(){
 
 int Cliente::getCPF(){
     return this->cpf;
+}
+
+ControleClientes::ControleClientes(){
+    std::ifstream inputFile("dbClientes.txt");
+    if (inputFile){
+        int cpf;
+        std::string nome;
+        while (inputFile >> cpf >> nome){
+            Cliente* aux = new Cliente(nome, cpf);
+            this->clientes.insert({cpf, aux});
+        }
+        inputFile.close();
+    }
 }
 
 bool ControleClientes::fazerCadastro(std::string nome, int cpf){
@@ -53,4 +67,12 @@ bool ControleClientes::gerarRelatorio(){
         std::cout << it->first << "\t" << it->second->getNome() << std::endl;
     }
     return true;
+}
+
+ControleClientes::~ControleClientes(){
+    std::ofstream outputFile("dbClientes.txt");
+    for(const auto& pair : this->clientes){
+        outputFile << pair.first << " " << pair.second->getNome() << "\n";
+    }
+    outputFile.close();
 }
