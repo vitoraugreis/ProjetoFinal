@@ -18,7 +18,7 @@ int Cliente::getCPF(){
 }
 
 ControleClientes::ControleClientes(){
-    std::ifstream inputFile("dbClientes.txt");
+    std::ifstream inputFile("Database/dbClientes.txt");
     if (inputFile){
         int cpf;
         std::string nome;
@@ -70,7 +70,7 @@ bool ControleClientes::gerarRelatorio(){
 }
 
 ControleClientes::~ControleClientes(){
-    std::ofstream outputFile("dbClientes.txt");
+    std::ofstream outputFile("Database/dbClientes.txt");
     for(const auto& pair : this->clientes){
         outputFile << pair.first << " " << pair.second->getNome() << "\n";
     }
