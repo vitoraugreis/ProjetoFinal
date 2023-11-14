@@ -53,8 +53,10 @@ bool ControleClientes::removerCadastro(int cpf){
 
 bool ControleClientes::pesquisarCliente(int cpf){
     if (this->clientes.find(cpf) == this->clientes.end()){
+       //std::cout << "ERRO: CPF inexistente" << std::endl;
         return false;
     }
+    //std::cout << "Cliente " << cpf << " existe" << std::endl;
     return true;
 }
 
