@@ -6,22 +6,22 @@
 
 class Cliente {
     std::string nome;
-    int cpf;
+    std::string cpf;
 
 public:
-    Cliente(std::string nome, int cpf);
+    Cliente(std::string nome, std::string cpf);
     std::string getNome();
-    int getCPF();
+    std::string getCPF();
 };
 
 class ControleClientes {
-    std::map<int, Cliente*> clientes;
+    std::map<std::string, Cliente*> clientes;
     
 public:
     ControleClientes();
-    bool fazerCadastro(std::string nome, int cpf);
-    bool removerCadastro(int cpf);
-    bool pesquisarCliente(int cpf);
+    bool fazerCadastro(std::string nome, std::string cpf);
+    bool removerCadastro(std::string cpf);
+    bool pesquisarCliente(std::string cpf);
     bool gerarRelatorio();
     ~ControleClientes();
 };

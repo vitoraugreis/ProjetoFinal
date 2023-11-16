@@ -2,11 +2,10 @@
 
 int main(){
     ControleClientes sla;
-    sla.fazerCadastro("a", 1);
-    sla.fazerCadastro("b", 2);
-    sla.fazerCadastro("c",34);
-    sla.pesquisarCliente(34);
-    sla.removerCadastro(34);
+    /*sla.fazerCadastro("Glaucus Silva", "123456787");
+    sla.fazerCadastro("Artur Silva", "123456787"); */
+    sla.removerCadastro("123456781");
+    sla.removerCadastro("1234");
     sla.gerarRelatorio();
     return 0;
 }

@@ -4,7 +4,7 @@
 #include <map>
 #include <fstream>
 
-Cliente::Cliente(std::string nome, int cpf){
+Cliente::Cliente(std::string nome, std::string cpf){
     this->nome = nome;
     this->cpf = cpf;
 }
@@ -13,24 +13,28 @@ std::string Cliente::getNome(){
     return this->nome;
 }
 
-int Cliente::getCPF(){
+std::string Cliente::getCPF(){
     return this->cpf;
 }
 
 ControleClientes::ControleClientes(){
-    std::ifstream inputFile("Database/dbClientes.txt");
-    if (inputFile){
-        int cpf;
+    std::ifstream Database("Database/dbClientes.txt");
+    if (Database){
+        std::string cpf;
         std::string nome;
-        while (inputFile >> cpf >> nome){
+        while (!Database.eof()){
+            Database >> cpf;
+            int pos = Database.tellg(); pos++;
+            Database.seekg(pos);
+            getline(Database, nome);
             Cliente* aux = new Cliente(nome, cpf);
             this->clientes.insert({cpf, aux});
         }
-        inputFile.close();
+        Database.close();
     }
 }
 
-bool ControleClientes::fazerCadastro(std::string nome, int cpf){
+bool ControleClientes::fazerCadastro(std::string nome, std::string cpf){
     if(this->pesquisarCliente(cpf)){
         std::cout << "ERRO: CPF repetido" << std::endl;
         return false;
@@ -41,7 +45,7 @@ bool ControleClientes::fazerCadastro(std::string nome, int cpf){
     return true;
 }
 
-bool ControleClientes::removerCadastro(int cpf){
+bool ControleClientes::removerCadastro(std::string cpf){
     if(!this->pesquisarCliente(cpf)){
         std::cout << "ERRO: CPF inexistente" << std::endl;
         return false;
@@ -52,7 +56,7 @@ bool ControleClientes::removerCadastro(int cpf){
     return true;
 }
 
-bool ControleClientes::pesquisarCliente(int cpf){
+bool ControleClientes::pesquisarCliente(std::string cpf){
     if (this->clientes.find(cpf) == this->clientes.end()){
        //std::cout << "ERRO: CPF inexistente" << std::endl;
         return false;
@@ -66,16 +70,20 @@ bool ControleClientes::gerarRelatorio(){
         std::cout << "Não há clientes registrados." << std::endl;
         return false;
     }
-    for (auto it = this->clientes.begin(); it != this->clientes.end(); it++){
+    for (auto it = this->clientes.begin(); it !=  this->clientes.end(); it++){
         std::cout << it->first << "\t" << it->second->getNome() << std::endl;
     }
     return true;
 }
 
 ControleClientes::~ControleClientes(){
-    std::ofstream outputFile("Database/dbClientes.txt");
-    for(const auto& pair : this->clientes){
-        outputFile << pair.first << " " << pair.second->getNome() << "\n";
+    std::ofstream Database("Database/dbClientes.txt");
+    for(auto it = this->clientes.begin(); it != this->clientes.end(); it++){
+        if (it == this->clientes.begin()){
+            Database << it->first << " " << it->second->getNome();
+        } else{
+            Database << "\n" << it->first << " " << it->second->getNome();
+        }
     }
-    outputFile.close();
+    Database.close();
 }
