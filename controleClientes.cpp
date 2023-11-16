@@ -46,6 +46,7 @@ bool ControleClientes::removerCadastro(int cpf){
         std::cout << "ERRO: CPF inexistente" << std::endl;
         return false;
     }
+    delete this->clientes.find(cpf)->second;
     this->clientes.erase(this->clientes.find(cpf));
     std::cout << "Cliente " << cpf << " removido com sucesso" << std::endl;
     return true;
