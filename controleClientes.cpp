@@ -22,20 +22,30 @@ ControleClientes::ControleClientes(){
     if (Database){
         std::string cpf;
         std::string nome;
-        while (!Database.eof()){
-            Database >> cpf;
-            int pos = Database.tellg(); pos++;
-            Database.seekg(pos);
-            getline(Database, nome);
-            Cliente* aux = new Cliente(nome, cpf);
-            this->clientes.insert({cpf, aux});
+        std::string verify;
+        getline(Database, verify);  // Verifica se o banco de dados está vazio.
+        if (!verify.size()){
+            this->clientes.clear();
+        } else{
+            Database.seekg(0);
+            while (!Database.eof()){    // Leitura do banco de dados.
+                Database >> cpf;
+                int pos = Database.tellg(); pos++;
+                Database.seekg(pos);
+                getline(Database, nome);
+                Cliente* aux = new Cliente(nome, cpf);
+                this->clientes.insert({cpf, aux});
+            }
+            Database.close();
         }
-        Database.close();
     }
 }
 
 bool ControleClientes::fazerCadastro(std::string nome, std::string cpf){
-    if(this->pesquisarCliente(cpf)){
+    if (cpf.length() != 11){
+        std::cout << "ERRO: CPF deve conter 11 digitos." << std::endl;
+        return false;
+    } else if(this->pesquisarCliente(cpf)){
         std::cout << "ERRO: CPF repetido" << std::endl;
         return false;
     }
@@ -76,6 +86,13 @@ bool ControleClientes::gerarRelatorio(){
     return true;
 }
 
+void ControleClientes::limparDatabase(){
+    while(!this->clientes.empty()){
+        delete this->clientes.begin()->second;
+        this->clientes.erase(this->clientes.begin());
+    }
+}
+
 ControleClientes::~ControleClientes(){
     std::ofstream Database("Database/dbClientes.txt");
     for(auto it = this->clientes.begin(); it != this->clientes.end(); it++){
@@ -84,6 +101,7 @@ ControleClientes::~ControleClientes(){
         } else{
             Database << "\n" << it->first << " " << it->second->getNome();
         }
+        delete it->second;
     }
     Database.close();
 }

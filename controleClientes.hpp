@@ -23,6 +23,7 @@ public:
     bool removerCadastro(std::string cpf);
     bool pesquisarCliente(std::string cpf);
     bool gerarRelatorio();
+    void limparDatabase();
     ~ControleClientes();
 };
 
