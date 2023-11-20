@@ -1,9 +1,8 @@
-#include "controleClientes.hpp"
+#include "ControleClientes.hpp"
 
 int main(){
     ControleClientes sla;
-    /*sla.fazerCadastro("Glaucus Silva", "12345678910");
-    sla.fazerCadastro("Artur Silva", "12345678911");*/
+    sla.fazerCadastro("Vitor Augusto", "09112312391");
     /*sla.removerCadastro("123456781");
     sla.removerCadastro("1234");*/
     sla.gerarRelatorio();
