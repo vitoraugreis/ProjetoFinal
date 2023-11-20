@@ -1,4 +1,4 @@
-#include "Midia.hpp"
+#include "../Cabeçalhos/Midia.hpp"
 
 Midia::Midia(int codigo,std :: string titulo,int unidadesDisponiveis){
     this->codigo = codigo;
