@@ -3,17 +3,17 @@
 
 #include "Cliente.hpp"
 #include <string>
-#include <map>
+#include <vector>
 
 class ControleClientes {
-    std::map<std::string, Cliente*> clientes;
+    std::vector<Cliente*> clientes;
     
 public:
     ControleClientes();
     bool fazerCadastro(std::string nome, std::string cpf);
     bool removerCadastro(std::string cpf);
-    bool pesquisarCliente(std::string cpf);
-    bool gerarRelatorio();
+    Cliente* pesquisarCliente(std::string cpf);
+    bool gerarRelatorio(char ordem);
     void limparDatabase();
     ~ControleClientes();
 };

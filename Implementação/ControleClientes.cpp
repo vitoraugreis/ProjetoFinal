@@ -1,6 +1,8 @@
 #include "../Cabeçalhos/ControleClientes.hpp"
+#include "../Funções/FuncoesClientes.cpp"
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 
 ControleClientes::ControleClientes(){
     std::ifstream Database("Database/dbClientes.txt");
@@ -19,7 +21,7 @@ ControleClientes::ControleClientes(){
                 Database.seekg(pos);
                 getline(Database, nome);
                 Cliente* aux = new Cliente(nome, cpf);
-                this->clientes.insert({cpf, aux});
+                this->clientes.push_back(aux);
             }
             Database.close();
         }
@@ -35,58 +37,76 @@ bool ControleClientes::fazerCadastro(std::string nome, std::string cpf){
         return false;
     }
     Cliente* aux = new Cliente(nome, cpf);
-    this->clientes.insert({cpf, aux});
+    this->clientes.push_back(aux);
     std::cout << "Cliente " << cpf <<  " cadastrado com sucesso" << std::endl;
     return true;
 }
 
 bool ControleClientes::removerCadastro(std::string cpf){
-    if(!this->pesquisarCliente(cpf)){
+    Cliente* cliente = this->pesquisarCliente(cpf);
+    if(!cliente){
         std::cout << "ERRO: CPF inexistente" << std::endl;
         return false;
     }
-    delete this->clientes.find(cpf)->second;
-    this->clientes.erase(this->clientes.find(cpf));
+    for (auto it = this->clientes.begin(); it != this->clientes.end(); it++){
+        if (*it == cliente){
+            this->clientes.erase(it);
+            break;
+        }
+    }
+    delete cliente;
     std::cout << "Cliente " << cpf << " removido com sucesso" << std::endl;
     return true;
 }
 
-bool ControleClientes::pesquisarCliente(std::string cpf){
-    if (this->clientes.find(cpf) == this->clientes.end()){
-       //std::cout << "ERRO: CPF inexistente" << std::endl;
-        return false;
+Cliente* ControleClientes::pesquisarCliente(std::string cpf){
+    for (int i = 0; i<this->clientes.size(); i++){
+        if (cpf == this->clientes[i]->getCPF()){
+            //std::cout << "Cliente " << cpf << " existe" << std::endl;
+            return this->clientes[i];
+        }
     }
-    //std::cout << "Cliente " << cpf << " existe" << std::endl;
-    return true;
+    //std::cout << "ERRO: CPF inexistente" << std::endl;
+    return 0;
 }
 
-bool ControleClientes::gerarRelatorio(){
+bool ControleClientes::gerarRelatorio(char ordem){
     if (this->clientes.empty()){
         std::cout << "Não há clientes registrados." << std::endl;
         return false;
     }
-    for (auto it = this->clientes.begin(); it !=  this->clientes.end(); it++){
-        std::cout << it->first << "\t" << it->second->getNome() << std::endl;
+    if (ordem != 'C' and ordem != 'N'){
+        std::cout << "Critério de Ordem inválido." << std::endl;
+        return false;
+    }
+    if(ordem == 'C'){
+        std::sort(this->clientes.begin(), this->clientes.end(), compCPF);
+    } else {
+        std::sort(this->clientes.begin(), this->clientes.end(), compNome);
+    }
+    for(auto it = this->clientes.begin(); it != this->clientes.end(); it++){
+        std::cout << (*it)->getCPF() << " " << (*it)->getNome() << std::endl;
     }
     return true;
 }
 
 void ControleClientes::limparDatabase(){
     while(!this->clientes.empty()){
-        delete this->clientes.begin()->second;
+        delete *this->clientes.begin();
         this->clientes.erase(this->clientes.begin());
     }
 }
 
 ControleClientes::~ControleClientes(){
     std::ofstream Database("Database/dbClientes.txt");
+    std::sort(this->clientes.begin(), this->clientes.end(), compCPF);
     for(auto it = this->clientes.begin(); it != this->clientes.end(); it++){
         if (it == this->clientes.begin()){
-            Database << it->first << " " << it->second->getNome();
+            Database << (*it)->getCPF() << " " << (*it)->getNome();
         } else{
-            Database << "\n" << it->first << " " << it->second->getNome();
+            Database << "\n" << (*it)->getCPF() << " " << (*it)->getNome();
         }
-        delete it->second;
+        delete (*it);
     }
     Database.close();
 }

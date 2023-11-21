@@ -2,9 +2,9 @@
 
 int main(){
     ControleClientes sla;
-    //sla.fazerCadastro("Vitor Augusto", "09112312391");
-    //sla.removerCadastro("123456781");
-    //sla.removerCadastro("1234");
-    sla.gerarRelatorio();
+    //sla.fazerCadastro("Bernardo Costa", "99999999999");
+    //sla.gerarRelatorio('N');
+    //sla.removerCadastro("99999999999");
+    //sla.gerarRelatorio('N');
     return 0;
 }
