@@ -10,7 +10,7 @@ class ControleClientes {
     
 public:
     ControleClientes();
-    bool fazerCadastro(std::string nome, std::string cpf);
+    bool fazerCadastro(std::string nome, std::string cpf, bool msg = true);
     bool removerCadastro(std::string cpf);
     Cliente* pesquisarCliente(std::string cpf);
     bool gerarRelatorio(char ordem);

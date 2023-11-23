@@ -20,15 +20,14 @@ ControleClientes::ControleClientes(){
                 int pos = Database.tellg(); pos++;
                 Database.seekg(pos);
                 getline(Database, nome);
-                Cliente* aux = new Cliente(nome, cpf);
-                this->clientes.push_back(aux);
+                this->fazerCadastro(nome, cpf, false);
             }
             Database.close();
         }
     }
 }
 
-bool ControleClientes::fazerCadastro(std::string nome, std::string cpf){
+bool ControleClientes::fazerCadastro(std::string nome, std::string cpf, bool msg){
     if (cpf.length() != 11){
         std::cout << "ERRO: CPF deve conter 11 digitos." << std::endl;
         return false;
@@ -38,7 +37,9 @@ bool ControleClientes::fazerCadastro(std::string nome, std::string cpf){
     }
     Cliente* aux = new Cliente(nome, cpf);
     this->clientes.push_back(aux);
-    std::cout << "Cliente " << cpf <<  " cadastrado com sucesso" << std::endl;
+    if (msg){ 
+        std::cout << "Cliente " << cpf <<  " cadastrado com sucesso" << std::endl;
+    }
     return true;
 }
 

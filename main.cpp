@@ -5,6 +5,6 @@ int main(){
     //sla.fazerCadastro("Bernardo Costa", "99999999999");
     //sla.gerarRelatorio('N');
     //sla.removerCadastro("99999999999");
-    //sla.gerarRelatorio('N');
+    sla.gerarRelatorio('N');
     return 0;
 }
