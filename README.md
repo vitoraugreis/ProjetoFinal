@@ -4,6 +4,7 @@
 ___
 
 ## Clientes
+**Colocar breve descrição**
 <details>
   <summary><i>Clique para mostrar o cabeçalho (Colocar no fim do projeto)</i></summary>
 </details>
@@ -40,3 +41,16 @@ ___
 ___
 
 ## ControleClientes
+**Colocar descrição breve**
+<details>
+  <summary><i>Clique para mostrar o cabeçalho (Colocar no fim do projeto)</i></summary>
+</details>
+
+### <ins>Construtor</ins>
+- Lê o arquivo em que os clientes são armazenados `../Database/dbClientes.txt` e coloca todos em um vetor.
+  <details>
+    <summary><i>Clique para mostrar o código (Colocar no fim do projeto)</i></summary>
+    
+  </details>
+
+### <ins>fazerCadastro</ins>
