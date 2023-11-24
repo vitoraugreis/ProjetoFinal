@@ -1,11 +1,11 @@
-#include "../Cabeçalhos/ControleClientes.hpp"
-#include "../Funções/FuncoesClientes.cpp"
+#include "ControleClientes.hpp"
+#include "../Funcoes/FuncoesClientes.cpp"
 #include <iostream>
 #include <fstream>
 #include <algorithm>
 
 ControleClientes::ControleClientes(){
-    std::ifstream Database("Database/dbClientes.txt");
+    std::ifstream Database("database/dbClientes.txt");
     if (Database){
         std::string cpf;
         std::string nome;
@@ -24,6 +24,8 @@ ControleClientes::ControleClientes(){
             }
             Database.close();
         }
+    } else{
+        std::cout << "FFFF";
     }
 }
 
@@ -99,7 +101,7 @@ void ControleClientes::limparDatabase(){
 }
 
 ControleClientes::~ControleClientes(){
-    std::ofstream Database("Database/dbClientes.txt");
+    std::ofstream Database("database/dbClientes.txt");
     std::sort(this->clientes.begin(), this->clientes.end(), compCPF);
     for(auto it = this->clientes.begin(); it != this->clientes.end(); it++){
         if (it == this->clientes.begin()){

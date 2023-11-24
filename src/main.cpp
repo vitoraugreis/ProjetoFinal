@@ -1,10 +1,11 @@
-#include "Cabeçalhos/ControleClientes.hpp"
+#include "ControleClientes.hpp"
+#include "ControleMidia.hpp"
 
 int main(){
     ControleClientes sla;
     //sla.fazerCadastro("Bernardo Costa", "99999999999");
     //sla.gerarRelatorio('N');
-    //sla.removerCadastro("99999999999");
+    sla.removerCadastro("99999999999");
     sla.gerarRelatorio('N');
     return 0;
 }

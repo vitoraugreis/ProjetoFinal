@@ -1,4 +1,4 @@
-#include "../Cabeçalhos/ControleMidia.hpp"
+#include "ControleMidia.hpp"
 #include <fstream>
 #include <iostream>
 
