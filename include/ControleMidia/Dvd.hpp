@@ -8,7 +8,9 @@ std :: string categoria;
 
 public:
 Dvd(int codigo, std :: string titulo,int unidadesDisponiveis, std:: string categoria); 
-std::string getCategoria();
+std::string getCategoria() ;
+void imprimirInformacoes();
+
 
 };
 

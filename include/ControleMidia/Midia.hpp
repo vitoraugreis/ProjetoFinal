@@ -12,9 +12,11 @@ class Midia{
     public:
 
     Midia(int codigo, std :: string titulo,int unidadesDisponiveis);
-    int getCodigo();
-    std :: string getTitulo();
-    int getUnidadesDisponiveis();
+    virtual ~Midia() = default;
+    int  getCodigo() ;
+    std :: string getTitulo() ;
+    int getUnidadesDisponiveis() ;
+    virtual void imprimirInformacoes()=0;
 };
 
 
