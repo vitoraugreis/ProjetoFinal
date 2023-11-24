@@ -47,7 +47,7 @@ ___
 </details>
 
 ### <ins>Construtor</ins>
-- Lê o arquivo em que os clientes são armazenados `../Database/dbClientes.txt` e coloca todos em um vetor.
+- Lê o arquivo em que os clientes são armazenados `../database/dbClientes.txt` e coloca todos em um vetor.
   <details>
     <summary><i>Clique para mostrar o código (Colocar no fim do projeto)</i></summary>
     
