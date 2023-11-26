@@ -1,23 +1,28 @@
 #include "ControleMidia.hpp"
+#include "../Funcoes/FuncoesMidia.cpp"
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+
 
 ControleMidia:: ControleMidia(): estoque(){}
 
 ControleMidia:: ~ControleMidia(){
     
-    for(auto it = this->estoque.begin(); it != this->estoque.end(); it++){
+    for(auto it = estoque.begin(); it != estoque.end(); it++){
         
-        delete (*it);
+        if (*it != nullptr) {
+            delete (*it);
+    }
     }
 }
 
 bool ControleMidia::cadastrarDvd(int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria) {
     
-    auto it = this->pesquisarMidia(codigo);
+    auto it = pesquisarMidia(codigo);
 
     
-    if(it == this->estoque.end()){
+    if(it == estoque.end()){
         Dvd* novoDvd = new Dvd(codigo, titulo, unidadesDisponiveis, categoria);
 
         estoque.push_back(novoDvd);
@@ -33,10 +38,10 @@ bool ControleMidia::cadastrarDvd(int codigo, std::string titulo, int unidadesDis
 
 bool ControleMidia::cadastrarFita(int codigo, std::string titulo, int unidadesDisponiveis, bool rebobinada) {
 
-    auto it = this->pesquisarMidia(codigo);
+    auto it = pesquisarMidia(codigo);
 
     
-    if(it == this->estoque.end()){
+    if(it == estoque.end()){
         Fita* novaFita = new Fita(codigo, titulo, unidadesDisponiveis, rebobinada);
         //true rebobinada, false nao rebobinada
         estoque.push_back(novaFita);
@@ -89,18 +94,30 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
 
 std::vector<Midia *>::iterator ControleMidia:: pesquisarMidia(int codigo){
     
-    for(auto it = this->estoque.begin(); it != this->estoque.end(); it++){
+    for(auto it = estoque.begin(); it != estoque.end(); it++){
         if(codigo == (*it)->getCodigo()){
-            
+                    
             return it;
+
         }
     }
 
-    return this->estoque.end();
+    return estoque.end();
 }
 
 
-void ControleMidia::imprimirMidias() {
+void ControleMidia::imprimirMidias(char ordem) {
+    
+    if(ordem == 'C'){
+        
+        std::sort(this->estoque.begin(), this->estoque.end(),compCodigo);
+
+    }else if(ordem == 'T'){
+        
+        std::sort(this->estoque.begin(), this->estoque.end(),compTitulo);
+
+    }
+
     for(auto it = this->estoque.begin(); it != this->estoque.end(); it++){
         (*it)->imprimirInformacoes();
     }
@@ -111,10 +128,10 @@ void ControleMidia::imprimirMidias() {
 
 bool ControleMidia:: removerMidia(int codigo){
     
-    auto it = this->pesquisarMidia(codigo);
-    if(it != this->estoque.end()){
+    auto it = pesquisarMidia(codigo);
+    if(it != estoque.end()){
         delete *it;
-        this->estoque.erase(it);
+        estoque.erase(it);
         std:: cout << "Filme "<< codigo << " removido com sucesso" << std:: endl;
         return true;
     }

@@ -6,10 +6,10 @@ Fita::Fita(int codigo, std :: string titulo,int unidadesDisponiveis,bool rebobin
     {}
 
 bool Fita::getRebobinada(){
-    return this->rebobinada;
+    return rebobinada;
 }
 
 void Fita:: imprimirInformacoes(){
     
-    std:: cout<<this->getCodigo()<< " " << this->getTitulo() <<" " << this->getUnidadesDisponiveis() << " " << "FITA"<< std:: endl; 
+    std:: cout<<getCodigo()<< " " << getTitulo() <<" " << this->getUnidadesDisponiveis() << " " << "FITA"<< std:: endl; 
 }

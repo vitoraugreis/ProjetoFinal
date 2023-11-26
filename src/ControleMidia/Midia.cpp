@@ -7,13 +7,13 @@ Midia::Midia(int codigo,std :: string titulo,int unidadesDisponiveis){
     }
 
 int Midia::getCodigo(){
-    return this->codigo;
+    return codigo;
 }
 
 std :: string Midia::getTitulo(){
-    return this->titulo;
+    return titulo;
 }
 
 int Midia::getUnidadesDisponiveis(){
-    return this->unidadesDisponiveis;
+    return unidadesDisponiveis;
 }

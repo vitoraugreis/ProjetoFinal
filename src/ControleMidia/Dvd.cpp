@@ -9,10 +9,10 @@ Dvd::Dvd(int codigo, std :: string titulo,int unidadesDisponiveis, std:: string 
 }
 
 std:: string Dvd::getCategoria(){
-    return this->categoria;
+    return categoria;
 }
 
 void Dvd:: imprimirInformacoes(){
     
-    std:: cout<<this->getCodigo()<< " " << this->getTitulo() <<" " << this->getUnidadesDisponiveis() << " " << "DVD"<< std:: endl; 
+    std:: cout<<getCodigo()<< " " << getTitulo() <<" " << getUnidadesDisponiveis() << " " << "DVD"<< std:: endl; 
 }
