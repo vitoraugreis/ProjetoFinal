@@ -13,7 +13,7 @@ ${\color{yellow}Descrever \ problema}$
 ___
 
 ## Clientes
-[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 - TAD para representar o cliente da locadora de filmes.
 - Possui como atríbutos o seu nome e CPF.
   <details>
@@ -55,7 +55,7 @@ ___
 ___
 
 ## ControleClientes
-[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 - TAD que representa o sistema responsável por operações relacionadas aos clientes da locadora.
 - Controla o banco de dados de clientes fazendo cadastros, remoções, relatórios e outras operações.
   <details>
@@ -115,17 +115,21 @@ ___
 ___
 
 ## Mídia
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 
 ___
 
 ## Fita
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 
 ___
 
 ## DVD
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 
 ___
 
 ## ControleMidia
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2) <br>
 
 ___
