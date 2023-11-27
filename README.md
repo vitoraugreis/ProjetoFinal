@@ -1,7 +1,11 @@
-# Projeto Final
+# Projeto Final PDS2
 1. [Problema](https://github.com/vitoraugreis/ProjetoFinal#problema)
 2. [Clientes](https://github.com/vitoraugreis/ProjetoFinal#clientes)
 3. [ControleClientes](https://github.com/vitoraugreis/ProjetoFinal#controleclientes)
+4. [Mídia](https://github.com/vitoraugreis/ProjetoFinal#mídia)
+5. [Fita](https://github.com/vitoraugreis/ProjetoFinal#fita)
+6. [Dvd](https://github.com/vitoraugreis/ProjetoFinal#dvd)
+7. [ControleMidia](https://github.com/vitoraugreis/ProjetoFinal#controlemidia)
 ___
 ## Problema
 ${\color{yellow}Descrever \ problema}$
@@ -107,3 +111,21 @@ ___
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
     
   </details>
+
+___
+
+## Mídia
+
+___
+
+## Fita
+
+___
+
+## DVD
+
+___
+
+## ControleMidia
+
+___
