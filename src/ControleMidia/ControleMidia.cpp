@@ -1,4 +1,5 @@
 #include "ControleMidia.hpp"
+#include "ControleMidiaExceptions.hpp"
 #include "../Funcoes/FuncoesMidia.cpp"
 #include <fstream>
 #include <iostream>
@@ -20,7 +21,6 @@ ControleMidia:: ~ControleMidia(){
 bool ControleMidia::cadastrarDvd(int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria) {
     
     auto it = pesquisarMidia(codigo);
-
     
     if(it == estoque.end()){
         Dvd* novoDvd = new Dvd(codigo, titulo, unidadesDisponiveis, categoria);
@@ -29,9 +29,8 @@ bool ControleMidia::cadastrarDvd(int codigo, std::string titulo, int unidadesDis
         std:: cout << "Filme "<< codigo << " cadastrado com sucesso" << std:: endl;
         return true;
     }
-
     
-    std:: cout << "ERRO:codigo repetido" << std:: endl;
+    throw midia_excp::codigo_repetido(codigo);
     return false;
 
 }
@@ -49,8 +48,27 @@ bool ControleMidia::cadastrarFita(int codigo, std::string titulo, int unidadesDi
         return true;
     }
 
-    std:: cout << "ERRO:codigo repetido" << std:: endl;
+    throw midia_excp::codigo_repetido(codigo);
     return false;
+}
+
+
+bool ControleMidia::cadastrarMidia(int tipoMidia, int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria) {
+
+    switch (tipoMidia) {
+        case 1: //Dvd
+            cadastrarDvd(codigo, titulo, unidadesDisponiveis, categoria);
+            break;
+        case 2:  //Fita
+            bool rebobinada = 1;
+            cadastrarFita(codigo, titulo, unidadesDisponiveis, rebobinada);
+            break;
+        default:
+            std::cerr << "Tipo de mídia desconhecido: " << tipoMidia << std::endl;
+            break;
+        }
+    return false;
+
 }
 
 bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
@@ -136,6 +154,7 @@ bool ControleMidia:: removerMidia(int codigo){
         return true;
     }
 
-    std::cout << "ERRO:codigo inexistente" << std::endl;
+    throw midia_excp::codigo_inexistente(codigo);
+
     return false; 
 }

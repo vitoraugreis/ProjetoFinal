@@ -1,4 +1,5 @@
 #include "ControleClientes.hpp"
+#include "ControleClientesExceptions.hpp"
 #include "../Funcoes/FuncoesClientes.cpp"
 #include <iostream>
 #include <fstream>
@@ -31,10 +32,10 @@ ControleClientes::ControleClientes(){
 
 bool ControleClientes::fazerCadastro(std::string nome, std::string cpf, bool msg){
     if (cpf.length() != 11){
-        std::cout << "ERRO: CPF deve conter 11 digitos." << std::endl;
+        throw clientes_excp::cpf_curto(cpf);
         return false;
     } else if(this->pesquisarCliente(cpf)){
-        std::cout << "ERRO: CPF repetido" << std::endl;
+        throw clientes_excp::cpf_repetido(cpf);
         return false;
     }
     Cliente* aux = new Cliente(nome, cpf);
@@ -48,7 +49,7 @@ bool ControleClientes::fazerCadastro(std::string nome, std::string cpf, bool msg
 bool ControleClientes::removerCadastro(std::string cpf){
     Cliente* cliente = this->pesquisarCliente(cpf);
     if(!cliente){
-        std::cout << "ERRO: CPF inexistente" << std::endl;
+        throw clientes_excp::cpf_inexistente(cpf);
         return false;
     }
     for (auto it = this->clientes.begin(); it != this->clientes.end(); it++){
@@ -69,7 +70,7 @@ Cliente* ControleClientes::pesquisarCliente(std::string cpf){
             return this->clientes[i];
         }
     }
-    //std::cout << "ERRO: CPF inexistente" << std::endl;
+    throw clientes_excp::cpf_inexistente(cpf);
     return 0;
 }
 

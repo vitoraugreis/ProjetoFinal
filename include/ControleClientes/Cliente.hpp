@@ -1,6 +1,7 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
+#include "ControleMidiaExceptions.hpp"
 #include <string>
 
 class Cliente {

@@ -14,6 +14,7 @@ class ControleMidia {
     public:
     ControleMidia();
      ~ControleMidia();  
+    bool cadastrarMidia(int tipoMidia, int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria);
     bool cadastrarDvd(int codigo, std :: string titulo,int unidadesDisponiveis, std:: string categoria);
     bool cadastrarFita(int codigo, std :: string titulo,int unidadesDisponiveis, bool rebobinada);
     bool lerArquivoCadastro(std :: string arquivo);
