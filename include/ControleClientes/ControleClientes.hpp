@@ -2,6 +2,7 @@
 #define CONTROLE_CLIENTES_H
 
 #include "Cliente.hpp"
+#include "ControleClientesExceptions.hpp"
 #include <string>
 #include <vector>
 
