@@ -63,13 +63,12 @@ bool ControleClientes::removerCadastro(std::string cpf){
 }
 
 Cliente* ControleClientes::pesquisarCliente(std::string cpf){
-    for (int i = 0; i<this->clientes.size(); i++){
+    int totalClientes = this->clientes.size();
+    for (int i = 0; i<totalClientes; i++){
         if (cpf == this->clientes[i]->getCPF()){
-            //std::cout << "Cliente " << cpf << " existe" << std::endl;
             return this->clientes[i];
         }
     }
-    throw clientes_excp::cpf_inexistente(cpf);
     return 0;
 }
 

@@ -24,7 +24,7 @@ int main(){
     int aux = 0;
 
     ControleMidia estoque;
-    // ControleClientes clientes;
+    ControleClientes clientes;
 
     while (true) {
         std::getline(std::cin, input);
