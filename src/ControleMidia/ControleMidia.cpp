@@ -109,7 +109,6 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
     return true;
 }
 
-
 std::vector<Midia *>::iterator ControleMidia:: pesquisarMidia(int codigo){
     
     for(auto it = estoque.begin(); it != estoque.end(); it++){
@@ -122,7 +121,6 @@ std::vector<Midia *>::iterator ControleMidia:: pesquisarMidia(int codigo){
 
     return estoque.end();
 }
-
 
 void ControleMidia::imprimirMidias(char ordem) {
     
@@ -142,7 +140,6 @@ void ControleMidia::imprimirMidias(char ordem) {
         (*it)->imprimirInformacoes();
     }
 }
-
 
 bool ControleMidia:: removerMidia(int codigo){
     

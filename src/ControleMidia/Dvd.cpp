@@ -12,7 +12,10 @@ std:: string Dvd::getCategoria(){
     return categoria;
 }
 
-void Dvd:: imprimirInformacoes(){
-    
-    std:: cout<<getCodigo()<< " " << getTitulo() <<" " << getUnidadesDisponiveis() << " " << "DVD"<< std:: endl; 
+void Dvd:: imprimirInformacoes(bool unidades){
+    if (unidades){
+        std:: cout<<getCodigo()<< " " << getTitulo() <<" " << this->getUnidadesDisponiveis() << " " << "DVD"<< std:: endl; 
+    } else{
+        std:: cout<<getCodigo()<< " " << getTitulo() << " " << "DVD"<< std:: endl; // Para o relatório de locações
+    }
 }

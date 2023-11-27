@@ -17,3 +17,7 @@ std :: string Midia::getTitulo(){
 int Midia::getUnidadesDisponiveis(){
     return unidadesDisponiveis;
 }
+
+void Midia::diminuirUnidadesDisponiveis(){
+    this->unidadesDisponiveis--;
+}
