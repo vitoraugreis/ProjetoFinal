@@ -1,5 +1,9 @@
 # Projeto Final
-1. [Teste](https://github.com/vitoraugreis/ProjetoFinal#controleclientes)
+1. [Problema](https://github.com/vitoraugreis/ProjetoFinal#problema)
+2. [Clientes](https://github.com/vitoraugreis/ProjetoFinal#clientes)
+3. [ControleClientes](https://github.com/vitoraugreis/ProjetoFinal#controleclientes)
+___
+## Problema
 ${\color{yellow}Descrever \ problema}$
 
 ___
