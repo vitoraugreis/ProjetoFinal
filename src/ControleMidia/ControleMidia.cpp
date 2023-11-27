@@ -59,10 +59,10 @@ bool ControleMidia::cadastrarMidia(int tipoMidia, int codigo, std::string titulo
         case 1: //Dvd
             cadastrarDvd(codigo, titulo, unidadesDisponiveis, categoria);
             break;
-        case 2:  //Fita
+        case 2: {  //Fita
             bool rebobinada = 1;
             cadastrarFita(codigo, titulo, unidadesDisponiveis, rebobinada);
-            break;
+            break;}
         default:
             throw midia_excp::tipo_desconhecido(tipoMidia);
             break;

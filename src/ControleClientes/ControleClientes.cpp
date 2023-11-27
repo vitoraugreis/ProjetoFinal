@@ -25,9 +25,8 @@ ControleClientes::ControleClientes(){
             }
             Database.close();
         }
-    } else{
-        std::cout << "FFFF";
-    }
+    } 
+
 }
 
 bool ControleClientes::fazerCadastro(std::string nome, std::string cpf, bool msg){

@@ -8,7 +8,6 @@
 #include <unordered_map> 
 
 class ControleLocacao{
-
     std::unordered_map<Cliente*, std::vector<Midia*>> locacoes;
 
 public:

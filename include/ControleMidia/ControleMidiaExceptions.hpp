@@ -6,69 +6,65 @@
 namespace midia_excp {
 
 class codigo_repetido : public std::exception {
-    public:
-        codigo_repetido(int codigo) : _codigo(codigo) {};
+public:
+    codigo_repetido(int codigo);
 
-        const char* what() const throw() {return "ERRO:codigo repetido";}
+    const char* what() const throw() { return "ERRO: código repetido"; }
 
-        int get_codigo() {return _codigo;};
-    
-    private:
-        int _codigo;
+    int get_codigo() { return _codigo; };
+
+private:
+    int _codigo;
 };
 
 class codigo_inexistente : public std::exception {
-    public:
-        codigo_inexistente(int codigo) : _codigo(codigo) {};
+public:
+    codigo_inexistente(int codigo);
 
-        const char* what() const throw() {return "ERRO:codigo inexistente";}
+    const char* what() const throw() { return "ERRO: código inexistente"; }
 
-        int get_codigo() {return _codigo;};
-    
-    private:
-        int _codigo;
+    int get_codigo() { return _codigo; };
+
+private:
+    int _codigo;
 };
-
 
 class tipo_desconhecido : public std::exception {
-    public:
-        tipo_desconhecido(int tipoMidia) : _tipoMidia(tipoMidia) {};
+public:
+    tipo_desconhecido(int tipoMidia);
 
-        const char* what() const throw() {return "Tipo de mídia desconhecido";}
+    const char* what() const throw() { return "Tipo de mídia desconhecido"; }
 
-        int get_tipo() {return _tipoMidia;};
-    
-    private:
-        int _tipoMidia;
+    int get_tipo() { return _tipoMidia; };
+
+private:
+    int _tipoMidia;
 };
-
 
 class erro_de_abertura : public std::exception {
-    public:
-        erro_de_abertura(std::string arquivo) : _arquivo(arquivo) {};
+public:
+    erro_de_abertura(std::string arquivo);
 
-        const char* what() const throw() {return "Erro ao abrir o arquivo de cadastro";}
+    const char* what() const throw() { return "Erro ao abrir o arquivo de cadastro"; }
 
-        std::string get_arquivo() {return _arquivo;};
-    
-    private:
-        std::string _arquivo;
+    std::string get_arquivo() { return _arquivo; };
+
+private:
+    std::string _arquivo;
 };
-
 
 class ordem_invalida : public std::exception {
-    public:
-        ordem_invalida(char ordem) : _ordem(ordem) {};
+public:
+    ordem_invalida(char ordem);
 
-        const char* what() const throw() {return "Erro: as opções de ordenação são Código (C) ou Título (T)";}
+    const char* what() const throw() { return "Erro: as opções de ordenação são Código (C) ou Título (T)"; }
 
-        char get_ordem() {return _ordem;};
-    
-    private:
-        char _ordem;
+    char get_ordem() { return _ordem; };
+
+private:
+    char _ordem;
 };
 
+} 
 
-}
-
-#endif 
+#endif

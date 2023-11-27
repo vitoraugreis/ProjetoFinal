@@ -7,6 +7,7 @@
 #include <vector>
 
 class ControleMidia {
+    public:
     std :: vector<Midia*> estoque;
 
     public:
