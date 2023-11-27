@@ -9,16 +9,19 @@ ${\color{yellow}Descrever \ problema}$
 ___
 
 ## Clientes
-- [Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
-${\color{yellow}Colocar \ descrição}$
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
+- TAD para representar o cliente da locadora de filmes.
+- Possui como atríbutos o seu nome e CPF.
   <details>
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
+    
   </details>
 
 ### <ins>Construtor</ins>
-${\color{yellow}Colocar \ descrição}$
+- Constrói o Cliente de acordo com o nome e o CPF submetidos pelo usuário.
   <details>
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
+    
   </details>
 
 ### <ins>getNome</ins>
@@ -48,14 +51,16 @@ ${\color{yellow}Colocar \ descrição}$
 ___
 
 ## ControleClientes
-- [Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
-${\color{yellow}Colocar \ descrição}$
+[Voltar ao início da documentação](https://github.com/vitoraugreis/ProjetoFinal#projeto-final) <br>
+- TAD que representa o sistema responsável por operações relacionadas aos clientes da locadora.
+- Controla o banco de dados de clientes fazendo cadastros, remoções, relatórios e outras operações.
   <details>
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
+    
   </details>
 
 ### <ins>Construtor</ins>
-- Lê o arquivo em que os clientes são armazenados `../database/dbClientes.txt` e coloca todos em um vetor.
+- Lê o arquivo em que os clientes são armazenados `database/dbClientes.txt` e coloca todos em um vetor.
   <details>
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
     
@@ -97,7 +102,7 @@ ${\color{yellow}Colocar \ descrição}$
   </details>
 
 ### <ins>Destrutor</ins>
-- Serve para apagar o que é feito pelo construtor, fecha a leitura e escrita do arquivo `../database/dbClientes.txt` , mas antes apaga os dados dos clientes dentro do arquivo.
+- Atualiza o banco de dados, encontrado no diretório `database/dbClientes.txt`, após todas as operações feitas pelo usuário do programa.
   <details>
     <summary><i>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</i></summary>
     
