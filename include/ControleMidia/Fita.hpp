@@ -4,12 +4,12 @@
 #include "Midia.hpp"
 
 class Fita : public Midia{
-    bool rebobinada;
+        bool rebobinada;
 
     public:
-    Fita(int codigo, std :: string titulo,int unidadesDisponiveis,bool rebobinada);
-    bool getRebobinada() ;
-    void imprimirInformacoes();
+        Fita(int codigo, std :: string titulo,int unidadesDisponiveis,bool rebobinada);
+        bool getRebobinada() ;
+        void imprimirInformacoes();
 
 };
 

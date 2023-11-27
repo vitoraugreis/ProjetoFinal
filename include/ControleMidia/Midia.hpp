@@ -5,18 +5,18 @@
 
 class Midia{
     
-    int codigo;
-    std :: string titulo;
-    int unidadesDisponiveis;
+        int codigo;
+        std :: string titulo;
+        int unidadesDisponiveis;
 
     public:
 
-    Midia(int codigo, std :: string titulo,int unidadesDisponiveis);
-    virtual ~Midia() = default;
-    int  getCodigo() ;
-    std :: string getTitulo() ;
-    int getUnidadesDisponiveis() ;
-    virtual void imprimirInformacoes()=0;
+        Midia(int codigo, std :: string titulo,int unidadesDisponiveis);
+        virtual ~Midia() = default;
+        int  getCodigo() ;
+        std :: string getTitulo() ;
+        int getUnidadesDisponiveis() ;
+        virtual void imprimirInformacoes()=0;
 };
 
 

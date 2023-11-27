@@ -80,7 +80,7 @@ bool ControleClientes::gerarRelatorio(char ordem){
         return false;
     }
     if (ordem != 'C' and ordem != 'N'){
-        std::cout << "Critério de Ordem inválido." << std::endl;
+        throw clientes_excp::ordem_invalida(ordem);
         return false;
     }
     if(ordem == 'C'){

@@ -43,6 +43,20 @@ class cpf_inexistente : public std::exception {
 
 };
 
+
+class ordem_invalida : public std::exception {
+    public:
+        ordem_invalida(char ordem) : _ordem(ordem) {};
+
+        const char* what() const throw() {return "Erro: as opções de ordenação são Código (C) ou Nome (N)";}
+
+        char get_ordem() {return _ordem;};
+    
+    private:
+        char _ordem;
+};
+
+
 }
 
 #endif 

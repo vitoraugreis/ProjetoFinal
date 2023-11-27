@@ -64,7 +64,7 @@ bool ControleMidia::cadastrarMidia(int tipoMidia, int codigo, std::string titulo
             cadastrarFita(codigo, titulo, unidadesDisponiveis, rebobinada);
             break;
         default:
-            std::cerr << "Tipo de mídia desconhecido: " << tipoMidia << std::endl;
+            throw midia_excp::tipo_desconhecido(tipoMidia);
             break;
         }
     return false;
@@ -75,7 +75,7 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
     std::ifstream infile(arquivo);
 
     if (!infile) {
-        std::cerr << "Erro ao abrir o arquivo de cadastro: " << arquivo << std::endl;
+        throw midia_excp::erro_de_abertura(arquivo);
         return false;
     }
 
@@ -100,7 +100,7 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
                 cadastrarFita(codigo, titulo, unidadesDisponiveis, rebobinada);
                 break;
             default:
-                std::cerr << "Tipo de mídia desconhecido: " << tipoMidia << std::endl;
+                throw midia_excp::tipo_desconhecido(tipoMidia);
                 break;
         }
     }
@@ -134,14 +134,14 @@ void ControleMidia::imprimirMidias(char ordem) {
         
         std::sort(this->estoque.begin(), this->estoque.end(),compTitulo);
 
+    } else {
+        throw midia_excp::ordem_invalida(ordem);
     }
 
     for(auto it = this->estoque.begin(); it != this->estoque.end(); it++){
         (*it)->imprimirInformacoes();
     }
 }
-
-
 
 
 bool ControleMidia:: removerMidia(int codigo){
@@ -157,4 +157,5 @@ bool ControleMidia:: removerMidia(int codigo){
     throw midia_excp::codigo_inexistente(codigo);
 
     return false; 
+
 }

@@ -56,6 +56,19 @@ class erro_de_abertura : public std::exception {
 };
 
 
+class ordem_invalida : public std::exception {
+    public:
+        ordem_invalida(char ordem) : _ordem(ordem) {};
+
+        const char* what() const throw() {return "Erro: as opções de ordenação são Código (C) ou Título (T)";}
+
+        char get_ordem() {return _ordem;};
+    
+    private:
+        char _ordem;
+};
+
+
 }
 
 #endif 
