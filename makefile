@@ -6,8 +6,11 @@ BUILD_DIR = ./build
 INCLUDE_DIR = ./include
 SRC_DIR = ./src
 
-${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o
+${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleLocacao.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o
 	${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ${TARGET}
+
+${BUILD_DIR}/ControleLocacao.o : ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${INCLUDE_DIR}/ControleClientes/ControleClientes.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${SRC_DIR}/ControleLocacao/ControleLocacao.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleLocacao -I ${INCLUDE_DIR}/ControleClientes -I ${INCLUDE_DIR}/ControleMidia -c ${SRC_DIR}/ControleLocacao/ControleLocacao.cpp -o ${BUILD_DIR}/ControleLocacao.o
 
 ${BUILD_DIR}/ControleMidia.o : ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${SRC_DIR}/ControleMidia/ControleMidia.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia -c ${SRC_DIR}/ControleMidia/ControleMidia.cpp -o ${BUILD_DIR}/ControleMidia.o
@@ -27,5 +30,5 @@ ${BUILD_DIR}/Midia.o : ${INCLUDE_DIR}/ControleMidia/Midia.hpp ${SRC_DIR}/Control
 ${BUILD_DIR}/Cliente.o : ${INCLUDE_DIR}/ControleClientes/Cliente.hpp ${SRC_DIR}/ControleClientes/Cliente.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleClientes/ -c ${SRC_DIR}/ControleClientes/Cliente.cpp -o ${BUILD_DIR}/Cliente.o
 
-${BUILD_DIR}/main.o : ${INCLUDE_DIR}/ControleClientes/ControleClientes.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${SRC_DIR}/main.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleClientes/ -I ${INCLUDE_DIR}/ControleMidia/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o
+${BUILD_DIR}/main.o : ${INCLUDE_DIR}/ControleClientes/ControleClientes.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${SRC_DIR}/main.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleClientes/ -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o

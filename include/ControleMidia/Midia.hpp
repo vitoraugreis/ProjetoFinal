@@ -16,7 +16,8 @@ class Midia{
     int  getCodigo() ;
     std :: string getTitulo() ;
     int getUnidadesDisponiveis() ;
-    virtual void imprimirInformacoes()=0;
+    virtual void imprimirInformacoes(bool unidades = true) = 0;
+    void diminuirUnidadesDisponiveis();
 };
 
 
