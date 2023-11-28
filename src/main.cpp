@@ -3,12 +3,14 @@
 #include "Cliente.hpp"
 #include "ControleClientes.hpp"
 #include "ControleClientesExceptions.hpp"
+#include "ControleLocacao.hpp"
 #include "Dvd.hpp"
 #include "Fita.hpp"
 #include "Midia.hpp"
 
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 int main(){
     std::string nome_arquivo_cadastro;
@@ -25,6 +27,7 @@ int main(){
 
     ControleMidia estoque;
     ControleClientes clientes;
+    ControleLocacao locacao;
 
     while (true) {
         std::getline(std::cin, input);
@@ -50,8 +53,6 @@ int main(){
         } else if (comando == "CF"){ // Cadastrar Filme
             stream >> tipo_midia >> quantidade >> codigo >> titulo >> categoria;
 
-            std::cout << tipo_midia << quantidade << codigo << titulo << categoria;
-            
             estoque.cadastrarMidia(tipo_midia, codigo, titulo, quantidade, categoria);
 
         } else if (comando == "RF"){ // Remover Filme
@@ -60,7 +61,7 @@ int main(){
             estoque.removerMidia(codigo);
 
         } else if (comando == "LF"){ // Listar Filmes ordenados por Código ou Título
-            char ordem;
+            char ordem = 'a'; // Inicialização com opção inválida
             stream >> ordem;
 
             estoque.imprimirMidias(ordem);
@@ -68,33 +69,35 @@ int main(){
         } else if (comando == "CC"){ // Cadastrar Cliente
             stream >> cpf >> nome;
 
-            // clientes.fazerCadastro(nome, cpf, true);
+            clientes.fazerCadastro(nome, cpf, true);
 
         } else if (comando == "RC"){ // Remover Cliente
             stream >> cpf;
 
-            //clientes.removerCadastro(cpf);
+            std::cout << cpf << std::endl;
 
-        } else if (comando == "LC"){ // Listar //clientes ordenados por Código ou Nome
-            char ordem;
+            clientes.removerCadastro(cpf);
+
+        } else if (comando == "LC"){ // Listar clientes ordenados por Código ou Nome
+            char ordem = 'a'; // Inicialização com opção inválida
             stream >> ordem;
 
-            //clientes.gerarRelatorio(ordem);
+            clientes.gerarRelatorio(ordem);
 
         } else if (comando == "AF"){ // Aluguel Filme
-            char ordem;
-            stream >> ordem;
+            stream >> cpf;
 
-            //clientes.gerarRelatorio(ordem);
+            std::vector<int> midias_para_alugar;
+            while (stream >> codigo) {
+                midias_para_alugar.push_back(codigo);
+            }
 
-        } else if (comando == "AF"){ // Aluguel Filme (INCOMPLETO)
-            char ordem;
-            stream >> ordem;
+            locacao.fazerLocacao(clientes, estoque, cpf, midias_para_alugar);
 
-
-        } else if (comando == "DV"){ // Devolução Filme (INCOMPLETO)
-            char ordem;
-            stream >> ordem;
+        } else if (comando == "DV"){ // Devolução Filme
+            stream >> cpf;
+            
+            locacao.fazerDevolucao(clientes, estoque, cpf);
 
 
         } else if (comando == "FS"){ // Finalizar Sistema

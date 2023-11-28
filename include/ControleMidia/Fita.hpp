@@ -8,9 +8,8 @@ class Fita : public Midia{
 
     public:
         Fita(int codigo, std :: string titulo,int unidadesDisponiveis,bool rebobinada);
-        bool getRebobinada() ;
+        bool getRebobinada();
         void imprimirInformacoes(bool unidades = true);
-
 };
 
 #endif

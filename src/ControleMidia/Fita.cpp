@@ -2,7 +2,7 @@
 #include <iostream>
 
 Fita::Fita(int codigo, std :: string titulo,int unidadesDisponiveis,bool rebobinada)
-    :Midia(codigo, titulo,unidadesDisponiveis), rebobinada(true)
+    :Midia(codigo, titulo,unidadesDisponiveis, "FITA"), rebobinada(true)
     {}
 
 bool Fita::getRebobinada(){

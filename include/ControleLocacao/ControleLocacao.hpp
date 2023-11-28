@@ -11,7 +11,9 @@ class ControleLocacao{
     std::unordered_map<Cliente*, std::vector<Midia*>> locacoes;
 
 public:
+    double calculaAluguel(Midia &filme, double duracao);
     bool fazerLocacao(ControleClientes &cc, ControleMidia &cm, std::string cpf, std::vector<int> filmes);
+    bool fazerDevolucao(ControleClientes &cc, ControleMidia &cm, std::string cpf);
 };
 
 #endif

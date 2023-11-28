@@ -2,15 +2,9 @@
 #include <iostream>
 
 Dvd::Dvd(int codigo, std :: string titulo,int unidadesDisponiveis, std:: string categoria)
-    :Midia(codigo, titulo,unidadesDisponiveis)
+    :Midia(codigo, titulo,unidadesDisponiveis, categoria)
 
-{
-    this->categoria = categoria;
-}
-
-std:: string Dvd::getCategoria(){
-    return categoria;
-}
+{}
 
 void Dvd:: imprimirInformacoes(bool unidades){
     if (unidades){
