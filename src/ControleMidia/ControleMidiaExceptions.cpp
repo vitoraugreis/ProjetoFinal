@@ -12,4 +12,6 @@ erro_de_abertura::erro_de_abertura(std::string arquivo) : _arquivo(arquivo) {}
 
 ordem_invalida::ordem_invalida(char ordem) : _ordem(ordem) {}
 
+categoria_invalida::categoria_invalida(std::string categoria) : _categoria(categoria) {}
+
 } 

@@ -2,10 +2,12 @@
 #define MIDIA_H
 
 #include <string>
+#include <unordered_set>
 
 class Midia{
     int codigo;
     std :: string titulo;
+    std::unordered_set<std::string> categoriasValidas;
     std :: string categoria;
     int unidadesDisponiveis;
 

@@ -30,7 +30,7 @@ ${BUILD_DIR}/Fita.o : ${INCLUDE_DIR}/ControleMidia/Fita.hpp ${SRC_DIR}/ControleM
 ${BUILD_DIR}/Dvd.o : ${INCLUDE_DIR}/ControleMidia/Dvd.hpp ${SRC_DIR}/ControleMidia/Dvd.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia -c ${SRC_DIR}/ControleMidia/Dvd.cpp -o ${BUILD_DIR}/Dvd.o
 
-${BUILD_DIR}/Midia.o : ${INCLUDE_DIR}/ControleMidia/Midia.hpp ${SRC_DIR}/ControleMidia/Midia.cpp
+${BUILD_DIR}/Midia.o : ${INCLUDE_DIR}/ControleMidia/Midia.hpp ${SRC_DIR}/ControleMidia/Midia.cpp ${BUILD_DIR}/ControleMidiaExceptions.o
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia -c ${SRC_DIR}/ControleMidia/Midia.cpp -o ${BUILD_DIR}/Midia.o
 
 ${BUILD_DIR}/Cliente.o : ${INCLUDE_DIR}/ControleClientes/Cliente.hpp ${SRC_DIR}/ControleClientes/Cliente.cpp

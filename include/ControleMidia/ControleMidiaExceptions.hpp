@@ -33,7 +33,7 @@ class tipo_desconhecido : public std::exception {
 public:
     tipo_desconhecido(int tipoMidia);
 
-    const char* what() const throw() { return "Tipo de mídia desconhecido"; }
+    const char* what() const throw() { return "ERRO: tipo de mídia desconhecido"; }
 
     int get_tipo() { return _tipoMidia; };
 
@@ -45,7 +45,7 @@ class erro_de_abertura : public std::exception {
 public:
     erro_de_abertura(std::string arquivo);
 
-    const char* what() const throw() { return "Erro ao abrir o arquivo de cadastro"; }
+    const char* what() const throw() { return "ERRO: arquivo inexistente"; }
 
     std::string get_arquivo() { return _arquivo; };
 
@@ -57,12 +57,24 @@ class ordem_invalida : public std::exception {
 public:
     ordem_invalida(char ordem);
 
-    const char* what() const throw() { return "Erro: as opções de ordenação são Código (C) ou Título (T)"; }
+    const char* what() const throw() { return "ERRO: as opções de ordenação são Código (C) ou Título (T)"; }
 
     char get_ordem() { return _ordem; };
 
 private:
     char _ordem;
+};
+
+class categoria_invalida : public std::exception {
+public:
+    categoria_invalida(std::string categoria);
+
+    const char* what() const throw() { return "ERRO: a categoria de cadastro é inválida"; }
+
+    std::string  get_categoria() { return _categoria; };
+
+private:
+    std::string  _categoria;
 };
 
 } 
