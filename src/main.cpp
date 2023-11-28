@@ -88,11 +88,15 @@ int main(){
             stream >> cpf;
 
             std::vector<int> midias_para_alugar;
+
             while (stream >> codigo) {
                 midias_para_alugar.push_back(codigo);
             }
-
-            locacao.fazerLocacao(clientes, estoque, cpf, midias_para_alugar);
+            if (midias_para_alugar.empty()) {
+                std::cout << "Insira ao menos um filme." << std::endl;
+            } else {
+                locacao.fazerLocacao(clientes, estoque, cpf, midias_para_alugar);
+            }
 
         } else if (comando == "DV"){ // Devolução Filme
             stream >> cpf;
