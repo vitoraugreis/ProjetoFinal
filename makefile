@@ -5,8 +5,10 @@ TARGET = ProjetoFinal
 BUILD_DIR = ./build
 INCLUDE_DIR = ./include
 SRC_DIR = ./src
+TST_DIR = ./tests
+DOC_DIR = ./doctest
 
-${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleLocacao.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/ControleClientesExceptions.o ${BUILD_DIR}/ControleMidiaExceptions.o
+${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleLocacao.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/ControleClientesExceptions.o ${BUILD_DIR}/ControleMidiaExceptions.o ${BUILD_DIR}/test_controlemidia.o
 	${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ${TARGET}
  
 ${BUILD_DIR}/ControleClientesExceptions.o : ${INCLUDE_DIR}/ControleClientes/ControleClientesExceptions.hpp ${SRC_DIR}/ControleClientes/ControleClientesExceptions.cpp
@@ -39,3 +41,5 @@ ${BUILD_DIR}/Cliente.o : ${INCLUDE_DIR}/ControleClientes/Cliente.hpp ${SRC_DIR}/
 ${BUILD_DIR}/main.o : ${INCLUDE_DIR}/ControleClientes/ControleClientes.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${SRC_DIR}/main.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleClientes/ -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o
 
+${BUILD_DIR}/test_controlemidia.o : ${INCLUDE_DIR}/ControleMidia/ControleMidiaExceptions.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${TST_DIR}/ControleMidia/test_controlemidia.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -I -c ${TST_DIR}/ControleMidia/test_controlemidia.cpp -o ${BUILD_DIR}/test_controlemidia.o

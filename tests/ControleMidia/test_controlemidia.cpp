@@ -1,5 +1,6 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
-#include "doctest.h"
+#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+#include "../doctest.hpp"
 #include "ControleMidia.hpp"
 #include "ControleMidiaExceptions.hpp"
 
@@ -34,14 +35,14 @@ TEST_CASE("Teste cadastro tipo desconhecido de midia"){
 
 }
 
-TEST_CASE("Teste remover mídia"){
+/*TEST_CASE("Teste remover mídia"){
     ControleMidia estoque;
     estoque.cadastrarMidia(201, "Casablanca", 30, true);
     estoque.cadastrarMidia(103, "Matrix", 18, "Ficção Científica");
     estoque.cadastrarMidia(105, "Gladiador", 14, "Ação");
     estoque.cadastrarMidia(205, "Cidadão Kane", 31, true);
 
-}
+}*/
 
 
 
