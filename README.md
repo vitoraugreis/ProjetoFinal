@@ -8,7 +8,13 @@
 7. [ControleMidia](https://github.com/vitoraugreis/ProjetoFinal#controlemidia)
 ___
 ## Problema
-${\color{yellow}Descrever \ problema}$
+
+Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.
+
+#### Principais fucionalidades:
+- Gerenciamento de filmes
+- Gerenciamento de Clientes
+- Aluguel e Devolução de Filmes
 
 ___
 
