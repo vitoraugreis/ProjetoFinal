@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Projeto Locadora: Código-Fonte de D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/include/ControleClientes/Cliente.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_a92e0b9cd79e7fa25916a68e7ed218a6.html">TP</a></li><li class="navelem"><a class="el" href="dir_6e748942a1f74101c2aa905cd67ac272.html">ProjetoFinal</a></li><li class="navelem"><a class="el" href="dir_478a45a7fbac344cd0ded4dd70ad7d13.html">include</a></li><li class="navelem"><a class="el" href="dir_880944756be76781b60a6bc6bf506816.html">ControleClientes</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Cliente.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_cliente_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CLIENTE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CLIENTE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;unordered_map&gt;</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_cliente.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cliente.html">Cliente</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::unordered_map&lt;int, std::time_t&gt; historico;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::string nome;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::string cpf;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_cliente.html">Cliente</a>(std::string nome, std::string cpf);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string <a class="code hl_function" href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">getNome</a>();</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::string <a class="code hl_function" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a>();</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_cliente.html#ae766d5ec6e97c32382695ab96b77cfae">fazerLocacao</a>(<span class="keywordtype">int</span> codigo, std::time_t momento_de_locacao);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::time_t <a class="code hl_function" href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">getDataLocacao</a>(<span class="keywordtype">int</span> codigo);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:8</div></div>
+<div class="ttc" id="aclass_cliente_html_a09b99b4140f32bdd3bf486cc2ac5ee27"><div class="ttname"><a href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">Cliente::getNome</a></div><div class="ttdeci">std::string getNome()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:8</div></div>
+<div class="ttc" id="aclass_cliente_html_a8eaba8a00f75dbff616634ac2cb3e1f7"><div class="ttname"><a href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">Cliente::getCPF</a></div><div class="ttdeci">std::string getCPF()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:12</div></div>
+<div class="ttc" id="aclass_cliente_html_aaad900bb0cb3066ba7603c4df413836c"><div class="ttname"><a href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">Cliente::getDataLocacao</a></div><div class="ttdeci">std::time_t getDataLocacao(int codigo)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:21</div></div>
+<div class="ttc" id="aclass_cliente_html_ae766d5ec6e97c32382695ab96b77cfae"><div class="ttname"><a href="class_cliente.html#ae766d5ec6e97c32382695ab96b77cfae">Cliente::fazerLocacao</a></div><div class="ttdeci">int fazerLocacao(int codigo, std::time_t momento_de_locacao)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
