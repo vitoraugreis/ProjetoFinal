@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
+=======
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN 
+#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS
+#include "../doctest.hpp"
+>>>>>>> b66f2997de0041afa5e91dde692cfcf3cd9ae798
 #include "ControleMidia.hpp"
 #include "ControleMidiaExceptions.hpp"
 
@@ -44,14 +50,19 @@ TEST_CASE("Teste cadastro tipo desconhecido de midia"){
 
 }
 
+<<<<<<< HEAD
 TEST_CASE("Teste pesquisa de midia"){
     
+=======
+/*TEST_CASE("Teste remover mídia"){
+>>>>>>> b66f2997de0041afa5e91dde692cfcf3cd9ae798
     ControleMidia estoque;
     estoque.cadastrarMidia(1, 1,"Titanic",10, "Promocao");
     estoque.cadastrarMidia(2, 2,"Gladiator",32, "");
     estoque.cadastrarMidia(2, 3,"Django",10, "");
     estoque.cadastrarMidia(1, 4,"Jaws",6, "Promocao");
 
+<<<<<<< HEAD
     SUBCASE("Pesquisa de código válido"){
         CHECK(estoque.pesquisarMidia(2)!= estoque.getEstoqueEnd());
     }
@@ -103,6 +114,9 @@ TEST_CASE("Teste imprimir mídias"){
     }
     
 }
+=======
+}*/
+>>>>>>> b66f2997de0041afa5e91dde692cfcf3cd9ae798
 
 
 TEST_CASE("Teste de leitura bem-sucedida do arquivo de cadastro") {
