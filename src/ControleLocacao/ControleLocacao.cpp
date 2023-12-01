@@ -53,7 +53,7 @@ bool ControleLocacao::fazerLocacao(ControleClientes &cc, ControleMidia &cm, std:
         }
         std::cout << "Cliente " << cliente->getCPF() << " " << cliente->getNome() << " " << "alugou os filmes:" << std::endl;
         for (auto it = (*ind).second.begin(); it != (*ind).second.end(); it++){
-            (*cliente).fazerLocacao((*it)->getCodigo(), momento_de_locacao);
+            (*cliente).fazerLocacao((*it)->getCodigo(), *std::localtime(&momento_de_locacao));
             (*it)->imprimirInformacoes(false);
             (*it)->diminuirUnidadesDisponiveis();
         }
@@ -85,17 +85,20 @@ bool ControleLocacao::fazerDevolucao(ControleClientes &cc, ControleMidia &cm, st
         std::cout << std::left << std::setw(12) << "Código" << std::setw(15)<< "Alocação" << std::setw(16)  << "Devolução" << std::setw(15)  << "Valor a Pagar" << std::endl;
 
         for (auto it = filmes.begin(); it != filmes.end(); it++){
-            std::time_t momento_de_alocacao = cliente->getDataLocacao((**it).getCodigo());
+            std::tm tm_alocacao = {};
+            tm_alocacao = cliente->getDataLocacao((**it).getCodigo());
+            std::time_t momento_de_alocacao = mktime(&tm_alocacao);
+
             double valor_a_pagar = 0.0;
             double duracao = (momento_de_devolucao - momento_de_alocacao)/DIA_EM_SEGUNDOS;
 
             valor_a_pagar = calculaAluguel(**it, duracao);
             total_a_pagar += valor_a_pagar;
 
-            std::tm tm_alocacao = *std::localtime(&momento_de_alocacao);
-
             std::cout << " " << (**it).getCodigo() << "      " << std::put_time(&tm_alocacao, FORMATO_DATA) << "    " <<  std::put_time(&tm_devolucao, FORMATO_DATA) << "      " << valor_a_pagar << std::endl;
         
+            (*cliente).fazerDevolucao((*it)->getCodigo(), *std::localtime(&momento_de_devolucao));
+            
             (*it)->aumentarUnidadesDisponiveis();
         }
 

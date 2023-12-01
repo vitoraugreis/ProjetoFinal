@@ -85,6 +85,10 @@ int main(){
 
             clientes.gerarRelatorio(ordem);
 
+        }  else if (comando == "LH"){ // Listar historico de locações de cliente
+            stream >> cpf;
+            clientes.printHistorico(cpf);
+
         } else if (comando == "AF"){ // Aluguel Filme
             stream >> cpf;
 

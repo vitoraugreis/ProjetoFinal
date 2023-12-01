@@ -15,6 +15,7 @@ public:
     Cliente* pesquisarCliente(std::string cpf);
     bool gerarRelatorio(char ordem);
     void limparDatabase();
+    bool printHistorico(std::string cpf);
     ~ControleClientes();
 };
 

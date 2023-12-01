@@ -112,3 +112,16 @@ ControleClientes::~ControleClientes(){
     }
     Database.close();
 }
+
+bool ControleClientes::printHistorico(std::string cpf){
+    Cliente* cliente = this->pesquisarCliente(cpf);
+    if(!cliente){
+        throw clientes_excp::cpf_inexistente(cpf);
+        return false;
+    }
+    if (cliente->isHistoricoVazio()){
+        std::cout << "Cliente não fez nenhuma alocação" << std::endl;
+    }
+
+    cliente->printHistorico();
+};
