@@ -18,6 +18,17 @@ ControleMidia:: ~ControleMidia(){
     }
 }
 
+std::vector<Midia*> ControleMidia::getEstoque(){
+    
+    return estoque;
+}
+
+std::vector<Midia*>::iterator ControleMidia::getEstoqueEnd(){
+        
+        return estoque.end();
+
+}
+
 bool ControleMidia::cadastrarDvd(int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria) {
     
     auto it = pesquisarMidia(codigo);

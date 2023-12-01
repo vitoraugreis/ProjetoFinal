@@ -40,7 +40,7 @@ bool ControleLocacao::fazerLocacao(ControleClientes &cc, ControleMidia &cm, std:
 
         for (auto it = filmes.begin(); it != filmes.end(); it++){
             auto verify = cm.pesquisarMidia(*it);
-            if (verify != cm.estoque.end()){
+            if (verify != cm.getEstoqueEnd()){
                 if ((*verify)->getUnidadesDisponiveis() == 0){
                     std::cout << "ERRO: Filme " << (*verify)->getCodigo() << " não possui mais unidades disponiveis" << std::endl;
                     return false;

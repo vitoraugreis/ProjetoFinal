@@ -7,12 +7,14 @@
 #include <vector>
 
 class ControleMidia {
-    public:
+    
     std :: vector<Midia*> estoque;
 
     public:
         ControleMidia();
-        ~ControleMidia();  
+        ~ControleMidia();
+        std::vector<Midia*> getEstoque();  
+        std::vector<Midia*>::iterator getEstoqueEnd();  
         bool cadastrarMidia(int tipoMidia, int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria);
         bool cadastrarDvd(int codigo, std :: string titulo,int unidadesDisponiveis, std:: string categoria);
         bool cadastrarFita(int codigo, std :: string titulo,int unidadesDisponiveis, bool rebobinada);
