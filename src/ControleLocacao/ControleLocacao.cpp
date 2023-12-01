@@ -45,7 +45,6 @@ bool ControleLocacao::fazerLocacao(ControleClientes &cc, ControleMidia &cm, std:
                     std::cout << "ERRO: Filme " << (*verify)->getCodigo() << " não possui mais unidades disponiveis" << std::endl;
                     return false;
                 }
-                (*cliente).fazerLocacao((*verify)->getCodigo(), momento_de_locacao);
                 (*ind).second.push_back(*verify);
             } else{
                 throw midia_excp::codigo_inexistente(*it);
@@ -54,6 +53,7 @@ bool ControleLocacao::fazerLocacao(ControleClientes &cc, ControleMidia &cm, std:
         }
         std::cout << "Cliente " << cliente->getCPF() << " " << cliente->getNome() << " " << "alugou os filmes:" << std::endl;
         for (auto it = (*ind).second.begin(); it != (*ind).second.end(); it++){
+            (*cliente).fazerLocacao((*it)->getCodigo(), momento_de_locacao);
             (*it)->imprimirInformacoes(false);
             (*it)->diminuirUnidadesDisponiveis();
         }
@@ -95,6 +95,8 @@ bool ControleLocacao::fazerDevolucao(ControleClientes &cc, ControleMidia &cm, st
             std::tm tm_alocacao = *std::localtime(&momento_de_alocacao);
 
             std::cout << " " << (**it).getCodigo() << "      " << std::put_time(&tm_alocacao, FORMATO_DATA) << "    " <<  std::put_time(&tm_devolucao, FORMATO_DATA) << "      " << valor_a_pagar << std::endl;
+        
+            (*it)->aumentarUnidadesDisponiveis();
         }
 
         std::cout << "Total a pagar: " << total_a_pagar << std::endl;

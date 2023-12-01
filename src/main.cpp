@@ -108,6 +108,8 @@ int main(){
         } else if (comando == "FS"){ // Finalizar Sistema
             break;
 
+        } else {
+            std::cout << "Comando inválido" << std::endl;
         }
         } catch (midia_excp::ordem_invalida &e){
             std::cerr << e.what() << std::endl;

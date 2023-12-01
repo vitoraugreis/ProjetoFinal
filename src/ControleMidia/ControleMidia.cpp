@@ -99,6 +99,8 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
         int unidadesDisponiveis;
 
         // lê a primeira coluna do dbMidia e procura o tipo midia
+
+        try {
         switch (tipoMidia) {
             case 1: //Dvd
                 categoria.clear();
@@ -113,7 +115,9 @@ bool ControleMidia::lerArquivoCadastro(std::string arquivo) {
             default:
                 throw midia_excp::tipo_desconhecido(tipoMidia);
                 break;
-        }
+        }} catch (const std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }   
     }
 
     infile.close();
@@ -149,6 +153,9 @@ void ControleMidia::imprimirMidias(char ordem) {
 
     for(auto it = this->estoque.begin(); it != this->estoque.end(); it++){
         (*it)->imprimirInformacoes();
+    }
+    if (estoque.size() == 0 ){
+        std::cout << "Nenhuma mídia armazenada" << std::endl;
     }
 }
 

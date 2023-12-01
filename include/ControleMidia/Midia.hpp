@@ -20,6 +20,7 @@ class Midia{
         int getUnidadesDisponiveis();
         virtual void imprimirInformacoes(bool unidades = true) = 0;
         void diminuirUnidadesDisponiveis();
+        void aumentarUnidadesDisponiveis();
 };
 
 

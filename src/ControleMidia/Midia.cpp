@@ -39,3 +39,7 @@ int Midia::getUnidadesDisponiveis(){
 void Midia::diminuirUnidadesDisponiveis(){
     this->unidadesDisponiveis--;
 }
+
+void Midia::aumentarUnidadesDisponiveis(){
+    this->unidadesDisponiveis++;
+}
