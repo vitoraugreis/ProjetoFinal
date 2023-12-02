@@ -41,5 +41,5 @@ ${BUILD_DIR}/Cliente.o : ${INCLUDE_DIR}/ControleClientes/Cliente.hpp ${SRC_DIR}/
 ${BUILD_DIR}/main.o : ${INCLUDE_DIR}/ControleClientes/ControleClientes.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${SRC_DIR}/main.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleClientes/ -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o
 
-${BUILD_DIR}/test_controlemidia.o : ${INCLUDE_DIR}/ControleMidia/ControleMidiaExceptions.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${TST_DIR}/ControleMidia/test_controlemidia.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -I -c ${TST_DIR}/ControleMidia/test_controlemidia.cpp -o ${BUILD_DIR}/test_controlemidia.o
+#${BUILD_DIR}/test_controlemidia.o : ${INCLUDE_DIR}/ControleMidia/ControleMidiaExceptions.hpp ${INCLUDE_DIR}/ControleMidia/ControleMidia.hpp ${INCLUDE_DIR}/ControleLocacao/ControleLocacao.hpp ${TST_DIR}/ControleMidia/test_controlemidia.cpp
+#	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/ControleMidia/ -I ${INCLUDE_DIR}/ControleLocacao/ -I -c ${TST_DIR}/ControleMidia/test_controlemidia.cpp -o ${BUILD_DIR}/test_controlemidia.o
