@@ -42,3 +42,5 @@ Após reuniões, discussões e criação de CRCs, o grupo definiu como o projeto
   - Não é necessária a ordenação da estrutura, por isso optamos pela "unordered_map" ao invés do "map". Isso faz com que o sistema use menos memória.
 
 ## Dificuldades no desenvolvimento
+
+O desenvolvimento do código em si foi tranquilo, porém encontramos uma grande dificuldade na hora de fazer os testes do programa.
