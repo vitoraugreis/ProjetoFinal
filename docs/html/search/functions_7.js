@@ -4,5 +4,6 @@ var searchData=
   ['imprimirmidias_1',['imprimirMidias',['../class_controle_midia.html#a8878576b98db2c3f8a5b6a62c17a78df',1,'ControleMidia']]],
   ['instantiationhelper_2',['instantiationHelper',['../namespacedoctest_1_1detail.html#aad401b097a9af4df1d4a9d0911957c0f',1,'doctest::detail']]],
   ['isdebuggeractive_3',['isDebuggerActive',['../namespacedoctest_1_1detail.html#a013828c4e677241cc26aeea33f762710',1,'doctest::detail']]],
-  ['isnan_4',['IsNaN',['../structdoctest_1_1_is_na_n.html#a47f3957c504f7d8bc40dd4014cce5ee1',1,'doctest::IsNaN']]]
+  ['ishistoricovazio_4',['isHistoricoVazio',['../class_cliente.html#af20b4441386527cf76cf40170bacaa2d',1,'Cliente']]],
+  ['isnan_5',['isnan',['../structdoctest_1_1_is_na_n.html#a47f3957c504f7d8bc40dd4014cce5ee1',1,'doctest::IsNaN::IsNaN(F f, bool flip=false)'],['../structdoctest_1_1_is_na_n.html#a47f3957c504f7d8bc40dd4014cce5ee1',1,'doctest::IsNaN::IsNaN(F f, bool flip=false)']]]
 ];

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -93,6 +93,8 @@ Membros Públicos</h2></td></tr>
 <tr class="separator:aa4c14e6f092c802090230ab166c958c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24efd6f824d9fd04853162734e936f90" id="r_a24efd6f824d9fd04853162734e936f90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controle_clientes.html#a24efd6f824d9fd04853162734e936f90">limparDatabase</a> ()</td></tr>
 <tr class="separator:a24efd6f824d9fd04853162734e936f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78ee1c6d1d2e45ca937976a74b43822f" id="r_a78ee1c6d1d2e45ca937976a74b43822f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controle_clientes.html#a78ee1c6d1d2e45ca937976a74b43822f">printHistorico</a> (std::string cpf)</td></tr>
+<tr class="separator:a78ee1c6d1d2e45ca937976a74b43822f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a90c64cb89d439115c9ef978a37c126" id="r_a3a90c64cb89d439115c9ef978a37c126"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_controle_clientes.html#a3a90c64cb89d439115c9ef978a37c126">~ControleClientes</a> ()</td></tr>
 <tr class="separator:a3a90c64cb89d439115c9ef978a37c126"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -215,7 +217,7 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   44</span>    }</div>
 <div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   46</span>}</div>
-<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:8</div></div>
+<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:47</div></div>
 <div class="ttc" id="aclass_controle_clientes_html_ab28310650fb3ce01e48d3a2795642d5e"><div class="ttname"><a href="class_controle_clientes.html#ab28310650fb3ce01e48d3a2795642d5e">ControleClientes::pesquisarCliente</a></div><div class="ttdeci">Cliente * pesquisarCliente(std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:65</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__curto_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:8</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__repetido_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__repetido.html">clientes_excp::cpf_repetido</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:20</div></div>
@@ -310,6 +312,39 @@ Membros Públicos</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a78ee1c6d1d2e45ca937976a74b43822f" name="a78ee1c6d1d2e45ca937976a74b43822f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ee1c6d1d2e45ca937976a74b43822f">&#9670;&#160;</a></span>printHistorico()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ControleClientes::printHistorico </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>cpf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  116</span>                                                  {</div>
+<div class="line"><span class="lineno">  117</span>    <a class="code hl_class" href="class_cliente.html">Cliente</a>* cliente = this-&gt;<a class="code hl_function" href="class_controle_clientes.html#ab28310650fb3ce01e48d3a2795642d5e">pesquisarCliente</a>(cpf);</div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span>(!cliente){</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a>(cpf);</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  121</span>    }</div>
+<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">if</span> (cliente-&gt;<a class="code hl_function" href="class_cliente.html#af20b4441386527cf76cf40170bacaa2d">isHistoricoVazio</a>()){</div>
+<div class="line"><span class="lineno">  123</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Cliente não fez nenhuma alocação&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    cliente-&gt;<a class="code hl_function" href="class_cliente.html#aef11f7dbb9308433476641145b3f3a71">printHistorico</a>();</div>
+<div class="line"><span class="lineno">  127</span>}</div>
+<div class="ttc" id="aclass_cliente_html_aef11f7dbb9308433476641145b3f3a71"><div class="ttname"><a href="class_cliente.html#aef11f7dbb9308433476641145b3f3a71">Cliente::printHistorico</a></div><div class="ttdeci">bool printHistorico()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:40</div></div>
+<div class="ttc" id="aclass_cliente_html_af20b4441386527cf76cf40170bacaa2d"><div class="ttname"><a href="class_cliente.html#af20b4441386527cf76cf40170bacaa2d">Cliente::isHistoricoVazio</a></div><div class="ttdeci">bool isHistoricoVazio()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:61</div></div>
+<div class="ttc" id="aclassclientes__excp_1_1cpf__inexistente_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:32</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="af23cd127c8af29a520418ff85d2dade6" name="af23cd127c8af29a520418ff85d2dade6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af23cd127c8af29a520418ff85d2dade6">&#9670;&#160;</a></span>removerCadastro()</h2>
 
@@ -341,7 +376,6 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   61</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;Cliente &quot;</span> &lt;&lt; cpf &lt;&lt; <span class="stringliteral">&quot; removido com sucesso&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   63</span>}</div>
-<div class="ttc" id="aclassclientes__excp_1_1cpf__inexistente_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:32</div></div>
 </div><!-- fragment -->
 </div>
 </div>

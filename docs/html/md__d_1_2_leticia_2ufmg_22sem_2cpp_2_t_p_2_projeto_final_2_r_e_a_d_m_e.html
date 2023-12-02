@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -73,185 +73,62 @@ $(function() {
   <div class="headertitle"><div class="title">Projeto Final PDS2</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p><ol type="1">
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#problema">Problema</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#clientes">Clientes</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#controleclientes">ControleClientes</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#mídia">Mídia</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#fita">Fita</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#dvd">Dvd</a></li>
-<li><a href="https://github.com/vitoraugreis/ProjetoFinal#controlemidia">ControleMidia</a> <hr  />
- </li>
-</ol>
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Problema</h1>
-<p>${\color{yellow}Descrever \ problema}$</p>
-<hr  />
+<p>Uma vídeo-locadora entrou em contato com nosso grupo pedindo a criação de um sistema que possibilite um melhor controle de toda a loja. Este sistema deveria ser capaz de :</p><ul>
+<li>Gerenciar o estoque de filmes;</li>
+<li>Gerenciar os clientes da vídeo-locadora;</li>
+<li>Gerenciar os aluguéis de filmes;</li>
+<li>Calcular automáticamente o quanto o cliente deve pagar na devolução dos filmes.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Clientes</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p><ul>
-<li>TAD para representar o cliente da locadora de filmes.</li>
-<li>Possui como atríbutos o seu nome e CPF. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
+Solução</h1>
+<p>Após reuniões, discussões e criação de CRCs, o grupo definiu como o projeto seria feito e suas características:</p><ul>
+<li>O sistema será programado em linguagem C++;</li>
+<li>Teremos um módulo do sistema responsável apenas pelo Controle de Clientes;</li>
+<li>Teremos um módulo responsável somente pelo Controle das Mídias da locadora;</li>
+<li>E um módulo responsável pela locação, devolução e cálculo de pagamento.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md3"></a>
-&lt;ins&gt;Construtor&lt;/ins&gt;</h2>
+Controle dos Clientes</h2>
 <ul>
-<li>Constrói o <a class="el" href="class_cliente.html">Cliente</a> de acordo com o nome e o CPF submetidos pelo usuário. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
+<li>O módulo de controle de clientes é responsável por controlar o banco de dados de clientes da loja, assim como gerar relatórios.</li>
+<li>Cada cliente possui como característica única o seu CPF, que é armazenado junto de seu nome.</li>
+<li>Estes clientes são armazenados em um vetor, onde é possível fazer remoções, adições (cadastros), e outras operações.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
-&lt;ins&gt;getNome&lt;/ins&gt;</h2>
+Controle das Mídias</h2>
 <ul>
-<li>Retorna o nome do cliente desejado. <details >
-<summary >
-<em>Clique para mostrar o código</em></summary>
-<p></p>
-<div class="fragment"><div class="line">c++</div>
-<div class="line">   std::string Cliente::getNome(){</div>
-<div class="line">     return this-&gt;nome;</div>
-<div class="line">   }</div>
-</div><!-- fragment --> </details>
+<li>O módulo de controle de mídias é responsável por todo o gerenciamento do estoque da vídeo-locadora.</li>
+<li>Através dele é possível adicionar, remover, atualizar quantidades disponíveis, gerar relatórios, e outras funções.</li>
+<li>A video-locadora possui dois tipos de mídias, cada um com suas categorias e valor:<ul>
+<li><a class="el" href="class_dvd.html">Dvd</a> → Lançamento: 20R$ p/dia || Estoque: 10R$ p/dia || Promoção: 10R$ fixo</li>
+<li><a class="el" href="class_fita.html">Fita</a> → Rebobinada: 5R$ fixo || Não rebobinada: 5R$ fixo + Multa de 2R$</li>
+</ul>
 </li>
+<li>As mídias são todas armazenadas em um vetor, onde é possível fazer todas as operações necessárias.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md5"></a>
-&lt;ins&gt;getCPF&lt;/ins&gt;</h2>
+Controle das locações</h2>
 <ul>
-<li>Retorna o CPF do cliente desejado. <details >
-<summary >
-<em>Clique para mostrar o código</em></summary>
-<p></p>
-<div class="fragment"><div class="line">c++</div>
-<div class="line">   std::string Cliente::getCPF(){</div>
-<div class="line">     return this-&gt;cpf;</div>
-<div class="line">   }</div>
-</div><!-- fragment --> </details>
+<li>O módulo de controle de locações é responsável por fazer as locações das mídias e calcular o preço final do aluguel para o cliente.</li>
+<li>No ato da locação, o sistema atualiza a quantidade disponível da mídia no banco de dados.</li>
+<li>Na devolução, o sistema calcula automaticamente o preço final, de acordo com o preço de cada mídia, e retorna ao cliente.<ul>
+<li>Também é feita a atualização da quantidade da mídia no estoque.</li>
+</ul>
+</li>
+<li>O sistema foi implementado usando a estutura de dados "unordered_map"<ul>
+<li>Através dela é possível fazer a relação cliente → mídias.</li>
+<li>A chave da estrutura é o cliente, já o valor é um vetor de mídias, que se refere as mídias alugadas pelo cliente.</li>
+<li>Não é necessária a ordenação da estrutura, por isso optamos pela "unordered_map" ao invés do "map". Isso faz com que o sistema use menos memória.</li>
+</ul>
 </li>
 </ul>
-<hr  />
 <h1><a class="anchor" id="autotoc_md6"></a>
-ControleClientes</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p><ul>
-<li>TAD que representa o sistema responsável por operações relacionadas aos clientes da locadora.</li>
-<li>Controla o banco de dados de clientes fazendo cadastros, remoções, relatórios e outras operações. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
-&lt;ins&gt;Construtor&lt;/ins&gt;</h2>
-<ul>
-<li>Lê o arquivo em que os clientes são armazenados <code>database/dbClientes.txt</code> e coloca todos em um vetor. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md8"></a>
-&lt;ins&gt;fazerCadastro&lt;/ins&gt;</h2>
-<ul>
-<li>Cria um cliente, antes conferindo se não há outro de mesmo cpf e se o cpf é válido, depois o adiciona ao vetor de clientes. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
-&lt;ins&gt;removerCadastro&lt;/ins&gt;</h2>
-<ul>
-<li>Deleta os dados de um cliente, conferindo antes se o cliente existe. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md10"></a>
-&lt;ins&gt;pesquisarCliente&lt;/ins&gt;</h2>
-<ul>
-<li>Confere se, entre os clientes existentes, existe um cliente com o cpf dado, caso exista, retorna o cliente. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md11"></a>
-&lt;ins&gt;gerarRelatorio&lt;/ins&gt;</h2>
-<ul>
-<li>Gera uma lista dos clientes existentes, ordenando eles por CPF ou por nome, de acordo com o usuário <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
-&lt;ins&gt;limparDatabase&lt;/ins&gt;</h2>
-<ul>
-<li>Apaga os dados de todos os clientes cadastrados. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
-&lt;ins&gt;Destrutor&lt;/ins&gt;</h2>
-<ul>
-<li>Atualiza o banco de dados, encontrado no diretório <code>database/dbClientes.txt</code>, após todas as operações feitas pelo usuário do programa. <details >
-<summary >
-<em>${\color{red}Clique \ para \ mostrar \ o \ código \ (Colocar \ no \ fim \ do \ projeto)}$</em></summary>
-<p></p>
-<p></p>
-</details>
-</li>
-</ul>
-<hr  />
-<h1><a class="anchor" id="autotoc_md14"></a>
-Mídia</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p>
-<hr  />
-<h1><a class="anchor" id="autotoc_md15"></a>
-Fita</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p>
-<hr  />
-<h1><a class="anchor" id="autotoc_md16"></a>
-DVD</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p>
-<hr  />
-<h1><a class="anchor" id="autotoc_md17"></a>
-ControleMidia</h1>
-<p><a href="https://github.com/vitoraugreis/ProjetoFinal#projeto-final-pds2">Voltar ao início da documentação</a> <br  />
-</p>
-<hr  />
- </div></div><!-- contents -->
+Dificuldades no desenvolvimento</h1>
+<p>O desenvolvimento do código em si foi tranquilo, porém encontramos uma grande dificuldade na hora de fazer os testes do programa. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

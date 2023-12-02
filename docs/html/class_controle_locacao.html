@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -177,7 +177,7 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   70</span>    <span class="comment">// std::tm tm_devolucao = *std::localtime(&amp;momento_de_devolucao);</span></div>
 <div class="line"><span class="lineno">   71</span>    std::tm tm_devolucao = {};</div>
 <div class="line"><span class="lineno">   72</span>    std::istringstream date_stream(<span class="stringliteral">&quot;28/12/2023&quot;</span>); </div>
-<div class="line"><span class="lineno">   73</span>    date_stream &gt;&gt; std::get_time(&amp;tm_devolucao, <a class="code hl_define" href="_controle_locacao_8cpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>); </div>
+<div class="line"><span class="lineno">   73</span>    date_stream &gt;&gt; std::get_time(&amp;tm_devolucao, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>); </div>
 <div class="line"><span class="lineno">   74</span>    std::time_t momento_de_devolucao = mktime(&amp;tm_devolucao);</div>
 <div class="line"><span class="lineno">   75</span> </div>
 <div class="line"><span class="lineno">   76</span>    <span class="keywordtype">double</span> total_a_pagar = 0.0;</div>
@@ -192,32 +192,37 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   85</span>        std::cout &lt;&lt; std::left &lt;&lt; std::setw(12) &lt;&lt; <span class="stringliteral">&quot;Código&quot;</span> &lt;&lt; std::setw(15)&lt;&lt; <span class="stringliteral">&quot;Alocação&quot;</span> &lt;&lt; std::setw(16)  &lt;&lt; <span class="stringliteral">&quot;Devolução&quot;</span> &lt;&lt; std::setw(15)  &lt;&lt; <span class="stringliteral">&quot;Valor a Pagar&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   86</span> </div>
 <div class="line"><span class="lineno">   87</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = filmes.begin(); it != filmes.end(); it++){</div>
-<div class="line"><span class="lineno">   88</span>            std::time_t momento_de_alocacao = cliente-&gt;<a class="code hl_function" href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">getDataLocacao</a>((**it).getCodigo());</div>
-<div class="line"><span class="lineno">   89</span>            <span class="keywordtype">double</span> valor_a_pagar = 0.0;</div>
-<div class="line"><span class="lineno">   90</span>            <span class="keywordtype">double</span> duracao = (momento_de_devolucao - momento_de_alocacao)/<a class="code hl_define" href="_controle_locacao_8cpp.html#a715a7e872c71190b2d2384b260ec089d">DIA_EM_SEGUNDOS</a>;</div>
+<div class="line"><span class="lineno">   88</span>            std::tm tm_alocacao = {};</div>
+<div class="line"><span class="lineno">   89</span>            tm_alocacao = cliente-&gt;<a class="code hl_function" href="class_cliente.html#a58007311c6423ddb3018b38928c9198c">getDataLocacao</a>((**it).getCodigo());</div>
+<div class="line"><span class="lineno">   90</span>            std::time_t momento_de_alocacao = mktime(&amp;tm_alocacao);</div>
 <div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>            valor_a_pagar = <a class="code hl_function" href="class_controle_locacao.html#a007afe9558680af2f9387bed3a39e6a1">calculaAluguel</a>(**it, duracao);</div>
-<div class="line"><span class="lineno">   93</span>            total_a_pagar += valor_a_pagar;</div>
+<div class="line"><span class="lineno">   92</span>            <span class="keywordtype">double</span> valor_a_pagar = 0.0;</div>
+<div class="line"><span class="lineno">   93</span>            <span class="keywordtype">double</span> duracao = (momento_de_devolucao - momento_de_alocacao)/<a class="code hl_define" href="_controle_locacao_8cpp.html#a715a7e872c71190b2d2384b260ec089d">DIA_EM_SEGUNDOS</a>;</div>
 <div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>            std::tm tm_alocacao = *std::localtime(&amp;momento_de_alocacao);</div>
-<div class="line"><span class="lineno">   96</span> </div>
-<div class="line"><span class="lineno">   97</span>            std::cout &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; (**it).getCodigo() &lt;&lt; <span class="stringliteral">&quot;      &quot;</span> &lt;&lt; std::put_time(&amp;tm_alocacao, <a class="code hl_define" href="_controle_locacao_8cpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot;    &quot;</span> &lt;&lt;  std::put_time(&amp;tm_devolucao, <a class="code hl_define" href="_controle_locacao_8cpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot;      &quot;</span> &lt;&lt; valor_a_pagar &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   98</span>        }</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Total a pagar: &quot;</span> &lt;&lt; total_a_pagar &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    } <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a>(cpf);</div>
-<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  105</span>    }</div>
-<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  107</span>}</div>
+<div class="line"><span class="lineno">   95</span>            valor_a_pagar = <a class="code hl_function" href="class_controle_locacao.html#a007afe9558680af2f9387bed3a39e6a1">calculaAluguel</a>(**it, duracao);</div>
+<div class="line"><span class="lineno">   96</span>            total_a_pagar += valor_a_pagar;</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>            std::cout &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; (**it).getCodigo() &lt;&lt; <span class="stringliteral">&quot;      &quot;</span> &lt;&lt; std::put_time(&amp;tm_alocacao, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot;    &quot;</span> &lt;&lt;  std::put_time(&amp;tm_devolucao, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot;      &quot;</span> &lt;&lt; valor_a_pagar &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   99</span>        </div>
+<div class="line"><span class="lineno">  100</span>            (*cliente).fazerDevolucao((*it)-&gt;getCodigo(), *std::localtime(&amp;momento_de_devolucao));</div>
+<div class="line"><span class="lineno">  101</span>            </div>
+<div class="line"><span class="lineno">  102</span>            (*it)-&gt;aumentarUnidadesDisponiveis();</div>
+<div class="line"><span class="lineno">  103</span>        }</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Total a pagar: &quot;</span> &lt;&lt; total_a_pagar &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  107</span>    } <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">throw</span> <a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a>(cpf);</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  110</span>    }</div>
+<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  112</span>}</div>
+<div class="ttc" id="a_cliente_8hpp_html_aded9cf7d88e73ca3dc0d874bc9974ad3"><div class="ttname"><a href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a></div><div class="ttdeci">#define FORMATO_DATA</div><div class="ttdef"><b>Definição</b> Cliente.hpp:10</div></div>
 <div class="ttc" id="a_controle_locacao_8cpp_html_a715a7e872c71190b2d2384b260ec089d"><div class="ttname"><a href="_controle_locacao_8cpp.html#a715a7e872c71190b2d2384b260ec089d">DIA_EM_SEGUNDOS</a></div><div class="ttdeci">#define DIA_EM_SEGUNDOS</div><div class="ttdef"><b>Definição</b> ControleLocacao.cpp:9</div></div>
-<div class="ttc" id="a_controle_locacao_8cpp_html_aded9cf7d88e73ca3dc0d874bc9974ad3"><div class="ttname"><a href="_controle_locacao_8cpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a></div><div class="ttdeci">#define FORMATO_DATA</div><div class="ttdef"><b>Definição</b> ControleLocacao.cpp:10</div></div>
-<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:8</div></div>
-<div class="ttc" id="aclass_cliente_html_a09b99b4140f32bdd3bf486cc2ac5ee27"><div class="ttname"><a href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">Cliente::getNome</a></div><div class="ttdeci">std::string getNome()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:8</div></div>
-<div class="ttc" id="aclass_cliente_html_a8eaba8a00f75dbff616634ac2cb3e1f7"><div class="ttname"><a href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">Cliente::getCPF</a></div><div class="ttdeci">std::string getCPF()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:12</div></div>
-<div class="ttc" id="aclass_cliente_html_aaad900bb0cb3066ba7603c4df413836c"><div class="ttname"><a href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">Cliente::getDataLocacao</a></div><div class="ttdeci">std::time_t getDataLocacao(int codigo)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:21</div></div>
+<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:47</div></div>
+<div class="ttc" id="aclass_cliente_html_a09b99b4140f32bdd3bf486cc2ac5ee27"><div class="ttname"><a href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">Cliente::getNome</a></div><div class="ttdeci">std::string getNome()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:9</div></div>
+<div class="ttc" id="aclass_cliente_html_a58007311c6423ddb3018b38928c9198c"><div class="ttname"><a href="class_cliente.html#a58007311c6423ddb3018b38928c9198c">Cliente::getDataLocacao</a></div><div class="ttdeci">std::tm getDataLocacao(int codigo)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:32</div></div>
+<div class="ttc" id="aclass_cliente_html_a8eaba8a00f75dbff616634ac2cb3e1f7"><div class="ttname"><a href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">Cliente::getCPF</a></div><div class="ttdeci">std::string getCPF()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:13</div></div>
 <div class="ttc" id="aclass_controle_clientes_html_ab28310650fb3ce01e48d3a2795642d5e"><div class="ttname"><a href="class_controle_clientes.html#ab28310650fb3ce01e48d3a2795642d5e">ControleClientes::pesquisarCliente</a></div><div class="ttdeci">Cliente * pesquisarCliente(std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:65</div></div>
 <div class="ttc" id="aclass_controle_locacao_html_a007afe9558680af2f9387bed3a39e6a1"><div class="ttname"><a href="class_controle_locacao.html#a007afe9558680af2f9387bed3a39e6a1">ControleLocacao::calculaAluguel</a></div><div class="ttdeci">double calculaAluguel(Midia &amp;filme, double duracao)</div><div class="ttdef"><b>Definição</b> ControleLocacao.cpp:12</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__inexistente_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:32</div></div>
@@ -272,20 +277,20 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   40</span> </div>
 <div class="line"><span class="lineno">   41</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = filmes.begin(); it != filmes.end(); it++){</div>
 <div class="line"><span class="lineno">   42</span>            <span class="keyword">auto</span> verify = cm.<a class="code hl_function" href="class_controle_midia.html#a940d640dd3b2a691700455c33e649211">pesquisarMidia</a>(*it);</div>
-<div class="line"><span class="lineno">   43</span>            <span class="keywordflow">if</span> (verify != cm.<a class="code hl_variable" href="class_controle_midia.html#ae1138a3c90801239765ef5efac6231ec">estoque</a>.end()){</div>
+<div class="line"><span class="lineno">   43</span>            <span class="keywordflow">if</span> (verify != cm.<a class="code hl_function" href="class_controle_midia.html#a4d41f44be1db05b25a306ecc6adaa289">getEstoqueEnd</a>()){</div>
 <div class="line"><span class="lineno">   44</span>                <span class="keywordflow">if</span> ((*verify)-&gt;getUnidadesDisponiveis() == 0){</div>
 <div class="line"><span class="lineno">   45</span>                    std::cout &lt;&lt; <span class="stringliteral">&quot;ERRO: Filme &quot;</span> &lt;&lt; (*verify)-&gt;getCodigo() &lt;&lt; <span class="stringliteral">&quot; não possui mais unidades disponiveis&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   46</span>                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   47</span>                }</div>
-<div class="line"><span class="lineno">   48</span>                (*cliente).fazerLocacao((*verify)-&gt;getCodigo(), momento_de_locacao);</div>
-<div class="line"><span class="lineno">   49</span>                (*ind).second.push_back(*verify);</div>
-<div class="line"><span class="lineno">   50</span>            } <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">   51</span>                <span class="keywordflow">throw</span> <a class="code hl_class" href="classmidia__excp_1_1codigo__inexistente.html">midia_excp::codigo_inexistente</a>(*it);</div>
-<div class="line"><span class="lineno">   52</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   53</span>            }</div>
-<div class="line"><span class="lineno">   54</span>        }</div>
-<div class="line"><span class="lineno">   55</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Cliente &quot;</span> &lt;&lt; cliente-&gt;<a class="code hl_function" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; cliente-&gt;<a class="code hl_function" href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">getNome</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <span class="stringliteral">&quot;alugou os filmes:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = (*ind).second.begin(); it != (*ind).second.end(); it++){</div>
+<div class="line"><span class="lineno">   48</span>                (*ind).second.push_back(*verify);</div>
+<div class="line"><span class="lineno">   49</span>            } <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">   50</span>                <span class="keywordflow">throw</span> <a class="code hl_class" href="classmidia__excp_1_1codigo__inexistente.html">midia_excp::codigo_inexistente</a>(*it);</div>
+<div class="line"><span class="lineno">   51</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   52</span>            }</div>
+<div class="line"><span class="lineno">   53</span>        }</div>
+<div class="line"><span class="lineno">   54</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Cliente &quot;</span> &lt;&lt; cliente-&gt;<a class="code hl_function" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; cliente-&gt;<a class="code hl_function" href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">getNome</a>() &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <span class="stringliteral">&quot;alugou os filmes:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = (*ind).second.begin(); it != (*ind).second.end(); it++){</div>
+<div class="line"><span class="lineno">   56</span>            (*cliente).fazerLocacao((*it)-&gt;getCodigo(), *std::localtime(&amp;momento_de_locacao));</div>
 <div class="line"><span class="lineno">   57</span>            (*it)-&gt;imprimirInformacoes(<span class="keyword">false</span>);</div>
 <div class="line"><span class="lineno">   58</span>            (*it)-&gt;diminuirUnidadesDisponiveis();</div>
 <div class="line"><span class="lineno">   59</span>        }</div>
@@ -295,8 +300,8 @@ Membros Públicos</h2></td></tr>
 <div class="line"><span class="lineno">   63</span>    }</div>
 <div class="line"><span class="lineno">   64</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">   65</span>}</div>
-<div class="ttc" id="aclass_controle_midia_html_a940d640dd3b2a691700455c33e649211"><div class="ttname"><a href="class_controle_midia.html#a940d640dd3b2a691700455c33e649211">ControleMidia::pesquisarMidia</a></div><div class="ttdeci">std::vector&lt; Midia * &gt;::iterator pesquisarMidia(int codigo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:112</div></div>
-<div class="ttc" id="aclass_controle_midia_html_ae1138a3c90801239765ef5efac6231ec"><div class="ttname"><a href="class_controle_midia.html#ae1138a3c90801239765ef5efac6231ec">ControleMidia::estoque</a></div><div class="ttdeci">std ::vector&lt; Midia * &gt; estoque</div><div class="ttdef"><b>Definição</b> ControleMidia.hpp:11</div></div>
+<div class="ttc" id="aclass_controle_midia_html_a4d41f44be1db05b25a306ecc6adaa289"><div class="ttname"><a href="class_controle_midia.html#a4d41f44be1db05b25a306ecc6adaa289">ControleMidia::getEstoqueEnd</a></div><div class="ttdeci">std::vector&lt; Midia * &gt;::iterator getEstoqueEnd()</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:26</div></div>
+<div class="ttc" id="aclass_controle_midia_html_a940d640dd3b2a691700455c33e649211"><div class="ttname"><a href="class_controle_midia.html#a940d640dd3b2a691700455c33e649211">ControleMidia::pesquisarMidia</a></div><div class="ttdeci">std::vector&lt; Midia * &gt;::iterator pesquisarMidia(int codigo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:127</div></div>
 <div class="ttc" id="aclassmidia__excp_1_1codigo__inexistente_html"><div class="ttname"><a href="classmidia__excp_1_1codigo__inexistente.html">midia_excp::codigo_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleMidiaExceptions.hpp:20</div></div>
 </div><!-- fragment -->
 </div>

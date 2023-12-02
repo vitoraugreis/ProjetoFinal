@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -85,31 +85,96 @@ $(document).ready(function() { init_codefold(0); });
 <a href="_cliente_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CLIENTE_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CLIENTE_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;unordered_map&gt;</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_cliente.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cliente.html">Cliente</a> {</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    std::unordered_map&lt;int, std::time_t&gt; historico;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    std::string nome;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::string cpf;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_class" href="class_cliente.html">Cliente</a>(std::string nome, std::string cpf);</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string <a class="code hl_function" href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">getNome</a>();</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::string <a class="code hl_function" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a>();</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_cliente.html#ae766d5ec6e97c32382695ab96b77cfae">fazerLocacao</a>(<span class="keywordtype">int</span> codigo, std::time_t momento_de_locacao);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::time_t <a class="code hl_function" href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">getDataLocacao</a>(<span class="keywordtype">int</span> codigo);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">   10</a></span><span class="preprocessor">#define FORMATO_DATA &quot;%d/%m/%Y&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="struct_alocacao.html">   12</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_alocacao.html">Alocacao</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">   13</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">_codigo</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">   14</a></span>    std::tm <a class="code hl_variable" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">_momento_de_locacao</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="struct_alocacao.html#aa4d22abbef5586a9e4fcdd3cfd56f0aa">   15</a></span>    std::tm <a class="code hl_variable" href="struct_alocacao.html#aa4d22abbef5586a9e4fcdd3cfd56f0aa">_momento_de_devolucao</a> = {};</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">   16</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">_devolvido</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="struct_alocacao.html#afaa16f7d4d42d294883a7b44c74648ae">   18</a></span>    <a class="code hl_function" href="struct_alocacao.html#afaa16f7d4d42d294883a7b44c74648ae">Alocacao</a>(<span class="keywordtype">int</span> codigo, std::tm  momento_de_locacao):</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_variable" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">_codigo</a>(codigo),</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_variable" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">_momento_de_locacao</a>(momento_de_locacao),</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_variable" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">_devolvido</a>(false) {}</div>
 </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:8</div></div>
-<div class="ttc" id="aclass_cliente_html_a09b99b4140f32bdd3bf486cc2ac5ee27"><div class="ttname"><a href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">Cliente::getNome</a></div><div class="ttdeci">std::string getNome()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:8</div></div>
-<div class="ttc" id="aclass_cliente_html_a8eaba8a00f75dbff616634ac2cb3e1f7"><div class="ttname"><a href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">Cliente::getCPF</a></div><div class="ttdeci">std::string getCPF()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:12</div></div>
-<div class="ttc" id="aclass_cliente_html_aaad900bb0cb3066ba7603c4df413836c"><div class="ttname"><a href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">Cliente::getDataLocacao</a></div><div class="ttdeci">std::time_t getDataLocacao(int codigo)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:21</div></div>
-<div class="ttc" id="aclass_cliente_html_ae766d5ec6e97c32382695ab96b77cfae"><div class="ttname"><a href="class_cliente.html#ae766d5ec6e97c32382695ab96b77cfae">Cliente::fazerLocacao</a></div><div class="ttdeci">int fazerLocacao(int codigo, std::time_t momento_de_locacao)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:16</div></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="struct_alocacao.html#a15d6e62048671c7cd5100a65fefef025">   23</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_alocacao.html#a15d6e62048671c7cd5100a65fefef025">devolver</a>(std::tm momento_de_devolucao){</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <a class="code hl_variable" href="struct_alocacao.html#aa4d22abbef5586a9e4fcdd3cfd56f0aa">_momento_de_devolucao</a> = momento_de_devolucao;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <a class="code hl_variable" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">_devolvido</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_alocacao.html#a783d6d0337ac1a4856e15e979255e83d">   28</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="struct_alocacao.html#a783d6d0337ac1a4856e15e979255e83d">getCodigo</a>() {<span class="keywordflow">return</span> <a class="code hl_variable" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">_codigo</a>;}</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_alocacao.html#aec4a3f96057f07413f21c3883f594bf2">   30</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_alocacao.html#aec4a3f96057f07413f21c3883f594bf2">getDevolvido</a>() {<span class="keywordflow">return</span> <a class="code hl_variable" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">_devolvido</a>;}</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_alocacao.html#a260b51221fdcc7972dfb5c2fc1ae6792">   32</a></span>    std::tm <a class="code hl_function" href="struct_alocacao.html#a260b51221fdcc7972dfb5c2fc1ae6792">getAlocacao</a>(){<span class="keywordflow">return</span> <a class="code hl_variable" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">_momento_de_locacao</a>;}</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_alocacao.html#aaf06fc8aa2bab91884706dd0e432deaf">   34</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_alocacao.html#aaf06fc8aa2bab91884706dd0e432deaf">printInformacao</a>(){</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">_devolvido</a>){</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            std::cout &lt;&lt; <a class="code hl_variable" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">_codigo</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            std::put_time(&amp;<a class="code hl_variable" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">_momento_de_locacao</a>, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            std::put_time(&amp;<a class="code hl_variable" href="struct_alocacao.html#aa4d22abbef5586a9e4fcdd3cfd56f0aa">_momento_de_devolucao</a>, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            std::cout &lt;&lt; <a class="code hl_variable" href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">_codigo</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            std::put_time(&amp;<a class="code hl_variable" href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">_momento_de_locacao</a>, <a class="code hl_define" href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a>) &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="stringliteral">&quot;--/--/----&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_cliente.html">   47</a></span><span class="keyword">class </span><a class="code hl_class" href="class_cliente.html">Cliente</a> {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::vector&lt;Alocacao*&gt; historico;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    std::string nome;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    std::string cpf;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_class" href="class_cliente.html">Cliente</a>(std::string nome, std::string cpf);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    std::string <a class="code hl_function" href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">getNome</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    std::string <a class="code hl_function" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_cliente.html#a6714aad18b2446634ddd371316caccbd">fazerLocacao</a>(<span class="keywordtype">int</span> codigo, std::tm momento_de_locacao);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_cliente.html#a2ef07317b41b0a56b5ed907c8dd48fd0">fazerDevolucao</a>(<span class="keywordtype">int</span> codigo, std::tm momento_de_devolucao);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::tm <a class="code hl_function" href="class_cliente.html#a58007311c6423ddb3018b38928c9198c">getDataLocacao</a>(<span class="keywordtype">int</span> codigo);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cliente.html#aef11f7dbb9308433476641145b3f3a71">printHistorico</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_cliente.html#af20b4441386527cf76cf40170bacaa2d">isHistoricoVazio</a>();</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>};</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_cliente_8hpp_html_aded9cf7d88e73ca3dc0d874bc9974ad3"><div class="ttname"><a href="_cliente_8hpp.html#aded9cf7d88e73ca3dc0d874bc9974ad3">FORMATO_DATA</a></div><div class="ttdeci">#define FORMATO_DATA</div><div class="ttdef"><b>Definição</b> Cliente.hpp:10</div></div>
+<div class="ttc" id="aclass_cliente_html"><div class="ttname"><a href="class_cliente.html">Cliente</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:47</div></div>
+<div class="ttc" id="aclass_cliente_html_a09b99b4140f32bdd3bf486cc2ac5ee27"><div class="ttname"><a href="class_cliente.html#a09b99b4140f32bdd3bf486cc2ac5ee27">Cliente::getNome</a></div><div class="ttdeci">std::string getNome()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:9</div></div>
+<div class="ttc" id="aclass_cliente_html_a2ef07317b41b0a56b5ed907c8dd48fd0"><div class="ttname"><a href="class_cliente.html#a2ef07317b41b0a56b5ed907c8dd48fd0">Cliente::fazerDevolucao</a></div><div class="ttdeci">int fazerDevolucao(int codigo, std::tm momento_de_devolucao)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:23</div></div>
+<div class="ttc" id="aclass_cliente_html_a58007311c6423ddb3018b38928c9198c"><div class="ttname"><a href="class_cliente.html#a58007311c6423ddb3018b38928c9198c">Cliente::getDataLocacao</a></div><div class="ttdeci">std::tm getDataLocacao(int codigo)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:32</div></div>
+<div class="ttc" id="aclass_cliente_html_a6714aad18b2446634ddd371316caccbd"><div class="ttname"><a href="class_cliente.html#a6714aad18b2446634ddd371316caccbd">Cliente::fazerLocacao</a></div><div class="ttdeci">int fazerLocacao(int codigo, std::tm momento_de_locacao)</div><div class="ttdef"><b>Definição</b> Cliente.cpp:17</div></div>
+<div class="ttc" id="aclass_cliente_html_a8eaba8a00f75dbff616634ac2cb3e1f7"><div class="ttname"><a href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">Cliente::getCPF</a></div><div class="ttdeci">std::string getCPF()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:13</div></div>
+<div class="ttc" id="aclass_cliente_html_aef11f7dbb9308433476641145b3f3a71"><div class="ttname"><a href="class_cliente.html#aef11f7dbb9308433476641145b3f3a71">Cliente::printHistorico</a></div><div class="ttdeci">bool printHistorico()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:40</div></div>
+<div class="ttc" id="aclass_cliente_html_af20b4441386527cf76cf40170bacaa2d"><div class="ttname"><a href="class_cliente.html#af20b4441386527cf76cf40170bacaa2d">Cliente::isHistoricoVazio</a></div><div class="ttdeci">bool isHistoricoVazio()</div><div class="ttdef"><b>Definição</b> Cliente.cpp:61</div></div>
+<div class="ttc" id="astruct_alocacao_html"><div class="ttname"><a href="struct_alocacao.html">Alocacao</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:12</div></div>
+<div class="ttc" id="astruct_alocacao_html_a15d6e62048671c7cd5100a65fefef025"><div class="ttname"><a href="struct_alocacao.html#a15d6e62048671c7cd5100a65fefef025">Alocacao::devolver</a></div><div class="ttdeci">void devolver(std::tm momento_de_devolucao)</div><div class="ttdef"><b>Definição</b> Cliente.hpp:23</div></div>
+<div class="ttc" id="astruct_alocacao_html_a260b51221fdcc7972dfb5c2fc1ae6792"><div class="ttname"><a href="struct_alocacao.html#a260b51221fdcc7972dfb5c2fc1ae6792">Alocacao::getAlocacao</a></div><div class="ttdeci">std::tm getAlocacao()</div><div class="ttdef"><b>Definição</b> Cliente.hpp:32</div></div>
+<div class="ttc" id="astruct_alocacao_html_a5de6b5385fbc7dea0e725ab4ee66b889"><div class="ttname"><a href="struct_alocacao.html#a5de6b5385fbc7dea0e725ab4ee66b889">Alocacao::_momento_de_locacao</a></div><div class="ttdeci">std::tm _momento_de_locacao</div><div class="ttdef"><b>Definição</b> Cliente.hpp:14</div></div>
+<div class="ttc" id="astruct_alocacao_html_a6ad76007c5b40a02d38617d61bc10ca4"><div class="ttname"><a href="struct_alocacao.html#a6ad76007c5b40a02d38617d61bc10ca4">Alocacao::_devolvido</a></div><div class="ttdeci">bool _devolvido</div><div class="ttdef"><b>Definição</b> Cliente.hpp:16</div></div>
+<div class="ttc" id="astruct_alocacao_html_a783d6d0337ac1a4856e15e979255e83d"><div class="ttname"><a href="struct_alocacao.html#a783d6d0337ac1a4856e15e979255e83d">Alocacao::getCodigo</a></div><div class="ttdeci">int getCodigo()</div><div class="ttdef"><b>Definição</b> Cliente.hpp:28</div></div>
+<div class="ttc" id="astruct_alocacao_html_aa4d22abbef5586a9e4fcdd3cfd56f0aa"><div class="ttname"><a href="struct_alocacao.html#aa4d22abbef5586a9e4fcdd3cfd56f0aa">Alocacao::_momento_de_devolucao</a></div><div class="ttdeci">std::tm _momento_de_devolucao</div><div class="ttdef"><b>Definição</b> Cliente.hpp:15</div></div>
+<div class="ttc" id="astruct_alocacao_html_aaf06fc8aa2bab91884706dd0e432deaf"><div class="ttname"><a href="struct_alocacao.html#aaf06fc8aa2bab91884706dd0e432deaf">Alocacao::printInformacao</a></div><div class="ttdeci">void printInformacao()</div><div class="ttdef"><b>Definição</b> Cliente.hpp:34</div></div>
+<div class="ttc" id="astruct_alocacao_html_ad3b031e580a520332dc3d582f9e4b702"><div class="ttname"><a href="struct_alocacao.html#ad3b031e580a520332dc3d582f9e4b702">Alocacao::_codigo</a></div><div class="ttdeci">int _codigo</div><div class="ttdef"><b>Definição</b> Cliente.hpp:13</div></div>
+<div class="ttc" id="astruct_alocacao_html_aec4a3f96057f07413f21c3883f594bf2"><div class="ttname"><a href="struct_alocacao.html#aec4a3f96057f07413f21c3883f594bf2">Alocacao::getDevolvido</a></div><div class="ttdeci">bool getDevolvido()</div><div class="ttdef"><b>Definição</b> Cliente.hpp:30</div></div>
+<div class="ttc" id="astruct_alocacao_html_afaa16f7d4d42d294883a7b44c74648ae"><div class="ttname"><a href="struct_alocacao.html#afaa16f7d4d42d294883a7b44c74648ae">Alocacao::Alocacao</a></div><div class="ttdeci">Alocacao(int codigo, std::tm momento_de_locacao)</div><div class="ttdef"><b>Definição</b> Cliente.hpp:18</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

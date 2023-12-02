@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['failure_5fflags_0',['failure_flags',['../structdoctest_1_1_current_test_case_stats.html#aaa58c52fd07a20e6e4daf19eecb2e2ba',1,'doctest::CurrentTestCaseStats']]],
-  ['first_1',['first',['../structdoctest_1_1_context_options.html#a9f26ee60a5259e73f9f25ce3f4883a97',1,'doctest::ContextOptions']]],
-  ['flipped_2',['flipped',['../structdoctest_1_1_is_na_n.html#a3c25335f2708d9360b8e92813b3ac17d',1,'doctest::IsNaN']]],
-  ['force_5fcolors_3',['force_colors',['../structdoctest_1_1_context_options.html#a8cd276e86a209f3d5486eb6c5a2a29bf',1,'doctest::ContextOptions']]]
+  ['error_5fstring_0',['error_string',['../structdoctest_1_1_test_case_exception.html#a656c8971ccbedc7d3a0a38f7c6af927e',1,'doctest::TestCaseException']]],
+  ['exit_1',['exit',['../structdoctest_1_1_context_options.html#a85d785559ea88e0bd61890f77f00a82f',1,'doctest::ContextOptions']]]
 ];

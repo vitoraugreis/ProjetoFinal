@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -85,12 +85,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:a28c8a80e176bede55e829dead140c80a" id="r_a28c8a80e176bede55e829dead140c80a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_0f_n_0e_4.html#a28c8a80e176bede55e829dead140c80a">fill</a> (<a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *stream, const T(&amp;in)[N])</td></tr>
+<tr class="memitem:a28c8a80e176bede55e829dead140c80a" id="r_a28c8a80e176bede55e829dead140c80a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_0f_n_0e_4.html#a28c8a80e176bede55e829dead140c80a">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T(&amp;in)[N])</td></tr>
+<tr class="separator:a28c8a80e176bede55e829dead140c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c8a80e176bede55e829dead140c80a" id="r_a28c8a80e176bede55e829dead140c80a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_0f_n_0e_4.html#a28c8a80e176bede55e829dead140c80a">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T(&amp;in)[N])</td></tr>
 <tr class="separator:a28c8a80e176bede55e829dead140c80a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a28c8a80e176bede55e829dead140c80a" name="a28c8a80e176bede55e829dead140c80a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28c8a80e176bede55e829dead140c80a">&#9670;&#160;</a></span>fill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c8a80e176bede55e829dead140c80a">&#9670;&#160;</a></span>fill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +105,7 @@ template&lt;typename T , size_t N&gt; </div>
         <tr>
           <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T[N]&gt;::fill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
@@ -124,20 +126,67 @@ template&lt;typename T , size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno"> 1164</span>                                                              {</div>
-<div class="line"><span class="lineno"> 1165</span>            *stream &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
-<div class="line"><span class="lineno"> 1166</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; i++) {</div>
-<div class="line"><span class="lineno"> 1167</span>                <span class="keywordflow">if</span> (i != 0) { *stream &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; }</div>
-<div class="line"><span class="lineno"> 1168</span>                *stream &lt;&lt; (<a class="code hl_define" href="doctest_8h.html#a0feffec655cbb5c12c8c9ddfcfd31b21">DOCTEST_STRINGIFY</a>(in[i]));</div>
-<div class="line"><span class="lineno"> 1169</span>            }</div>
-<div class="line"><span class="lineno"> 1170</span>            *stream &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
-<div class="line"><span class="lineno"> 1171</span>        }</div>
-<div class="ttc" id="adoctest_8h_html_a0feffec655cbb5c12c8c9ddfcfd31b21"><div class="ttname"><a href="doctest_8h.html#a0feffec655cbb5c12c8c9ddfcfd31b21">DOCTEST_STRINGIFY</a></div><div class="ttdeci">#define DOCTEST_STRINGIFY(...)</div><div class="ttdef"><b>Definição</b> doctest.h:1088</div></div>
+<div class="fragment"><div class="line"><span class="lineno"> 1136</span>                                                              {</div>
+<div class="line"><span class="lineno"> 1137</span>            *stream &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1138</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; i++) {</div>
+<div class="line"><span class="lineno"> 1139</span>                <span class="keywordflow">if</span> (i != 0) { *stream &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; }</div>
+<div class="line"><span class="lineno"> 1140</span>                *stream &lt;&lt; (<a class="code hl_define" href="doctest_8h.html#a0feffec655cbb5c12c8c9ddfcfd31b21">DOCTEST_STRINGIFY</a>(in[i]));</div>
+<div class="line"><span class="lineno"> 1141</span>            }</div>
+<div class="line"><span class="lineno"> 1142</span>            *stream &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1143</span>        }</div>
+<div class="ttc" id="adoctest_8h_html_a0feffec655cbb5c12c8c9ddfcfd31b21"><div class="ttname"><a href="doctest_8h.html#a0feffec655cbb5c12c8c9ddfcfd31b21">DOCTEST_STRINGIFY</a></div><div class="ttdeci">#define DOCTEST_STRINGIFY(...)</div><div class="ttdef"><b>Definição</b> doctest.h:1060</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
-<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/third_party/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<a id="a28c8a80e176bede55e829dead140c80a" name="a28c8a80e176bede55e829dead140c80a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c8a80e176bede55e829dead140c80a">&#9670;&#160;</a></span>fill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T[N]&gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T(&amp;)&#160;</td>
+          <td class="paramname"><em>in</em>[N]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno"> 1136</span>                                                              {</div>
+<div class="line"><span class="lineno"> 1137</span>            *stream &lt;&lt; <span class="stringliteral">&quot;[&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1138</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; i++) {</div>
+<div class="line"><span class="lineno"> 1139</span>                <span class="keywordflow">if</span> (i != 0) { *stream &lt;&lt; <span class="stringliteral">&quot;, &quot;</span>; }</div>
+<div class="line"><span class="lineno"> 1140</span>                *stream &lt;&lt; (<a class="code hl_define" href="doctest_8h.html#a0feffec655cbb5c12c8c9ddfcfd31b21">DOCTEST_STRINGIFY</a>(in[i]));</div>
+<div class="line"><span class="lineno"> 1141</span>            }</div>
+<div class="line"><span class="lineno"> 1142</span>            *stream &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1143</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir dos seguintes arquivos:<ul>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/ControleMidia/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/<a class="el" href="doctest_8hpp_source.html">doctest.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

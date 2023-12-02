@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -74,9 +74,264 @@ $(function() {
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
   <div class="headertitle"><div class="title">Referência do Arquivo test_controleclientes.cpp</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="doctest_8hpp_source.html">../doctest.hpp</a>&quot;</code><br />
+<code>#include &quot;../include/ControleClientes/ControleClientes.hpp&quot;</code><br />
+<code>#include &quot;../include/ControleClientes/ControleClientesExceptions.hpp&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a623b8690a262536536a43eab2d7df03d" id="r_a623b8690a262536536a43eab2d7df03d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#a623b8690a262536536a43eab2d7df03d">DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</a></td></tr>
+<tr class="separator:a623b8690a262536536a43eab2d7df03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a052f7233cb544c5c0f1c235992fa66cf" id="r_a052f7233cb544c5c0f1c235992fa66cf"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#a052f7233cb544c5c0f1c235992fa66cf">DOCTEST_CONFIG_SUPER_FAST_ASSERTS</a></td></tr>
+<tr class="separator:a052f7233cb544c5c0f1c235992fa66cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a750a1d885b30b8f9a78b24dbd077eeb8" id="r_a750a1d885b30b8f9a78b24dbd077eeb8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#a750a1d885b30b8f9a78b24dbd077eeb8">capture_stdout</a> (<a class="el" href="class_controle_clientes.html">ControleClientes</a> &amp;clientes, char ordem)</td></tr>
+<tr class="separator:a750a1d885b30b8f9a78b24dbd077eeb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa218ef789ea788fdbbb98770024021a0" id="r_aa218ef789ea788fdbbb98770024021a0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#aa218ef789ea788fdbbb98770024021a0">TEST_CASE</a> (&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> correto&quot;)</td></tr>
+<tr class="separator:aa218ef789ea788fdbbb98770024021a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27b75d54c7cfccead2a1a77e71264fe" id="r_ac27b75d54c7cfccead2a1a77e71264fe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#ac27b75d54c7cfccead2a1a77e71264fe">TEST_CASE</a> (&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> cpf repetido&quot;)</td></tr>
+<tr class="separator:ac27b75d54c7cfccead2a1a77e71264fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af83855cdb28ffd353f5a426a5986491e" id="r_af83855cdb28ffd353f5a426a5986491e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#af83855cdb28ffd353f5a426a5986491e">TEST_CASE</a> (&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> cpf curto&quot;)</td></tr>
+<tr class="separator:af83855cdb28ffd353f5a426a5986491e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525e5723f907f86b0aadaf9975b0962f" id="r_a525e5723f907f86b0aadaf9975b0962f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#a525e5723f907f86b0aadaf9975b0962f">TEST_CASE</a> (&quot;Teste remoção cliente&quot;)</td></tr>
+<tr class="separator:a525e5723f907f86b0aadaf9975b0962f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a723f4c6483238074d97a7d6f3d8db379" id="r_a723f4c6483238074d97a7d6f3d8db379"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test__controleclientes_8cpp.html#a723f4c6483238074d97a7d6f3d8db379">TEST_CASE</a> (&quot;Gerar Relatório&quot;)</td></tr>
+<tr class="separator:a723f4c6483238074d97a7d6f3d8db379"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Definições e macros</h2>
+<a id="a623b8690a262536536a43eab2d7df03d" name="a623b8690a262536536a43eab2d7df03d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a623b8690a262536536a43eab2d7df03d">&#9670;&#160;</a></span>DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a052f7233cb544c5c0f1c235992fa66cf" name="a052f7233cb544c5c0f1c235992fa66cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a052f7233cb544c5c0f1c235992fa66cf">&#9670;&#160;</a></span>DOCTEST_CONFIG_SUPER_FAST_ASSERTS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DOCTEST_CONFIG_SUPER_FAST_ASSERTS</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Funções</h2>
+<a id="a750a1d885b30b8f9a78b24dbd077eeb8" name="a750a1d885b30b8f9a78b24dbd077eeb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a750a1d885b30b8f9a78b24dbd077eeb8">&#9670;&#160;</a></span>capture_stdout()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string capture_stdout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_controle_clientes.html">ControleClientes</a> &amp;&#160;</td>
+          <td class="paramname"><em>clientes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>ordem</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">    7</span>                                                                 {</div>
+<div class="line"><span class="lineno">    8</span>    std::ostringstream oss;</div>
+<div class="line"><span class="lineno">    9</span>    std::streambuf* coutbuf = std::cout.rdbuf();</div>
+<div class="line"><span class="lineno">   10</span>    std::cout.rdbuf(oss.rdbuf());</div>
+<div class="line"><span class="lineno">   11</span> </div>
+<div class="line"><span class="lineno">   12</span>    clientes.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(ordem);  </div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span>    std::cout.rdbuf(coutbuf);  </div>
+<div class="line"><span class="lineno">   15</span>    <span class="keywordflow">return</span> oss.str();</div>
+<div class="line"><span class="lineno">   16</span>}</div>
+<div class="ttc" id="aclass_controle_clientes_html_aa4c14e6f092c802090230ab166c958c9"><div class="ttname"><a href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">ControleClientes::gerarRelatorio</a></div><div class="ttdeci">bool gerarRelatorio(char ordem)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:75</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a723f4c6483238074d97a7d6f3d8db379" name="a723f4c6483238074d97a7d6f3d8db379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a723f4c6483238074d97a7d6f3d8db379">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Gerar Relatório&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                             {</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> cliente;</div>
+<div class="line"><span class="lineno">   54</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Marcos&quot;</span>,<span class="stringliteral">&quot;01234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   55</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Julio&quot;</span>,<span class="stringliteral">&quot;11234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   56</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Castro&quot;</span>,<span class="stringliteral">&quot;21234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   57</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Lindsay&quot;</span>,<span class="stringliteral">&quot;31234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_define" href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a>(<span class="stringliteral">&quot;Teste ordem por cpf&quot;</span>){</div>
+<div class="line"><span class="lineno">   60</span>        std::string expected_output = <span class="stringliteral">&quot;01234567890 Marcos\n11234567890 Julio\n21234567890 Castro\n31234567890 Lindsay\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   61</span>        std::string actual_output = <a class="code hl_function" href="test__controleclientes_8cpp.html#a750a1d885b30b8f9a78b24dbd077eeb8">capture_stdout</a>(cliente, <span class="charliteral">&#39;C&#39;</span>);</div>
+<div class="line"><span class="lineno">   62</span>        <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(actual_output == expected_output);</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(<span class="charliteral">&#39;C&#39;</span>)==<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   64</span>    }</div>
+<div class="line"><span class="lineno">   65</span>    </div>
+<div class="line"><span class="lineno">   66</span>     <a class="code hl_define" href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a>(<span class="stringliteral">&quot;Teste ordem por nome&quot;</span>){</div>
+<div class="line"><span class="lineno">   67</span>        std::string expected_output = <span class="stringliteral">&quot;21234567890 Castro\n11234567890 Julio\n31234567890 Lindsay\n01234567890 Marcos\n&quot;</span>;</div>
+<div class="line"><span class="lineno">   68</span>        std::string actual_output = <a class="code hl_function" href="test__controleclientes_8cpp.html#a750a1d885b30b8f9a78b24dbd077eeb8">capture_stdout</a>(cliente, <span class="charliteral">&#39;N&#39;</span>);</div>
+<div class="line"><span class="lineno">   69</span>        <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(actual_output == expected_output);</div>
+<div class="line"><span class="lineno">   70</span>        <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(<span class="charliteral">&#39;N&#39;</span>)==<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="line"><span class="lineno">   72</span>    </div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_define" href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a>(<span class="stringliteral">&quot;Teste ordem inválida&quot;</span>){</div>
+<div class="line"><span class="lineno">   74</span>        <a class="code hl_define" href="doctest_8h.html#aabaaa591d46f29cf307dbed1a5abba83">CHECK_THROWS_AS</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(<span class="charliteral">&#39;R&#39;</span>), <a class="code hl_class" href="classclientes__excp_1_1ordem__invalida.html">clientes_excp::ordem_invalida</a>);</div>
+<div class="line"><span class="lineno">   75</span>    }</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="aclass_controle_clientes_html"><div class="ttname"><a href="class_controle_clientes.html">ControleClientes</a></div><div class="ttdef"><b>Definição</b> ControleClientes.hpp:8</div></div>
+<div class="ttc" id="aclass_controle_clientes_html_abd2e3fc87c0bff71044f9b707696fbe4"><div class="ttname"><a href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">ControleClientes::fazerCadastro</a></div><div class="ttdeci">bool fazerCadastro(std::string nome, std::string cpf, bool msg=true)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:32</div></div>
+<div class="ttc" id="aclassclientes__excp_1_1ordem__invalida_html"><div class="ttname"><a href="classclientes__excp_1_1ordem__invalida.html">clientes_excp::ordem_invalida</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:44</div></div>
+<div class="ttc" id="adoctest_8h_html_a4147381e5cb6f68c1a315a852c63bf70"><div class="ttname"><a href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a></div><div class="ttdeci">#define SUBCASE(name)</div><div class="ttdef"><b>Definição</b> doctest.h:2903</div></div>
+<div class="ttc" id="adoctest_8h_html_a836cca6b6ed3a1706353f6d1bca0935f"><div class="ttname"><a href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a></div><div class="ttdeci">#define CHECK(...)</div><div class="ttdef"><b>Definição</b> doctest.h:2927</div></div>
+<div class="ttc" id="adoctest_8h_html_aabaaa591d46f29cf307dbed1a5abba83"><div class="ttname"><a href="doctest_8h.html#aabaaa591d46f29cf307dbed1a5abba83">CHECK_THROWS_AS</a></div><div class="ttdeci">#define CHECK_THROWS_AS(expr,...)</div><div class="ttdef"><b>Definição</b> doctest.h:2930</div></div>
+<div class="ttc" id="atest__controleclientes_8cpp_html_a750a1d885b30b8f9a78b24dbd077eeb8"><div class="ttname"><a href="test__controleclientes_8cpp.html#a750a1d885b30b8f9a78b24dbd077eeb8">capture_stdout</a></div><div class="ttdeci">std::string capture_stdout(ControleClientes &amp;clientes, char ordem)</div><div class="ttdef"><b>Definição</b> test_controleclientes.cpp:7</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aa218ef789ea788fdbbb98770024021a0" name="aa218ef789ea788fdbbb98770024021a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa218ef789ea788fdbbb98770024021a0">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> correto&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   18</span>                                           {</div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> cliente;</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Júlio&quot;</span>,<span class="stringliteral">&quot;01234567890&quot;</span>)==<span class="keyword">true</span>) ;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af83855cdb28ffd353f5a426a5986491e" name="af83855cdb28ffd353f5a426a5986491e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af83855cdb28ffd353f5a426a5986491e">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> cpf curto&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   30</span>                                             {</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> cliente;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_define" href="doctest_8h.html#aabaaa591d46f29cf307dbed1a5abba83">CHECK_THROWS_AS</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Júlio&quot;</span>,<span class="stringliteral">&quot;01234&quot;</span>),<a class="code hl_class" href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a>);</div>
+<div class="line"><span class="lineno">   33</span>}</div>
+<div class="ttc" id="aclassclientes__excp_1_1cpf__curto_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:8</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac27b75d54c7cfccead2a1a77e71264fe" name="ac27b75d54c7cfccead2a1a77e71264fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27b75d54c7cfccead2a1a77e71264fe">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Teste cadastro <a class="el" href="class_cliente.html">Cliente</a> cpf repetido&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                {</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> cliente;</div>
+<div class="line"><span class="lineno">   25</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Marcos&quot;</span>,<span class="stringliteral">&quot;01234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_define" href="doctest_8h.html#aabaaa591d46f29cf307dbed1a5abba83">CHECK_THROWS_AS</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Júlio&quot;</span>,<span class="stringliteral">&quot;01234567890&quot;</span>),<a class="code hl_class" href="classclientes__excp_1_1cpf__repetido.html">clientes_excp::cpf_repetido</a>);</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>}</div>
+<div class="ttc" id="aclassclientes__excp_1_1cpf__repetido_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__repetido.html">clientes_excp::cpf_repetido</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:20</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a525e5723f907f86b0aadaf9975b0962f" name="a525e5723f907f86b0aadaf9975b0962f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525e5723f907f86b0aadaf9975b0962f">&#9670;&#160;</a></span>TEST_CASE() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">&quot;Teste remoção cliente&quot;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                                    {</div>
+<div class="line"><span class="lineno">   36</span>    </div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> cliente;</div>
+<div class="line"><span class="lineno">   38</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Marcos&quot;</span>,<span class="stringliteral">&quot;01234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   39</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Julio&quot;</span>,<span class="stringliteral">&quot;11234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   40</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Castro&quot;</span>,<span class="stringliteral">&quot;21234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   41</span>    cliente.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(<span class="stringliteral">&quot;Lindsay&quot;</span>,<span class="stringliteral">&quot;31234567890&quot;</span>);</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_define" href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a>(<span class="stringliteral">&quot;Remover cliente válido&quot;</span>){</div>
+<div class="line"><span class="lineno">   44</span>        <a class="code hl_define" href="doctest_8h.html#a836cca6b6ed3a1706353f6d1bca0935f">CHECK</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">removerCadastro</a>(<span class="stringliteral">&quot;11234567890&quot;</span>)==<span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_define" href="doctest_8h.html#a4147381e5cb6f68c1a315a852c63bf70">SUBCASE</a>(<span class="stringliteral">&quot;Remoçao de cliente inválido&quot;</span>){</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_define" href="doctest_8h.html#aabaaa591d46f29cf307dbed1a5abba83">CHECK_THROWS_AS</a>(cliente.<a class="code hl_function" href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">removerCadastro</a>(<span class="stringliteral">&quot;91234567899&quot;</span>),<a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a>);</div>
+<div class="line"><span class="lineno">   49</span>    }</div>
+<div class="line"><span class="lineno">   50</span>}  </div>
+<div class="ttc" id="aclass_controle_clientes_html_af23cd127c8af29a520418ff85d2dade6"><div class="ttname"><a href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">ControleClientes::removerCadastro</a></div><div class="ttdeci">bool removerCadastro(std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:48</div></div>
+<div class="ttc" id="aclassclientes__excp_1_1cpf__inexistente_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:32</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

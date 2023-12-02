@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -88,6 +88,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="_dvd_8hpp_source.html">Dvd.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_fita_8hpp_source.html">Fita.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_midia_8hpp_source.html">Midia.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_funcoes_main_8cpp_source.html">Funcoes/FuncoesMain.cpp</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
@@ -112,128 +113,139 @@ Funções</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   16</span>          {</div>
-<div class="line"><span class="lineno">   17</span>    std::string nome_arquivo_cadastro;</div>
-<div class="line"><span class="lineno">   18</span>    std::string titulo;</div>
-<div class="line"><span class="lineno">   19</span>    std::string categoria;</div>
-<div class="line"><span class="lineno">   20</span>    std::string input;</div>
-<div class="line"><span class="lineno">   21</span>    std::string comando;</div>
-<div class="line"><span class="lineno">   22</span>    std::string nome;</div>
-<div class="line"><span class="lineno">   23</span>    std::string cpf;</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordtype">int</span> tipo_midia;</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span> quantidade;</div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordtype">int</span> codigo;</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordtype">int</span> aux = 0;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    <a class="code hl_class" href="class_controle_midia.html">ControleMidia</a> estoque;</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> clientes;</div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="class_controle_locacao.html">ControleLocacao</a> locacao;</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><span class="lineno">   34</span>        std::getline(std::cin, input);</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">if</span> (input.empty()) {</div>
-<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">if</span> (aux == 0){</div>
-<div class="line"><span class="lineno">   38</span>            aux = 1;</div>
-<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">   40</span>            } <span class="keywordflow">else</span>{</div>
-<div class="line"><span class="lineno">   41</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   42</span>            }</div>
-<div class="line"><span class="lineno">   43</span>        }</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>        std::istringstream stream(input);</div>
-<div class="line"><span class="lineno">   46</span>        stream &gt;&gt; comando;</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>        <span class="keywordflow">try</span> {</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LA&quot;</span>){ <span class="comment">// Ler Arquivo de Cadastro</span></div>
-<div class="line"><span class="lineno">   50</span>            stream &gt;&gt; nome_arquivo_cadastro;</div>
-<div class="line"><span class="lineno">   51</span>            </div>
-<div class="line"><span class="lineno">   52</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#afe7f15bd24dfc8c05d524fc76db34153">lerArquivoCadastro</a>(nome_arquivo_cadastro);</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;CF&quot;</span>){ <span class="comment">// Cadastrar Filme</span></div>
-<div class="line"><span class="lineno">   55</span>            stream &gt;&gt; tipo_midia &gt;&gt; quantidade &gt;&gt; codigo &gt;&gt; titulo &gt;&gt; categoria;</div>
-<div class="line"><span class="lineno">   56</span> </div>
-<div class="line"><span class="lineno">   57</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#a88f869de659953eef4e0fd5b5116a6db">cadastrarMidia</a>(tipo_midia, codigo, titulo, quantidade, categoria);</div>
-<div class="line"><span class="lineno">   58</span> </div>
-<div class="line"><span class="lineno">   59</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;RF&quot;</span>){ <span class="comment">// Remover Filme</span></div>
-<div class="line"><span class="lineno">   60</span>            stream &gt;&gt; codigo;</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#aaeb3c0e0c644e69f3d7de07ba1b7a89c">removerMidia</a>(codigo);</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LF&quot;</span>){ <span class="comment">// Listar Filmes ordenados por Código ou Título</span></div>
-<div class="line"><span class="lineno">   65</span>            <span class="keywordtype">char</span> ordem = <span class="charliteral">&#39;a&#39;</span>; <span class="comment">// Inicialização com opção inválida</span></div>
-<div class="line"><span class="lineno">   66</span>            stream &gt;&gt; ordem;</div>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>          {</div>
+<div class="line"><span class="lineno">   18</span>    std::string nome_arquivo_cadastro;</div>
+<div class="line"><span class="lineno">   19</span>    std::string titulo;</div>
+<div class="line"><span class="lineno">   20</span>    std::string categoria;</div>
+<div class="line"><span class="lineno">   21</span>    std::string input;</div>
+<div class="line"><span class="lineno">   22</span>    std::string comando;</div>
+<div class="line"><span class="lineno">   23</span>    std::string nome;</div>
+<div class="line"><span class="lineno">   24</span>    std::string cpf;</div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span> tipo_midia;</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordtype">int</span> quantidade;</div>
+<div class="line"><span class="lineno">   27</span>    <span class="keywordtype">int</span> codigo;</div>
+<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">int</span> aux = 0;</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_class" href="class_controle_midia.html">ControleMidia</a> estoque;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="class_controle_clientes.html">ControleClientes</a> clientes;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_class" href="class_controle_locacao.html">ControleLocacao</a> locacao;</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="_funcoes_main_8cpp.html#a2a0e843767aeea4f433a28b9c54f573a">menu</a>();</div>
+<div class="line"><span class="lineno">   36</span>        std::getline(std::cin, input);</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">if</span> (input.empty()) {</div>
+<div class="line"><span class="lineno">   39</span>            <span class="keywordflow">if</span> (aux == 0){</div>
+<div class="line"><span class="lineno">   40</span>            aux = 1;</div>
+<div class="line"><span class="lineno">   41</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   42</span>            } <span class="keywordflow">else</span>{</div>
+<div class="line"><span class="lineno">   43</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   44</span>            }</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>        std::istringstream stream(input);</div>
+<div class="line"><span class="lineno">   48</span>        stream &gt;&gt; comando;</div>
+<div class="line"><span class="lineno">   49</span>        std::system(<span class="stringliteral">&quot;clear&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>        std::cout &lt;&lt; <span class="stringliteral">&quot;Comando inserido : &quot;</span> &lt;&lt; input &lt;&lt; std::endl &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LA&quot;</span>){ <span class="comment">// Ler Arquivo de Cadastro</span></div>
+<div class="line"><span class="lineno">   54</span>            stream &gt;&gt; nome_arquivo_cadastro;</div>
+<div class="line"><span class="lineno">   55</span>            </div>
+<div class="line"><span class="lineno">   56</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#afe7f15bd24dfc8c05d524fc76db34153">lerArquivoCadastro</a>(nome_arquivo_cadastro);</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;CF&quot;</span>){ <span class="comment">// Cadastrar Filme</span></div>
+<div class="line"><span class="lineno">   59</span>            stream &gt;&gt; tipo_midia &gt;&gt; quantidade &gt;&gt; codigo &gt;&gt; titulo &gt;&gt; categoria;</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#a88f869de659953eef4e0fd5b5116a6db">cadastrarMidia</a>(tipo_midia, codigo, titulo, quantidade, categoria);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;RF&quot;</span>){ <span class="comment">// Remover Filme</span></div>
+<div class="line"><span class="lineno">   64</span>            stream &gt;&gt; codigo;</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#aaeb3c0e0c644e69f3d7de07ba1b7a89c">removerMidia</a>(codigo);</div>
 <div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#a8878576b98db2c3f8a5b6a62c17a78df">imprimirMidias</a>(ordem);</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;CC&quot;</span>){ <span class="comment">// Cadastrar Cliente</span></div>
-<div class="line"><span class="lineno">   71</span>            stream &gt;&gt; cpf &gt;&gt; nome;</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(nome, cpf, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;RC&quot;</span>){ <span class="comment">// Remover Cliente</span></div>
-<div class="line"><span class="lineno">   76</span>            stream &gt;&gt; cpf;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>            std::cout &lt;&lt; cpf &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   79</span> </div>
-<div class="line"><span class="lineno">   80</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">removerCadastro</a>(cpf);</div>
+<div class="line"><span class="lineno">   68</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LF&quot;</span>){ <span class="comment">// Listar Filmes ordenados por Código ou Título</span></div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordtype">char</span> ordem = <span class="charliteral">&#39;a&#39;</span>; <span class="comment">// Inicialização com opção inválida</span></div>
+<div class="line"><span class="lineno">   70</span>            stream &gt;&gt; ordem;</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>            estoque.<a class="code hl_function" href="class_controle_midia.html#a8878576b98db2c3f8a5b6a62c17a78df">imprimirMidias</a>(ordem);</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;CC&quot;</span>){ <span class="comment">// Cadastrar Cliente</span></div>
+<div class="line"><span class="lineno">   75</span>            stream &gt;&gt; cpf &gt;&gt; nome;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">fazerCadastro</a>(nome, cpf, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;RC&quot;</span>){ <span class="comment">// Remover Cliente</span></div>
+<div class="line"><span class="lineno">   80</span>            stream &gt;&gt; cpf;</div>
 <div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LC&quot;</span>){ <span class="comment">// Listar clientes ordenados por Código ou Nome</span></div>
-<div class="line"><span class="lineno">   83</span>            <span class="keywordtype">char</span> ordem = <span class="charliteral">&#39;a&#39;</span>; <span class="comment">// Inicialização com opção inválida</span></div>
-<div class="line"><span class="lineno">   84</span>            stream &gt;&gt; ordem;</div>
+<div class="line"><span class="lineno">   82</span>            std::cout &lt;&lt; cpf &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">removerCadastro</a>(cpf);</div>
 <div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(ordem);</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;AF&quot;</span>){ <span class="comment">// Aluguel Filme</span></div>
-<div class="line"><span class="lineno">   89</span>            stream &gt;&gt; cpf;</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>            std::vector&lt;int&gt; midias_para_alugar;</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>            <span class="keywordflow">while</span> (stream &gt;&gt; codigo) {</div>
-<div class="line"><span class="lineno">   94</span>                midias_para_alugar.push_back(codigo);</div>
-<div class="line"><span class="lineno">   95</span>            }</div>
-<div class="line"><span class="lineno">   96</span>            <span class="keywordflow">if</span> (midias_para_alugar.empty()) {</div>
-<div class="line"><span class="lineno">   97</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Insira ao menos um filme.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">   98</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">   99</span>                locacao.<a class="code hl_function" href="class_controle_locacao.html#a1b82291d24166851d016a522d2ecdab8">fazerLocacao</a>(clientes, estoque, cpf, midias_para_alugar);</div>
-<div class="line"><span class="lineno">  100</span>            }</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;DV&quot;</span>){ <span class="comment">// Devolução Filme</span></div>
-<div class="line"><span class="lineno">  103</span>            stream &gt;&gt; cpf;</div>
-<div class="line"><span class="lineno">  104</span>            </div>
-<div class="line"><span class="lineno">  105</span>            locacao.<a class="code hl_function" href="class_controle_locacao.html#a0b46ebcf3190bdad58ca92e4127481f1">fazerDevolucao</a>(clientes, estoque, cpf);</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span> </div>
-<div class="line"><span class="lineno">  108</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;FS&quot;</span>){ <span class="comment">// Finalizar Sistema</span></div>
-<div class="line"><span class="lineno">  109</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>        }</div>
-<div class="line"><span class="lineno">  112</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1ordem__invalida.html">midia_excp::ordem_invalida</a> &amp;e){</div>
-<div class="line"><span class="lineno">  113</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1ordem__invalida.html#acf29750f8a173ebfce3acb617b560965">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  114</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1codigo__repetido.html">midia_excp::codigo_repetido</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  115</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1codigo__repetido.html#aac29e805e15ab7be2637235f3c41647c">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  116</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1codigo__inexistente.html">midia_excp::codigo_inexistente</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  117</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1codigo__inexistente.html#a3678d908ad5f2bee71c05f294470afa0">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  118</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1tipo__desconhecido.html">midia_excp::tipo_desconhecido</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  119</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1tipo__desconhecido.html#a9528e13ced9b98e77bd72910036a7c41">what</a>() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1tipo__desconhecido.html#a157c5a7a26becd71cc1cd5adb567d4b1">get_tipo</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  120</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1erro__de__abertura.html">midia_excp::erro_de_abertura</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  121</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1erro__de__abertura.html#aca24c969379a543251cf999b198966c0">what</a>() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1erro__de__abertura.html#ae8f95b3a1ebb5ad098d486f926f1ef65">get_arquivo</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  122</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1ordem__invalida.html">clientes_excp::ordem_invalida</a> &amp;e){</div>
-<div class="line"><span class="lineno">  123</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1ordem__invalida.html#a383ae8519785b36b33552d691b4f944b">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  124</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  125</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__curto.html#a398dbcb4f6a66d0b4c0b2ab6b906809f">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  126</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__repetido.html">clientes_excp::cpf_repetido</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  127</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__repetido.html#acf10e1ebbb18e97a5140aeebc427ba4a">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  128</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a> &amp;e) {</div>
-<div class="line"><span class="lineno">  129</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__inexistente.html#a42584342ee859ec6405ea2069a411567">what</a>() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  130</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
-<div class="line"><span class="lineno">  131</span>            std::cerr &lt;&lt; e.what() &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  132</span>        }</div>
-<div class="line"><span class="lineno">  133</span>    }</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  136</span>}</div>
+<div class="line"><span class="lineno">   86</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LC&quot;</span>){ <span class="comment">// Listar clientes ordenados por Código ou Nome</span></div>
+<div class="line"><span class="lineno">   87</span>            <span class="keywordtype">char</span> ordem = <span class="charliteral">&#39;a&#39;</span>; <span class="comment">// Inicialização com opção inválida</span></div>
+<div class="line"><span class="lineno">   88</span>            stream &gt;&gt; ordem;</div>
+<div class="line"><span class="lineno">   89</span> </div>
+<div class="line"><span class="lineno">   90</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">gerarRelatorio</a>(ordem);</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>        }  <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;LH&quot;</span>){ <span class="comment">// Listar historico de locações de cliente</span></div>
+<div class="line"><span class="lineno">   93</span>            stream &gt;&gt; cpf;</div>
+<div class="line"><span class="lineno">   94</span>            clientes.<a class="code hl_function" href="class_controle_clientes.html#a78ee1c6d1d2e45ca937976a74b43822f">printHistorico</a>(cpf);</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;AF&quot;</span>){ <span class="comment">// Aluguel Filme</span></div>
+<div class="line"><span class="lineno">   97</span>            stream &gt;&gt; cpf;</div>
+<div class="line"><span class="lineno">   98</span> </div>
+<div class="line"><span class="lineno">   99</span>            std::vector&lt;int&gt; midias_para_alugar;</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>            <span class="keywordflow">while</span> (stream &gt;&gt; codigo) {</div>
+<div class="line"><span class="lineno">  102</span>                midias_para_alugar.push_back(codigo);</div>
+<div class="line"><span class="lineno">  103</span>            }</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keywordflow">if</span> (midias_para_alugar.empty()) {</div>
+<div class="line"><span class="lineno">  105</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Insira ao menos um filme.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  106</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  107</span>                locacao.<a class="code hl_function" href="class_controle_locacao.html#a1b82291d24166851d016a522d2ecdab8">fazerLocacao</a>(clientes, estoque, cpf, midias_para_alugar);</div>
+<div class="line"><span class="lineno">  108</span>            }</div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;DV&quot;</span>){ <span class="comment">// Devolução Filme</span></div>
+<div class="line"><span class="lineno">  111</span>            stream &gt;&gt; cpf;</div>
+<div class="line"><span class="lineno">  112</span>            </div>
+<div class="line"><span class="lineno">  113</span>            locacao.<a class="code hl_function" href="class_controle_locacao.html#a0b46ebcf3190bdad58ca92e4127481f1">fazerDevolucao</a>(clientes, estoque, cpf);</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (comando == <span class="stringliteral">&quot;FS&quot;</span>){ <span class="comment">// Finalizar Sistema</span></div>
+<div class="line"><span class="lineno">  117</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>        } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  120</span>            std::cout &lt;&lt; <span class="stringliteral">&quot;Comando inválido&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  121</span>        }</div>
+<div class="line"><span class="lineno">  122</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1ordem__invalida.html">midia_excp::ordem_invalida</a> &amp;e){</div>
+<div class="line"><span class="lineno">  123</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1ordem__invalida.html#acf29750f8a173ebfce3acb617b560965">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  124</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1codigo__repetido.html">midia_excp::codigo_repetido</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  125</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1codigo__repetido.html#aac29e805e15ab7be2637235f3c41647c">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  126</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1codigo__inexistente.html">midia_excp::codigo_inexistente</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  127</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1codigo__inexistente.html#a3678d908ad5f2bee71c05f294470afa0">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  128</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1tipo__desconhecido.html">midia_excp::tipo_desconhecido</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  129</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1tipo__desconhecido.html#a9528e13ced9b98e77bd72910036a7c41">what</a>() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1tipo__desconhecido.html#a157c5a7a26becd71cc1cd5adb567d4b1">get_tipo</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  130</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classmidia__excp_1_1erro__de__abertura.html">midia_excp::erro_de_abertura</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  131</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1erro__de__abertura.html#aca24c969379a543251cf999b198966c0">what</a>() &lt;&lt; <span class="stringliteral">&quot;: &quot;</span> &lt;&lt; e.<a class="code hl_function" href="classmidia__excp_1_1erro__de__abertura.html#ae8f95b3a1ebb5ad098d486f926f1ef65">get_arquivo</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  132</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1ordem__invalida.html">clientes_excp::ordem_invalida</a> &amp;e){</div>
+<div class="line"><span class="lineno">  133</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1ordem__invalida.html#a383ae8519785b36b33552d691b4f944b">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  134</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  135</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__curto.html#a398dbcb4f6a66d0b4c0b2ab6b906809f">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  136</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__repetido.html">clientes_excp::cpf_repetido</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  137</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__repetido.html#acf10e1ebbb18e97a5140aeebc427ba4a">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  138</span>        } <span class="keywordflow">catch</span> (<a class="code hl_class" href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a> &amp;e) {</div>
+<div class="line"><span class="lineno">  139</span>            std::cerr &lt;&lt; e.<a class="code hl_function" href="classclientes__excp_1_1cpf__inexistente.html#a42584342ee859ec6405ea2069a411567">what</a>() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  140</span>        } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><span class="lineno">  141</span>            std::cerr &lt;&lt; e.what() &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">  142</span>        }</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  146</span>}</div>
+<div class="ttc" id="a_funcoes_main_8cpp_html_a2a0e843767aeea4f433a28b9c54f573a"><div class="ttname"><a href="_funcoes_main_8cpp.html#a2a0e843767aeea4f433a28b9c54f573a">menu</a></div><div class="ttdeci">void menu()</div><div class="ttdef"><b>Definição</b> FuncoesMain.cpp:5</div></div>
 <div class="ttc" id="aclass_controle_clientes_html"><div class="ttname"><a href="class_controle_clientes.html">ControleClientes</a></div><div class="ttdef"><b>Definição</b> ControleClientes.hpp:8</div></div>
+<div class="ttc" id="aclass_controle_clientes_html_a78ee1c6d1d2e45ca937976a74b43822f"><div class="ttname"><a href="class_controle_clientes.html#a78ee1c6d1d2e45ca937976a74b43822f">ControleClientes::printHistorico</a></div><div class="ttdeci">bool printHistorico(std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:116</div></div>
 <div class="ttc" id="aclass_controle_clientes_html_aa4c14e6f092c802090230ab166c958c9"><div class="ttname"><a href="class_controle_clientes.html#aa4c14e6f092c802090230ab166c958c9">ControleClientes::gerarRelatorio</a></div><div class="ttdeci">bool gerarRelatorio(char ordem)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:75</div></div>
 <div class="ttc" id="aclass_controle_clientes_html_abd2e3fc87c0bff71044f9b707696fbe4"><div class="ttname"><a href="class_controle_clientes.html#abd2e3fc87c0bff71044f9b707696fbe4">ControleClientes::fazerCadastro</a></div><div class="ttdeci">bool fazerCadastro(std::string nome, std::string cpf, bool msg=true)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:32</div></div>
 <div class="ttc" id="aclass_controle_clientes_html_af23cd127c8af29a520418ff85d2dade6"><div class="ttname"><a href="class_controle_clientes.html#af23cd127c8af29a520418ff85d2dade6">ControleClientes::removerCadastro</a></div><div class="ttdeci">bool removerCadastro(std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleClientes.cpp:48</div></div>
@@ -241,10 +253,10 @@ Funções</h2></td></tr>
 <div class="ttc" id="aclass_controle_locacao_html_a0b46ebcf3190bdad58ca92e4127481f1"><div class="ttname"><a href="class_controle_locacao.html#a0b46ebcf3190bdad58ca92e4127481f1">ControleLocacao::fazerDevolucao</a></div><div class="ttdeci">bool fazerDevolucao(ControleClientes &amp;cc, ControleMidia &amp;cm, std::string cpf)</div><div class="ttdef"><b>Definição</b> ControleLocacao.cpp:67</div></div>
 <div class="ttc" id="aclass_controle_locacao_html_a1b82291d24166851d016a522d2ecdab8"><div class="ttname"><a href="class_controle_locacao.html#a1b82291d24166851d016a522d2ecdab8">ControleLocacao::fazerLocacao</a></div><div class="ttdeci">bool fazerLocacao(ControleClientes &amp;cc, ControleMidia &amp;cm, std::string cpf, std::vector&lt; int &gt; filmes)</div><div class="ttdef"><b>Definição</b> ControleLocacao.cpp:32</div></div>
 <div class="ttc" id="aclass_controle_midia_html"><div class="ttname"><a href="class_controle_midia.html">ControleMidia</a></div><div class="ttdef"><b>Definição</b> ControleMidia.hpp:9</div></div>
-<div class="ttc" id="aclass_controle_midia_html_a8878576b98db2c3f8a5b6a62c17a78df"><div class="ttname"><a href="class_controle_midia.html#a8878576b98db2c3f8a5b6a62c17a78df">ControleMidia::imprimirMidias</a></div><div class="ttdeci">void imprimirMidias(char ordem)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:125</div></div>
-<div class="ttc" id="aclass_controle_midia_html_a88f869de659953eef4e0fd5b5116a6db"><div class="ttname"><a href="class_controle_midia.html#a88f869de659953eef4e0fd5b5116a6db">ControleMidia::cadastrarMidia</a></div><div class="ttdeci">bool cadastrarMidia(int tipoMidia, int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:56</div></div>
-<div class="ttc" id="aclass_controle_midia_html_aaeb3c0e0c644e69f3d7de07ba1b7a89c"><div class="ttname"><a href="class_controle_midia.html#aaeb3c0e0c644e69f3d7de07ba1b7a89c">ControleMidia::removerMidia</a></div><div class="ttdeci">bool removerMidia(int codigo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:144</div></div>
-<div class="ttc" id="aclass_controle_midia_html_afe7f15bd24dfc8c05d524fc76db34153"><div class="ttname"><a href="class_controle_midia.html#afe7f15bd24dfc8c05d524fc76db34153">ControleMidia::lerArquivoCadastro</a></div><div class="ttdeci">bool lerArquivoCadastro(std ::string arquivo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:74</div></div>
+<div class="ttc" id="aclass_controle_midia_html_a8878576b98db2c3f8a5b6a62c17a78df"><div class="ttname"><a href="class_controle_midia.html#a8878576b98db2c3f8a5b6a62c17a78df">ControleMidia::imprimirMidias</a></div><div class="ttdeci">void imprimirMidias(char ordem)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:140</div></div>
+<div class="ttc" id="aclass_controle_midia_html_a88f869de659953eef4e0fd5b5116a6db"><div class="ttname"><a href="class_controle_midia.html#a88f869de659953eef4e0fd5b5116a6db">ControleMidia::cadastrarMidia</a></div><div class="ttdeci">bool cadastrarMidia(int tipoMidia, int codigo, std::string titulo, int unidadesDisponiveis, std::string categoria)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:67</div></div>
+<div class="ttc" id="aclass_controle_midia_html_aaeb3c0e0c644e69f3d7de07ba1b7a89c"><div class="ttname"><a href="class_controle_midia.html#aaeb3c0e0c644e69f3d7de07ba1b7a89c">ControleMidia::removerMidia</a></div><div class="ttdeci">bool removerMidia(int codigo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:162</div></div>
+<div class="ttc" id="aclass_controle_midia_html_afe7f15bd24dfc8c05d524fc76db34153"><div class="ttname"><a href="class_controle_midia.html#afe7f15bd24dfc8c05d524fc76db34153">ControleMidia::lerArquivoCadastro</a></div><div class="ttdeci">bool lerArquivoCadastro(std ::string arquivo)</div><div class="ttdef"><b>Definição</b> ControleMidia.cpp:85</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__curto_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__curto.html">clientes_excp::cpf_curto</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:8</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__curto_html_a398dbcb4f6a66d0b4c0b2ab6b906809f"><div class="ttname"><a href="classclientes__excp_1_1cpf__curto.html#a398dbcb4f6a66d0b4c0b2ab6b906809f">clientes_excp::cpf_curto::what</a></div><div class="ttdeci">const char * what() const</div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:12</div></div>
 <div class="ttc" id="aclassclientes__excp_1_1cpf__inexistente_html"><div class="ttname"><a href="classclientes__excp_1_1cpf__inexistente.html">clientes_excp::cpf_inexistente</a></div><div class="ttdef"><b>Definição</b> ControleClientesExceptions.hpp:32</div></div>

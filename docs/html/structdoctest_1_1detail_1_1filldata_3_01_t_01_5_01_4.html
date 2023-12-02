@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -85,12 +85,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:a1d84a050e15d9380ccc4f04288cab504" id="r_a1d84a050e15d9380ccc4f04288cab504"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4.html#a1d84a050e15d9380ccc4f04288cab504">fill</a> (<a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *stream, const T *in)</td></tr>
+<tr class="memitem:a1d84a050e15d9380ccc4f04288cab504" id="r_a1d84a050e15d9380ccc4f04288cab504"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4.html#a1d84a050e15d9380ccc4f04288cab504">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T *in)</td></tr>
+<tr class="separator:a1d84a050e15d9380ccc4f04288cab504"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d84a050e15d9380ccc4f04288cab504" id="r_a1d84a050e15d9380ccc4f04288cab504"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4.html#a1d84a050e15d9380ccc4f04288cab504">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T *in)</td></tr>
 <tr class="separator:a1d84a050e15d9380ccc4f04288cab504"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a1d84a050e15d9380ccc4f04288cab504" name="a1d84a050e15d9380ccc4f04288cab504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d84a050e15d9380ccc4f04288cab504">&#9670;&#160;</a></span>fill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d84a050e15d9380ccc4f04288cab504">&#9670;&#160;</a></span>fill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +105,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T * &gt;::fill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
@@ -124,27 +126,57 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno"> 1194</span>                                                          {</div>
-<div class="line"><span class="lineno"> 1195</span><a class="code hl_define" href="doctest_8h.html#a540e6314c4b71317f3459f0117e14bc8">DOCTEST_MSVC_SUPPRESS_WARNING_POP</a></div>
-<div class="line"><span class="lineno"> 1196</span><a class="code hl_define" href="doctest_8h.html#aeffeb8afb2053d165c856f4ee520b62b">DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH</a>(<span class="stringliteral">&quot;-Wmicrosoft-cast&quot;</span>)</div>
-<div class="line"><span class="lineno"> 1197</span>            filldata&lt;const <span class="keywordtype">void</span>*&gt;::<a class="code hl_function" href="structdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4.html#a1d84a050e15d9380ccc4f04288cab504">fill</a>(stream,</div>
-<div class="line"><span class="lineno"> 1198</span><span class="preprocessor">#if DOCTEST_GCC == 0 || DOCTEST_GCC &gt;= DOCTEST_COMPILER(4, 9, 0)</span></div>
-<div class="line"><span class="lineno"> 1199</span>                <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span>*<span class="keyword">&gt;</span>(in)</div>
-<div class="line"><span class="lineno"> 1200</span>#<span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 1201</span>                *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">void</span>* const*<span class="keyword">&gt;</span>(&amp;in)</div>
-<div class="line"><span class="lineno"> 1202</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno"> 1203</span>            );</div>
-<div class="line"><span class="lineno"> 1204</span><a class="code hl_define" href="doctest_8h.html#a569dfd3f8dfae352f35e8f62aadbdbc4">DOCTEST_CLANG_SUPPRESS_WARNING_POP</a></div>
-<div class="line"><span class="lineno"> 1205</span>        }</div>
-<div class="ttc" id="adoctest_8h_html_a540e6314c4b71317f3459f0117e14bc8"><div class="ttname"><a href="doctest_8h.html#a540e6314c4b71317f3459f0117e14bc8">DOCTEST_MSVC_SUPPRESS_WARNING_POP</a></div><div class="ttdeci">#define DOCTEST_MSVC_SUPPRESS_WARNING_POP</div><div class="ttdef"><b>Definição</b> doctest.h:152</div></div>
-<div class="ttc" id="adoctest_8h_html_a569dfd3f8dfae352f35e8f62aadbdbc4"><div class="ttname"><a href="doctest_8h.html#a569dfd3f8dfae352f35e8f62aadbdbc4">DOCTEST_CLANG_SUPPRESS_WARNING_POP</a></div><div class="ttdeci">#define DOCTEST_CLANG_SUPPRESS_WARNING_POP</div><div class="ttdef"><b>Definição</b> doctest.h:125</div></div>
-<div class="ttc" id="adoctest_8h_html_aeffeb8afb2053d165c856f4ee520b62b"><div class="ttname"><a href="doctest_8h.html#aeffeb8afb2053d165c856f4ee520b62b">DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH</a></div><div class="ttdeci">#define DOCTEST_CLANG_SUPPRESS_WARNING_WITH_PUSH(w)</div><div class="ttdef"><b>Definição</b> doctest.h:126</div></div>
-<div class="ttc" id="astructdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4_html_a1d84a050e15d9380ccc4f04288cab504"><div class="ttname"><a href="structdoctest_1_1detail_1_1filldata_3_01_t_01_5_01_4.html#a1d84a050e15d9380ccc4f04288cab504">doctest::detail::filldata&lt; T * &gt;::fill</a></div><div class="ttdeci">static void fill(std::ostream *stream, const T *in)</div><div class="ttdef"><b>Definição</b> doctest.h:1194</div></div>
+<div class="fragment"><div class="line"><span class="lineno"> 1165</span>                                                          {</div>
+<div class="line"><span class="lineno"> 1166</span>            <a class="code hl_function" href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">filldata&lt;const void*&gt;::fill</a>(stream, in);</div>
+<div class="line"><span class="lineno"> 1167</span>        }</div>
+<div class="ttc" id="astructdoctest_1_1detail_1_1filldata_html_ac59161273947acc06c938dc7dbe1f7cd"><div class="ttname"><a href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">doctest::detail::filldata::fill</a></div><div class="ttdeci">static void fill(std::ostream *stream, const T &amp;in)</div><div class="ttdef"><b>Definição</b> doctest.h:1123</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
-<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/third_party/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<a id="a1d84a050e15d9380ccc4f04288cab504" name="a1d84a050e15d9380ccc4f04288cab504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d84a050e15d9380ccc4f04288cab504">&#9670;&#160;</a></span>fill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T * &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno"> 1165</span>                                                          {</div>
+<div class="line"><span class="lineno"> 1166</span>            <a class="code hl_function" href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">filldata&lt;const void*&gt;::fill</a>(stream, in);</div>
+<div class="line"><span class="lineno"> 1167</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir dos seguintes arquivos:<ul>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/ControleMidia/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/<a class="el" href="doctest_8hpp_source.html">doctest.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

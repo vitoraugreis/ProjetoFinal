@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -88,10 +88,13 @@ Membros públicos estáticos</h2></td></tr>
 <tr class="memitem:a67d29f2a5de9a522d8e8607c1a39db9b" id="r_a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_string_maker_base.html#a67d29f2a5de9a522d8e8607c1a39db9b">convert</a> (const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(T))</td></tr>
 <tr class="separator:a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d29f2a5de9a522d8e8607c1a39db9b" id="r_a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="classdoctest_1_1_string.html">String</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1_string_maker_base.html#a67d29f2a5de9a522d8e8607c1a39db9b">convert</a> (const <a class="el" href="doctest_8h.html#af2901cafb023c57fb672ccb1bf14f2eb">DOCTEST_REF_WRAP</a>(T))</td></tr>
+<tr class="separator:a67d29f2a5de9a522d8e8607c1a39db9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="a67d29f2a5de9a522d8e8607c1a39db9b" name="a67d29f2a5de9a522d8e8607c1a39db9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67d29f2a5de9a522d8e8607c1a39db9b">&#9670;&#160;</a></span>convert()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d29f2a5de9a522d8e8607c1a39db9b">&#9670;&#160;</a></span>convert() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -117,18 +120,55 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno"> 1040</span>                                                         {</div>
-<div class="line"><span class="lineno"> 1041</span><span class="preprocessor">#ifdef DOCTEST_CONFIG_REQUIRE_STRINGIFICATION_FOR_ALL_USED_TYPES</span></div>
-<div class="line"><span class="lineno"> 1042</span>            <span class="keyword">static_assert</span>(<a class="code hl_variable" href="structdoctest_1_1detail_1_1types_1_1false__type.html#a8580f67f4b223b10e49d93b959767f6d">deferred_false&lt;T&gt;::value</a>, <span class="stringliteral">&quot;No stringification detected for type T. See string conversion manual&quot;</span>);</div>
-<div class="line"><span class="lineno"> 1043</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno"> 1044</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;{?}&quot;</span>;</div>
-<div class="line"><span class="lineno"> 1045</span>        }</div>
-<div class="ttc" id="astructdoctest_1_1detail_1_1types_1_1false__type_html_a8580f67f4b223b10e49d93b959767f6d"><div class="ttname"><a href="structdoctest_1_1detail_1_1types_1_1false__type.html#a8580f67f4b223b10e49d93b959767f6d">doctest::detail::types::false_type::value</a></div><div class="ttdeci">static DOCTEST_CONSTEXPR bool value</div><div class="ttdef"><b>Definição</b> doctest.h:953</div></div>
+<div class="fragment"><div class="line"><span class="lineno"> 1012</span>                                                         {</div>
+<div class="line"><span class="lineno"> 1013</span><span class="preprocessor">#ifdef DOCTEST_CONFIG_REQUIRE_STRINGIFICATION_FOR_ALL_USED_TYPES</span></div>
+<div class="line"><span class="lineno"> 1014</span>            <span class="keyword">static_assert</span>(<a class="code hl_variable" href="structdoctest_1_1detail_1_1types_1_1false__type.html#a58839eaf3a98b2dda1160c01e5f66a73">deferred_false&lt;T&gt;::value</a>, <span class="stringliteral">&quot;No stringification detected for type T. See string conversion manual&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1015</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno"> 1016</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;{?}&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1017</span>        }</div>
+<div class="ttc" id="astructdoctest_1_1detail_1_1types_1_1false__type_html_a58839eaf3a98b2dda1160c01e5f66a73"><div class="ttname"><a href="structdoctest_1_1detail_1_1types_1_1false__type.html#a58839eaf3a98b2dda1160c01e5f66a73">doctest::detail::types::false_type::value</a></div><div class="ttdeci">static DOCTEST_CONSTEXPR bool value</div><div class="ttdef"><b>Definição</b> doctest.h:930</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
-<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/third_party/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<a id="a67d29f2a5de9a522d8e8607c1a39db9b" name="a67d29f2a5de9a522d8e8607c1a39db9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d29f2a5de9a522d8e8607c1a39db9b">&#9670;&#160;</a></span>convert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;bool C&gt; </div>
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="classdoctest_1_1_string.html">String</a> <a class="el" href="structdoctest_1_1detail_1_1_string_maker_base.html">doctest::detail::StringMakerBase</a>&lt; C &gt;::convert </td>
+          <td>(</td>
+          <td class="paramtype">const &#160;</td>
+          <td class="paramname"><em>DOCTEST_REF_WRAP</em>T</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno"> 1012</span>                                                         {</div>
+<div class="line"><span class="lineno"> 1013</span><span class="preprocessor">#ifdef DOCTEST_CONFIG_REQUIRE_STRINGIFICATION_FOR_ALL_USED_TYPES</span></div>
+<div class="line"><span class="lineno"> 1014</span>            <span class="keyword">static_assert</span>(<a class="code hl_variable" href="structdoctest_1_1detail_1_1types_1_1false__type.html#a58839eaf3a98b2dda1160c01e5f66a73">deferred_false&lt;T&gt;::value</a>, <span class="stringliteral">&quot;No stringification detected for type T. See string conversion manual&quot;</span>);</div>
+<div class="line"><span class="lineno"> 1015</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno"> 1016</span>            <span class="keywordflow">return</span> <span class="stringliteral">&quot;{?}&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1017</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir dos seguintes arquivos:<ul>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/ControleMidia/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/<a class="el" href="doctest_8hpp_source.html">doctest.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

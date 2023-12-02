@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -85,12 +85,14 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:ac59161273947acc06c938dc7dbe1f7cd" id="r_ac59161273947acc06c938dc7dbe1f7cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">fill</a> (<a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *stream, const T &amp;in)</td></tr>
+<tr class="memitem:ac59161273947acc06c938dc7dbe1f7cd" id="r_ac59161273947acc06c938dc7dbe1f7cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T &amp;in)</td></tr>
+<tr class="separator:ac59161273947acc06c938dc7dbe1f7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac59161273947acc06c938dc7dbe1f7cd" id="r_ac59161273947acc06c938dc7dbe1f7cd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdoctest_1_1detail_1_1filldata.html#ac59161273947acc06c938dc7dbe1f7cd">fill</a> (<a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *stream, const T &amp;in)</td></tr>
 <tr class="separator:ac59161273947acc06c938dc7dbe1f7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Documentação das funções</h2>
 <a id="ac59161273947acc06c938dc7dbe1f7cd" name="ac59161273947acc06c938dc7dbe1f7cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac59161273947acc06c938dc7dbe1f7cd">&#9670;&#160;</a></span>fill()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac59161273947acc06c938dc7dbe1f7cd">&#9670;&#160;</a></span>fill() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -103,7 +105,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T &gt;::fill </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespacestd.html#a6d1736434ff6d516a3df38cbb7487ea5">std::ostream</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
           <td class="paramname"><em>stream</em>, </td>
         </tr>
         <tr>
@@ -124,19 +126,65 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno"> 1151</span>                                                          {</div>
-<div class="line"><span class="lineno"> 1152</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; _MSC_VER &lt;= 1900</span></div>
-<div class="line"><span class="lineno"> 1153</span>        insert_hack_t&lt;T&gt;::insert(*stream, in);</div>
-<div class="line"><span class="lineno"> 1154</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno"> 1155</span>        <a class="code hl_function" href="namespacestd.html#a51374695e8a67674c4308639aae941ca">operator&lt;&lt;</a>(*stream, in);</div>
-<div class="line"><span class="lineno"> 1156</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno"> 1157</span>        }</div>
+<div class="fragment"><div class="line"><span class="lineno"> 1123</span>                                                          {</div>
+<div class="line"><span class="lineno"> 1124</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; _MSC_VER &lt;= 1900</span></div>
+<div class="line"><span class="lineno"> 1125</span>        insert_hack_t&lt;T&gt;::insert(*stream, in);</div>
+<div class="line"><span class="lineno"> 1126</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno"> 1127</span>        <a class="code hl_function" href="namespacestd.html#a51374695e8a67674c4308639aae941ca">operator&lt;&lt;</a>(*stream, in);</div>
+<div class="line"><span class="lineno"> 1128</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno"> 1129</span>        }</div>
 <div class="ttc" id="anamespacestd_html_a51374695e8a67674c4308639aae941ca"><div class="ttname"><a href="namespacestd.html#a51374695e8a67674c4308639aae941ca">std::operator&lt;&lt;</a></div><div class="ttdeci">basic_ostream&lt; char, traits &gt; &amp; operator&lt;&lt;(basic_ostream&lt; char, traits &gt; &amp;, const char *)</div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<hr/>A documentação para essa estrutura foi gerada a partir do seguinte arquivo:<ul>
-<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/third_party/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<a id="ac59161273947acc06c938dc7dbe1f7cd" name="ac59161273947acc06c938dc7dbe1f7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac59161273947acc06c938dc7dbe1f7cd">&#9670;&#160;</a></span>fill() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void <a class="el" href="structdoctest_1_1detail_1_1filldata.html">doctest::detail::filldata</a>&lt; T &gt;::fill </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacestd.html#af1127a426e9584e1fc5e158ded14b7da">std::ostream</a> *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno"> 1123</span>                                                          {</div>
+<div class="line"><span class="lineno"> 1124</span><span class="preprocessor">#if defined(_MSC_VER) &amp;&amp; _MSC_VER &lt;= 1900</span></div>
+<div class="line"><span class="lineno"> 1125</span>        insert_hack_t&lt;T&gt;::insert(*stream, in);</div>
+<div class="line"><span class="lineno"> 1126</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno"> 1127</span>        <a class="code hl_function" href="namespacestd.html#a51374695e8a67674c4308639aae941ca">operator&lt;&lt;</a>(*stream, in);</div>
+<div class="line"><span class="lineno"> 1128</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno"> 1129</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<hr/>A documentação para essa estrutura foi gerada a partir dos seguintes arquivos:<ul>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/ControleMidia/<a class="el" href="doctest_8h_source.html">doctest.h</a></li>
+<li>D:/Leticia/ufmg/2sem/cpp/TP/ProjetoFinal/tests/<a class="el" href="doctest_8hpp_source.html">doctest.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

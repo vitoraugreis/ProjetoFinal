@@ -1,13 +1,18 @@
 var searchData=
 [
-  ['basic_5fistream_0',['basic_istream',['../classstd_1_1basic__istream.html',1,'std']]],
-  ['basic_5fostream_1',['basic_ostream',['../classstd_1_1basic__ostream.html',1,'std']]],
-  ['binary_5fassert_2',['binary_assert',['../structdoctest_1_1detail_1_1_result_builder.html#aa920a0617a26939d7adcd1ba2dec0e85',1,'doctest::detail::ResultBuilder::binary_assert()'],['../namespacedoctest_1_1detail.html#a1e295c708d2de0e47ac89c1632211159',1,'doctest::detail::binary_assert()']]],
-  ['binary_5fname_3',['binary_name',['../structdoctest_1_1_context_options.html#a0590006b4d10296c9a697e32ff886f74',1,'doctest::ContextOptions']]],
-  ['blue_4',['Blue',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92aada3ad8958b1319450cc20f3f8e5e2d6',1,'doctest::Color']]],
-  ['bright_5',['Bright',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92a7659647d16a78c607f9bafaa207b9e07',1,'doctest::Color']]],
-  ['brightgreen_6',['BrightGreen',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92a016090b96620a42a63dadf0265977664',1,'doctest::Color']]],
-  ['brightred_7',['BrightRed',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92a236dfdbcd49d10dbf1a31f9e2947a671',1,'doctest::Color']]],
-  ['brightwhite_8',['BrightWhite',['../namespacedoctest_1_1_color.html#a32e9eaf6013139846e848af6e6cf2b92a4f80853796b4875d61ff5e4ad138492e',1,'doctest::Color']]],
-  ['buf_9',['buf',['../classdoctest_1_1_string.html#a7e031ced488588936a540eba26facf67',1,'doctest::String']]]
+  ['abort_5fafter_0',['abort_after',['../structdoctest_1_1_context_options.html#a8ba5bfec2229bc2da9ab917f4bdee5e7',1,'doctest::ContextOptions']]],
+  ['add_5ffail_5fat_1',['add_fail_at',['../doctest_8h.html#a1937649cc9503739c20b3c81b97b5e5d',1,'ADD_FAIL_AT:&#160;doctest.h'],['../doctest_8hpp.html#a1937649cc9503739c20b3c81b97b5e5d',1,'ADD_FAIL_AT:&#160;doctest.hpp']]],
+  ['add_5ffail_5fcheck_5fat_2',['add_fail_check_at',['../doctest_8h.html#a4608a06d7117332c14b21b93f9655653',1,'ADD_FAIL_CHECK_AT:&#160;doctest.h'],['../doctest_8hpp.html#a4608a06d7117332c14b21b93f9655653',1,'ADD_FAIL_CHECK_AT:&#160;doctest.hpp']]],
+  ['add_5fmessage_5fat_3',['add_message_at',['../doctest_8h.html#adb66a4c291609d4a1c554ad0a23f0662',1,'ADD_MESSAGE_AT:&#160;doctest.h'],['../doctest_8hpp.html#adb66a4c291609d4a1c554ad0a23f0662',1,'ADD_MESSAGE_AT:&#160;doctest.hpp']]],
+  ['addfilter_4',['addfilter',['../classdoctest_1_1_context.html#a60ad57a46c19db2b142468c3acac448a',1,'doctest::Context::addFilter(const char *filter, const char *value)'],['../classdoctest_1_1_context.html#a60ad57a46c19db2b142468c3acac448a',1,'doctest::Context::addFilter(const char *filter, const char *value)']]],
+  ['alocacao_5',['alocacao',['../struct_alocacao.html',1,'Alocacao'],['../struct_alocacao.html#afaa16f7d4d42d294883a7b44c74648ae',1,'Alocacao::Alocacao()']]],
+  ['and_5fthen_6',['and_then',['../doctest_8h.html#aff5ab767c4b4b5f02218e9060d09e826',1,'AND_THEN:&#160;doctest.h'],['../doctest_8hpp.html#aff5ab767c4b4b5f02218e9060d09e826',1,'AND_THEN:&#160;doctest.hpp']]],
+  ['and_5fwhen_7',['and_when',['../doctest_8h.html#a49fd020eb5d05b1e021d84558ef297a5',1,'AND_WHEN:&#160;doctest.h'],['../doctest_8hpp.html#a49fd020eb5d05b1e021d84558ef297a5',1,'AND_WHEN:&#160;doctest.hpp']]],
+  ['applycommandline_8',['applycommandline',['../classdoctest_1_1_context.html#ad55229220bf9ca74e6e0c6323bf672e1',1,'doctest::Context::applyCommandLine(int argc, const char *const *argv)'],['../classdoctest_1_1_context.html#ad55229220bf9ca74e6e0c6323bf672e1',1,'doctest::Context::applyCommandLine(int argc, const char *const *argv)']]],
+  ['approx_9',['approx',['../structdoctest_1_1_approx.html',1,'doctest::Approx'],['../structdoctest_1_1_approx.html#a86f0d1b44c1cf095697f23ccdab00802',1,'doctest::Approx::Approx(double value)'],['../structdoctest_1_1_approx.html#a86f0d1b44c1cf095697f23ccdab00802',1,'doctest::Approx::Approx(double value)']]],
+  ['assert_5fhandler_10',['assert_handler',['../namespacedoctest_1_1detail.html#a7f5e2b078c97cb5b4558c9e6b0d0f16b',1,'doctest::detail']]],
+  ['assertdata_11',['assertdata',['../structdoctest_1_1_assert_data.html',1,'doctest::AssertData'],['../structdoctest_1_1_assert_data.html#ae1f9906888c2dd06b6291ab196f5074e',1,'doctest::AssertData::AssertData(assertType::Enum at, const char *file, int line, const char *expr, const char *exception_type, const StringContains &amp;exception_string)'],['../structdoctest_1_1_assert_data.html#ae1f9906888c2dd06b6291ab196f5074e',1,'doctest::AssertData::AssertData(assertType::Enum at, const char *file, int line, const char *expr, const char *exception_type, const StringContains &amp;exception_string)']]],
+  ['assertfailure_12',['AssertFailure',['../namespacedoctest_1_1_test_case_failure_reason.html#aecb2ca1f80416d60f0d6b96f65859d3ca761ed6272c6b5a28331098bc5dc0ee5e',1,'doctest::TestCaseFailureReason']]],
+  ['assertstring_13',['assertString',['../namespacedoctest.html#a44bf1260a82383247d446170810493cf',1,'doctest']]],
+  ['aumentarunidadesdisponiveis_14',['aumentarUnidadesDisponiveis',['../class_midia.html#a0cc2efbe97148cbdd779925f2bac7834',1,'Midia']]]
 ];

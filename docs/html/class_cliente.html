@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -87,10 +87,16 @@ Membros Públicos</h2></td></tr>
 <tr class="separator:a09b99b4140f32bdd3bf486cc2ac5ee27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eaba8a00f75dbff616634ac2cb3e1f7" id="r_a8eaba8a00f75dbff616634ac2cb3e1f7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a8eaba8a00f75dbff616634ac2cb3e1f7">getCPF</a> ()</td></tr>
 <tr class="separator:a8eaba8a00f75dbff616634ac2cb3e1f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae766d5ec6e97c32382695ab96b77cfae" id="r_ae766d5ec6e97c32382695ab96b77cfae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#ae766d5ec6e97c32382695ab96b77cfae">fazerLocacao</a> (int codigo, std::time_t momento_de_locacao)</td></tr>
-<tr class="separator:ae766d5ec6e97c32382695ab96b77cfae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaad900bb0cb3066ba7603c4df413836c" id="r_aaad900bb0cb3066ba7603c4df413836c"><td class="memItemLeft" align="right" valign="top">std::time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#aaad900bb0cb3066ba7603c4df413836c">getDataLocacao</a> (int codigo)</td></tr>
-<tr class="separator:aaad900bb0cb3066ba7603c4df413836c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6714aad18b2446634ddd371316caccbd" id="r_a6714aad18b2446634ddd371316caccbd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a6714aad18b2446634ddd371316caccbd">fazerLocacao</a> (int codigo, std::tm momento_de_locacao)</td></tr>
+<tr class="separator:a6714aad18b2446634ddd371316caccbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef07317b41b0a56b5ed907c8dd48fd0" id="r_a2ef07317b41b0a56b5ed907c8dd48fd0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a2ef07317b41b0a56b5ed907c8dd48fd0">fazerDevolucao</a> (int codigo, std::tm momento_de_devolucao)</td></tr>
+<tr class="separator:a2ef07317b41b0a56b5ed907c8dd48fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58007311c6423ddb3018b38928c9198c" id="r_a58007311c6423ddb3018b38928c9198c"><td class="memItemLeft" align="right" valign="top">std::tm&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#a58007311c6423ddb3018b38928c9198c">getDataLocacao</a> (int codigo)</td></tr>
+<tr class="separator:a58007311c6423ddb3018b38928c9198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef11f7dbb9308433476641145b3f3a71" id="r_aef11f7dbb9308433476641145b3f3a71"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#aef11f7dbb9308433476641145b3f3a71">printHistorico</a> ()</td></tr>
+<tr class="separator:aef11f7dbb9308433476641145b3f3a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af20b4441386527cf76cf40170bacaa2d" id="r_af20b4441386527cf76cf40170bacaa2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cliente.html#af20b4441386527cf76cf40170bacaa2d">isHistoricoVazio</a> ()</td></tr>
+<tr class="separator:af20b4441386527cf76cf40170bacaa2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Construtores e Destrutores</h2>
 <a id="ace8fd10432884faf710b166afa2f2b35" name="ace8fd10432884faf710b166afa2f2b35"></a>
@@ -118,16 +124,52 @@ Membros Públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    3</span>                                             {</div>
-<div class="line"><span class="lineno">    4</span>    this-&gt;nome = nome;</div>
-<div class="line"><span class="lineno">    5</span>    this-&gt;cpf = cpf;</div>
-<div class="line"><span class="lineno">    6</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    4</span>                                             {</div>
+<div class="line"><span class="lineno">    5</span>    this-&gt;nome = nome;</div>
+<div class="line"><span class="lineno">    6</span>    this-&gt;cpf = cpf;</div>
+<div class="line"><span class="lineno">    7</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Documentação das funções</h2>
-<a id="ae766d5ec6e97c32382695ab96b77cfae" name="ae766d5ec6e97c32382695ab96b77cfae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae766d5ec6e97c32382695ab96b77cfae">&#9670;&#160;</a></span>fazerLocacao()</h2>
+<a id="a2ef07317b41b0a56b5ed907c8dd48fd0" name="a2ef07317b41b0a56b5ed907c8dd48fd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ef07317b41b0a56b5ed907c8dd48fd0">&#9670;&#160;</a></span>fazerDevolucao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Cliente::fazerDevolucao </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>codigo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::tm&#160;</td>
+          <td class="paramname"><em>momento_de_devolucao</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   23</span>                                                                 {</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; it : historico){</div>
+<div class="line"><span class="lineno">   25</span>        <span class="keywordflow">if</span> (it-&gt;getCodigo() == codigo) {</div>
+<div class="line"><span class="lineno">   26</span>            it-&gt;devolver(momento_de_devolucao);</div>
+<div class="line"><span class="lineno">   27</span>        }</div>
+<div class="line"><span class="lineno">   28</span>    }</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   30</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6714aad18b2446634ddd371316caccbd" name="a6714aad18b2446634ddd371316caccbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6714aad18b2446634ddd371316caccbd">&#9670;&#160;</a></span>fazerLocacao()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,7 +183,7 @@ Membros Públicos</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::time_t&#160;</td>
+          <td class="paramtype">std::tm&#160;</td>
           <td class="paramname"><em>momento_de_locacao</em>&#160;</td>
         </tr>
         <tr>
@@ -151,10 +193,12 @@ Membros Públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                                 {</div>
-<div class="line"><span class="lineno">   17</span>    this-&gt;historico.insert({codigo, momento_de_locacao}); </div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   19</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                             {</div>
+<div class="line"><span class="lineno">   18</span>    <a class="code hl_struct" href="struct_alocacao.html">Alocacao</a> * alocacao = <span class="keyword">new</span> <a class="code hl_struct" href="struct_alocacao.html">Alocacao</a>(codigo, momento_de_locacao);</div>
+<div class="line"><span class="lineno">   19</span>    historico.push_back(alocacao); </div>
+<div class="line"><span class="lineno">   20</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   21</span>}</div>
+<div class="ttc" id="astruct_alocacao_html"><div class="ttname"><a href="struct_alocacao.html">Alocacao</a></div><div class="ttdef"><b>Definição</b> Cliente.hpp:12</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -172,20 +216,20 @@ Membros Públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                         {</div>
-<div class="line"><span class="lineno">   13</span>    <span class="keywordflow">return</span> this-&gt;cpf;</div>
-<div class="line"><span class="lineno">   14</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                         {</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">return</span> this-&gt;cpf;</div>
+<div class="line"><span class="lineno">   15</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aaad900bb0cb3066ba7603c4df413836c" name="aaad900bb0cb3066ba7603c4df413836c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaad900bb0cb3066ba7603c4df413836c">&#9670;&#160;</a></span>getDataLocacao()</h2>
+<a id="a58007311c6423ddb3018b38928c9198c" name="a58007311c6423ddb3018b38928c9198c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58007311c6423ddb3018b38928c9198c">&#9670;&#160;</a></span>getDataLocacao()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::time_t Cliente::getDataLocacao </td>
+          <td class="memname">std::tm Cliente::getDataLocacao </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>codigo</em></td><td>)</td>
@@ -193,9 +237,13 @@ Membros Públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   21</span>                                           {</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordflow">return</span> this-&gt;historico[codigo]; </div>
-<div class="line"><span class="lineno">   23</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">   32</span>                                       {</div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; it : historico){</div>
+<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">if</span> (it-&gt;getCodigo() == codigo) {</div>
+<div class="line"><span class="lineno">   35</span>            <span class="keywordflow">return</span> it-&gt;getAlocacao(); </div>
+<div class="line"><span class="lineno">   36</span>        }</div>
+<div class="line"><span class="lineno">   37</span>    }</div>
+<div class="line"><span class="lineno">   38</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -213,9 +261,64 @@ Membros Públicos</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">    8</span>                          {</div>
-<div class="line"><span class="lineno">    9</span>    <span class="keywordflow">return</span> this-&gt;nome;</div>
-<div class="line"><span class="lineno">   10</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">    9</span>                          {</div>
+<div class="line"><span class="lineno">   10</span>    <span class="keywordflow">return</span> this-&gt;nome;</div>
+<div class="line"><span class="lineno">   11</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af20b4441386527cf76cf40170bacaa2d" name="af20b4441386527cf76cf40170bacaa2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af20b4441386527cf76cf40170bacaa2d">&#9670;&#160;</a></span>isHistoricoVazio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cliente::isHistoricoVazio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   61</span>{<span class="keywordflow">return</span> historico.empty();}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aef11f7dbb9308433476641145b3f3a71" name="aef11f7dbb9308433476641145b3f3a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef11f7dbb9308433476641145b3f3a71">&#9670;&#160;</a></span>printHistorico()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Cliente::printHistorico </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">   40</span>                            {</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">if</span> (historico.empty()) {</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    std::sort(historico.begin(), historico.end(),</div>
+<div class="line"><span class="lineno">   46</span>              [](<a class="code hl_struct" href="struct_alocacao.html">Alocacao</a> *a, <a class="code hl_struct" href="struct_alocacao.html">Alocacao</a> *b) {</div>
+<div class="line"><span class="lineno">   47</span>                  return std::mktime(&amp;a-&gt;_momento_de_locacao) &lt; std::mktime(&amp;b-&gt;_momento_de_locacao);</div>
+<div class="line"><span class="lineno">   48</span>              });</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;COD&quot;</span> &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt;</div>
+<div class="line"><span class="lineno">   51</span>                 <span class="stringliteral">&quot;Alugado&quot;</span> &lt;&lt; <span class="stringliteral">&quot;   &quot;</span> &lt;&lt;</div>
+<div class="line"><span class="lineno">   52</span>                 <span class="stringliteral">&quot;Devolvido&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;alocacaoPtr : historico) {</div>
+<div class="line"><span class="lineno">   55</span>        alocacaoPtr-&gt;printInformacao();</div>
+<div class="line"><span class="lineno">   56</span>    }</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   59</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

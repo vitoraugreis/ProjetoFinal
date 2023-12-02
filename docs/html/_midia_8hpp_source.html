@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
    </div>
    <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
   </td>
@@ -105,13 +105,15 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">int</span> <a class="code hl_function" href="class_midia.html#a8641f1399b9006530bc4bcdb48de8af7">getUnidadesDisponiveis</a>();</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="class_midia.html#a02989d7d9ba41917f118b2149ccba0dd">   21</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_midia.html#a02989d7d9ba41917f118b2149ccba0dd">imprimirInformacoes</a>(<span class="keywordtype">bool</span> unidades = <span class="keyword">true</span>) = 0;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_midia.html#acb6874d5bc387d1a6d3dc8622333d009">diminuirUnidadesDisponiveis</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="class_midia.html#a0cc2efbe97148cbdd779925f2bac7834">aumentarUnidadesDisponiveis</a>();</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_midia_html"><div class="ttname"><a href="class_midia.html">Midia</a></div><div class="ttdef"><b>Definição</b> Midia.hpp:7</div></div>
 <div class="ttc" id="aclass_midia_html_a02989d7d9ba41917f118b2149ccba0dd"><div class="ttname"><a href="class_midia.html#a02989d7d9ba41917f118b2149ccba0dd">Midia::imprimirInformacoes</a></div><div class="ttdeci">virtual void imprimirInformacoes(bool unidades=true)=0</div></div>
+<div class="ttc" id="aclass_midia_html_a0cc2efbe97148cbdd779925f2bac7834"><div class="ttname"><a href="class_midia.html#a0cc2efbe97148cbdd779925f2bac7834">Midia::aumentarUnidadesDisponiveis</a></div><div class="ttdeci">void aumentarUnidadesDisponiveis()</div><div class="ttdef"><b>Definição</b> Midia.cpp:43</div></div>
 <div class="ttc" id="aclass_midia_html_a3a206a1436c789b482d6e1d56fae6eb6"><div class="ttname"><a href="class_midia.html#a3a206a1436c789b482d6e1d56fae6eb6">Midia::getCodigo</a></div><div class="ttdeci">int getCodigo()</div><div class="ttdef"><b>Definição</b> Midia.cpp:23</div></div>
 <div class="ttc" id="aclass_midia_html_a58b54ae4ade2aa10ebecb6166963d233"><div class="ttname"><a href="class_midia.html#a58b54ae4ade2aa10ebecb6166963d233">Midia::getTitulo</a></div><div class="ttdeci">std::string getTitulo()</div><div class="ttdef"><b>Definição</b> Midia.cpp:31</div></div>
 <div class="ttc" id="aclass_midia_html_a61d6dfcfadabddcd73e1b54917f31124"><div class="ttname"><a href="class_midia.html#a61d6dfcfadabddcd73e1b54917f31124">Midia::getCategoria</a></div><div class="ttdeci">std::string getCategoria()</div><div class="ttdef"><b>Definição</b> Midia.cpp:27</div></div>
