@@ -7,6 +7,7 @@
 #include "Dvd.hpp"
 #include "Fita.hpp"
 #include "Midia.hpp"
+#include "Funcoes/FuncoesMain.cpp"
 
 
 #include <iostream>
@@ -31,6 +32,7 @@ int main(){
     ControleLocacao locacao;
 
     while (true) {
+        menu();
         std::getline(std::cin, input);
 
         if (input.empty()) {
@@ -44,6 +46,8 @@ int main(){
 
         std::istringstream stream(input);
         stream >> comando;
+        std::system("clear");
+        std::cout << "Comando inserido : " << input << std::endl << std::endl;
 
         try {
         if (comando == "LA"){ // Ler Arquivo de Cadastro
