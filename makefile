@@ -8,7 +8,7 @@ SRC_DIR = ./src
 TST_DIR = ./tests
 DOC_DIR = ./doctest
 
-${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleLocacao.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/ControleClientesExceptions.o ${BUILD_DIR}/ControleMidiaExceptions.o ${BUILD_DIR}/test_controlemidia.o
+${TARGET} : ${BUILD_DIR}/main.o ${BUILD_DIR}/ControleLocacao.o ${BUILD_DIR}/ControleClientes.o ${BUILD_DIR}/ControleMidia.o ${BUILD_DIR}/Fita.o ${BUILD_DIR}/Dvd.o ${BUILD_DIR}/Midia.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/ControleClientesExceptions.o ${BUILD_DIR}/ControleMidiaExceptions.o # ${BUILD_DIR}/test_controlemidia.o
 	${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ${TARGET}
  
 ${BUILD_DIR}/ControleClientesExceptions.o : ${INCLUDE_DIR}/ControleClientes/ControleClientesExceptions.hpp ${SRC_DIR}/ControleClientes/ControleClientesExceptions.cpp
