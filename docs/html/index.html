@@ -20,11 +20,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectalign">
-   <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;2.0</span>
-   </div>
-   <div id="projectbrief">Este projeto é um sistema de gerenciamento para uma locadora de filmes, desenvolvido em C++. O objetivo principal é facilitar o processo de aluguel e devolução de filmes, além de manter um registro eficiente do inventário da loja.</div>
-  </td>
+
  </tr>
  </tbody>
 </table>
@@ -72,7 +68,42 @@ $(function() {
 <div class="header">
   <div class="headertitle"><div class="title">Projeto Locadora Documentação</div></div>
 </div><!--header-->
+<td id="projectalign">
+  <div id="projectname">Projeto Locadora<span id="projectnumber">&#160;ver 2.0</span>
+  </div>
+  <br>
+  <div id="projectbrief">
+   Uma vídeo-locadora entrou em contato com nosso grupo pedindo a criação de um sistema que possibilite um melhor controle de toda a loja. Este sistema deveria ser capaz de:
+   <br><br>
+   <p>- Gerenciar o estoque de filmes;</p>
+   <p>- Gerenciar os clientes da vídeo-locadora;</p>
+   <p>- Gerenciar os aluguéis de filmes;</p>
+   <p>- Calcular automaticamente o quanto o cliente deve pagar na devolução dos filmes.</p>
+ <br>
+ </div>
+ <br>
+ <div id="projectname">Objetivo e Funcionalidades
+ </div>
+ <div class="contents">
+  <p> O sistema tem como propósito principal gerenciar o acervo de filmes da locadora, contemplando DVDs e Fitas de Vídeo, categorias específicas para DVDs, e definindo valores de locação de acordo com a mídia e categoria.</p>
+  <p> Foi desenvolvido com uma abordagem de orientação a objetos e oferece funcionalidades como o cadastro de filmes com código, título, unidades disponíveis, e categorias específicas para DVDs. O valor da locação varia conforme a mídia (DVD ou Fita) e a categoria do DVD. Adicionalmente, há tratamento especial para fitas não rebobinadas.</p>
+  <p> O sistema gerencia clientes, registrando nome e CPF. Possui operações para inserir novos clientes, remover clientes, além de funcionalidades para pesquisar e imprimir relatórios de clientes.</p>
+  <p> O cálculo do valor a ser pago na devolução dos filmes é realizado com base na mídia (DVD ou Fita), categoria do DVD, e dias de locação. São aplicadas diferentes fórmulas de preço para DVDs de lançamento, estoque e promoção, bem como para fitas, incluindo uma multa de 2 reais caso a fita seja devolvida sem estar rebobinada.</p>
+  <br><p> A linguagem utilizada para desenvolvimento foi C++.</p>
+
+</div>
+<br>
+<h3>Divisão do projeto </h3>
+<br> <p> No projeto da locadora de filmes em C++, a estrutura foi organizada de maneira modular, dividindo o sistema em componentes distintos para facilitar a manutenção e compreensão do código. Cada componente representa uma funcionalidade específica e contém classes relacionadas para garantir uma organização eficiente do código-fonte.</p>
+<P>Diretório para arquivos de cabeçalho</P>
+<br><a href="dir_880944756be76781b60a6bc6bf506816.html">Controle de Clientes</a>
+<br><a href="dir_abc5dcc6362b505c3bcc08e5bd570e8f.html">Controle de Locação</a>
+<br><a href="dir_4a8363c2e96732a08610620788fae84c.html">Controle de Mídia</a>
+
+ <br>
+ </td>
 <div class="contents">
+
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
