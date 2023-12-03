@@ -1,4 +1,10 @@
 # Projeto Final PDS2
+
+## Documentação
+A documentação do projeto está localizada em docs/html. Deve ser acessada diretamento pelo arquivo index.html.
+
+Isso abrirá a documentação em seu navegador padrão, permitindo que você explore e entenda melhor o projeto.
+
 ## Problema
 
 Uma vídeo-locadora entrou em contato com nosso grupo pedindo a criação de um sistema que possibilite um melhor controle de toda a loja. Este sistema deveria ser capaz de :
